@@ -1,0 +1,28 @@
+$sm_width: 600;
+$md_width: 960;
+$lg_width: 1280;
+$xl_width: 1920;
+
+@mixin sm {
+    @media screen and (min-width: $sm_width * 1px) {
+        @content
+    }
+}
+
+@mixin md {
+    @media screen and (min-width: $md_width * 1px) {
+        @content
+    }
+}
+
+@mixin lg {
+    @media screen and (min-width: $lg_width * 1px) {
+        @content
+    }
+}
+
+@mixin xl {
+    @media screen and (min-width: $xl_width * 1px) {
+        @content
+    }
+}

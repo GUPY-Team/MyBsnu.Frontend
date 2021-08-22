@@ -1,0 +1,11 @@
+@use '~styles/colors';
+
+.snackbar {
+    color: colors.$mat-white;
+    background-color: colors.$mat-primary;
+}
+
+.snackbar-warn {
+    color: colors.$mat-white;
+    background-color: colors.$mat-warn;
+}

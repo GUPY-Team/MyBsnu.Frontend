@@ -1,0 +1,21 @@
+<div class="sidenav-header">
+    <h1>MyBSNU</h1>
+    <button
+        mat-icon-button
+        (click)="sidenavService.closeSidenav()"
+    >
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-nav-list>
+    <mat-list-item
+        *ngFor="let link of sidenavService.menuLinks"
+        [routerLink]="link.path"
+        routerLinkActive="sidenav-link--active"
+    >
+        <div class="sidenav-link__content">
+            <mat-icon>{{ link.icon }}</mat-icon>
+            <span>{{ link.text }}</span>
+        </div>
+    </mat-list-item>
+</mat-nav-list>

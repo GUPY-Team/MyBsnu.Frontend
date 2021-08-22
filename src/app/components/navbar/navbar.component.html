@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <button
+        mat-icon-button
+        (click)="sidenavService.openSidenav()"
+    >
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>MyBsnu</span>
+
+    <span class="spacer"></span>
+
+
+    <button
+        *ngIf="userService.currentUser else login"
+        mat-icon-button
+    >
+        <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <ng-template #login>
+        <button
+            routerLink="auth/signin"
+            mat-icon-button
+        >
+            <mat-icon>login</mat-icon>
+        </button>
+    </ng-template>
+
+</mat-toolbar>

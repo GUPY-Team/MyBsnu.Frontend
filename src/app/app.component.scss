@@ -1,0 +1,21 @@
+@use "~styles/breakpoints";
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.drawer {
+    min-width: 275px;
+}
+
+.container {
+    flex-grow: 1;
+    width: 100%;
+    margin: 0 auto;
+
+    @include breakpoints.sm {
+        width: 90%;
+    }
+}

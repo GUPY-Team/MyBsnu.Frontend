@@ -1,0 +1,53 @@
+@use "~styles/colors";
+
+.schedule__class {
+    border-radius: 0.125rem;
+    border: 1px solid colors.$gray-200;
+    border-bottom-width: 0;
+    padding: 0.5rem;
+}
+
+.class__coursename {
+    color: colors.$gray-900;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.class__duration {
+    margin-bottom: 0.5rem;
+    color: colors.$gray-900;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.class__info {
+    display: flex;
+    align-items: center;
+    font-size: 1.01rem;
+}
+
+.info__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+}
+
+.icon--blue {
+    color: colors.$blue-400;
+}
+
+.icon--red {
+    color: colors.$red-400;
+}
+
+.icon--gray {
+    color: colors.$gray-700;
+}
+
+.line {
+    height: 0.25rem;
+}
+
+

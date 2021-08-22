@@ -1,0 +1,54 @@
+<div class="schedule__class">
+    <h2 class="class__coursename">
+        {{ class.courseName }}
+    </h2>
+    <h4 class="class__duration">{{ class.startTime }} - {{ class.endTime }}</h4>
+
+    <ng-container *ngTemplateOutlet="
+        row;
+        context: {
+            icon: class.format === format.Online ? 'public' : 'domain',
+            text: class.format === format.Online ? 'Online' : 'Offline',
+            iconClass: 'icon--blue'
+        }"
+    ></ng-container>
+
+    <ng-template [ngIf]="class.audienceNumber">
+        <ng-container *ngTemplateOutlet="
+            row;
+            context: {
+                icon: 'place',
+                text: class.audienceNumber,
+                iconClass: 'icon--red'
+            }"
+        ></ng-container>
+    </ng-template>
+
+    <ng-template [ngIf]="class.weekType">
+        <ng-container *ngTemplateOutlet="
+        row;
+        context: {
+            icon: 'date_range',
+            text: class.weekType,
+            iconClass: 'icon--gray'
+        }"
+        ></ng-container>
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="
+        row;
+        context: {
+            icon: 'school',
+            text: class.teacherName,
+            iconClass: 'icon--gray'
+        }"
+    ></ng-container>
+</div>
+<div class="line" [ngStyle]="lineStyle"></div>
+
+<ng-template #row let-icon="icon" let-iconClass="iconClass" let-text="text">
+    <div class="class__info">
+        <mat-icon [ngClass]="iconClass">{{icon}}</mat-icon>
+        <span class="info__text">{{text}}</span>
+    </div>
+</ng-template>

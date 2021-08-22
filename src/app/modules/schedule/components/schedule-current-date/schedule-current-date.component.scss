@@ -1,0 +1,10 @@
+@use "~styles/colors";
+
+:host {
+    display: flex;
+    justify-content: center;
+    background-color: colors.$gray-200;
+    color: colors.$gray-700;
+    padding: 0.5rem;
+    font-size: 1.05rem;
+}

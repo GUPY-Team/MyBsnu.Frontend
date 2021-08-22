@@ -1,0 +1,43 @@
+<h3 class="auth-form__header">Sign in</h3>
+
+<form
+    class="auth-form__form"
+    [formGroup]="signinForm"
+    (ngSubmit)="onSubmit()"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput
+               formControlName="email"
+               placeholder="Your email"
+        >
+        <mat-error>{{ errors['email'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput
+               formControlName="password"
+               type="password"
+               placeholder="Your password"
+        >
+        <mat-error>{{ errors['password'] }}</mat-error>
+    </mat-form-field>
+
+    <button
+        mat-raised-button
+        color="primary"
+        [disabled]="submitDisabled"
+    >
+        Sign in
+    </button>
+
+</form>
+
+<div class="auth-form__footer">
+    <p>
+        Don't have an account?
+        <a class="auth-form__link" routerLink="/auth/signup">Sign up</a>
+    </p>
+</div>
+
