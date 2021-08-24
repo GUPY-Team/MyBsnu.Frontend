@@ -96,7 +96,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
             useValue: {
                 horizontalPosition: 'end',
                 verticalPosition: 'bottom',
-                duration: 2500
+                duration: 3000,
             }
         }
     ]

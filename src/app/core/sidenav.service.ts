@@ -21,6 +21,16 @@ export class SidenavService {
             path: '/schedule',
             icon: 'date_range',
             text: 'Schedule'
+        },
+        {
+            path: '/auth/signin',
+            icon: 'account_circle',
+            text: 'Account'
+        },
+        {
+            path: '/schedule/list',
+            icon: 'edit_calendar',
+            text: 'Schedule designer'
         }
     ];
 

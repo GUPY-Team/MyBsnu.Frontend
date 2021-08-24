@@ -1,0 +1,54 @@
+<h1 class="list__header">Schedule List</h1>
+
+<div class="mat-elevation-z2">
+    <mat-table class="schedule__list" [dataSource]="scheduleList"
+    >
+        <ng-container matColumnDef="halfYear">
+            <mat-header-cell *matHeaderCellDef>Semester</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.halfYear }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+            <mat-header-cell *matHeaderCellDef>Year</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.year }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="version">
+            <mat-header-cell *matHeaderCellDef>Version</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.version }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="isPublished">
+            <mat-header-cell *matHeaderCellDef>Active</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-template
+                    [ngIf]="element.isPublished"
+                    [ngIfElse]="unpublished"
+                >
+                    <mat-icon class="icon--green">
+                        published_with_changes
+                    </mat-icon>
+                </ng-template>
+                <ng-template #unpublished>
+                    <mat-icon
+                        class="icon--red"
+                        fontSet="material-icons-outlined"
+                    >
+                        unpublished
+                    </mat-icon>
+                </ng-template>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+        <mat-row
+            matRipple
+            [routerLink]="['/schedule', 'edit', row.id]"
+            *matRowDef="let row; columns: displayColumns"
+        ></mat-row>
+    </mat-table>
+
+    <ng-container *ngIf="loading">
+        <app-loader class="loader"></app-loader>
+    </ng-container>
+</div>

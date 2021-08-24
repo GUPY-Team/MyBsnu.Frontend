@@ -5,10 +5,9 @@
     >
         <mat-icon>menu</mat-icon>
     </button>
-    <span>MyBsnu</span>
+    <span>MyBSNU</span>
 
     <span class="spacer"></span>
-
 
     <button
         *ngIf="userService.currentUser else login"
@@ -27,3 +26,4 @@
     </ng-template>
 
 </mat-toolbar>
+<mat-progress-bar *ngIf="toolbarService.loading$ | async" mode="indeterminate"></mat-progress-bar>

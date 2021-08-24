@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Class, WeekDay, GroupSchedule } from 'app/api/models';
 import { ScheduleService, WeekdayService } from 'app/api/services';
-import { fromEvent, Subject } from 'rxjs';
+import { combineLatest, Observable, of, Subject } from 'rxjs';
 import { ScheduleFiltersService } from 'app/modules/schedule/services';
-import { debounceTime, filter, switchMap, takeUntil, tap} from 'rxjs/operators';
-import { BreakpointObserver} from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { AppBreakpoints } from 'app/core';
 
 interface ScheduleColumn {
     day: WeekDay;
@@ -20,13 +21,19 @@ export class ScheduleBodyComponent implements OnInit, OnDestroy {
 
     private unsubscribe = new Subject();
 
-    private schedule?: GroupSchedule;
     private weekdays: WeekDay[] = [];
+    private resize$: Observable<BreakpointState>;
 
-    public columns: ScheduleColumn[] = [];
+    public columns: Observable<ScheduleColumn[]> = of([]);
 
-    public get isLoading(): boolean {
-        return this.schedule === undefined;
+    @Input()
+    public set schedule(schedule$: Observable<GroupSchedule>) {
+        this.columns = combineLatest([
+            schedule$,
+            this.resize$
+        ]).pipe(
+            map(([schedule, breakpoint]) => this.createColumns(schedule, breakpoint)),
+        );
     }
 
     constructor(
@@ -35,33 +42,11 @@ export class ScheduleBodyComponent implements OnInit, OnDestroy {
         private filtersService: ScheduleFiltersService,
         private breakpointObserver: BreakpointObserver
     ) {
+        this.resize$ = this.breakpointObserver.observe(AppBreakpoints.lg);
     }
 
     public ngOnInit(): void {
         this.weekdays = this.weekdayService.getStudyDays();
-
-        this.filtersService.filter$
-            .pipe(
-                filter(f => f.groupId !== null),
-                debounceTime(750),
-                tap(_ => this.schedule = undefined),
-                switchMap(f => this.scheduleService.getGroupSchedule(f.groupId!)),
-                takeUntil(this.unsubscribe)
-            )
-            .subscribe(t => {
-                this.setColumns(t);
-                this.schedule = t;
-            });
-
-        fromEvent(window, 'resize')
-            .pipe(
-                takeUntil(this.unsubscribe)
-            )
-            .subscribe(_ => {
-                if (this.schedule) {
-                    this.setColumns(this.schedule);
-                }
-            });
     }
 
     public ngOnDestroy(): void {
@@ -69,10 +54,14 @@ export class ScheduleBodyComponent implements OnInit, OnDestroy {
         this.unsubscribe.complete();
     }
 
-    private setColumns(schedule: GroupSchedule): void {
-        const columns = [];
+    private createColumns(schedule: GroupSchedule | null, breakpoint: BreakpointState): ScheduleColumn[] {
+        const columns: ScheduleColumn[] = [];
 
-        const hideEmptyColumns = this.breakpointObserver.isMatched('(max-width: 1280px)');
+        if (schedule === null) {
+            return columns;
+        }
+
+        const hideEmptyColumns = !breakpoint.matches;
         const classes = schedule.classes;
 
         for (const weekday of this.weekdays) {
@@ -82,6 +71,6 @@ export class ScheduleBodyComponent implements OnInit, OnDestroy {
             columns.push({ day: weekday, classes: classes[weekday] ?? [] });
         }
 
-        this.columns = columns;
+        return columns;
     }
 }

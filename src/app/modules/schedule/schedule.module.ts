@@ -7,9 +7,12 @@ import {
     ScheduleItemComponent,
     ScheduleCurrentDateComponent,
     ScheduleFiltersComponent,
+    ScheduleListViewComponent
 } from './components';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { MaterialModule } from 'app/modules/material/material.module';
+import { SharedModule } from 'app/modules/shared/shared.module';
+import { ScheduleEditViewComponent } from './components/schedule-edit-view/schedule-edit-view.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +21,8 @@ import { MaterialModule } from 'app/modules/material/material.module';
         ScheduleItemComponent,
         ScheduleCurrentDateComponent,
         ScheduleFiltersComponent,
+        ScheduleListViewComponent,
+        ScheduleEditViewComponent
     ],
     imports: [
         CommonModule,
@@ -25,6 +30,7 @@ import { MaterialModule } from 'app/modules/material/material.module';
         FormsModule,
         MaterialModule,
         ReactiveFormsModule,
+        SharedModule,
     ]
 })
 export class ScheduleModule {

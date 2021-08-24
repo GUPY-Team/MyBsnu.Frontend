@@ -1,7 +1,7 @@
 import { ClassType } from './ClassType';
-import { WeekDay } from 'app/api/models/WeekDay';
+import { WeekDay } from './WeekDay';
 import { WeekType } from './WeekType';
-import { EducationFormat } from 'app/api/models/EducationFormat';
+import { EducationFormat } from './EducationFormat';
 
 export interface Class {
     id: number;

@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ScheduleViewComponent } from './components';
+import {
+    ScheduleEditViewComponent,
+    ScheduleListViewComponent,
+    ScheduleViewComponent
+} from './components';
 
 const routes: Routes = [
-    { path: '', component: ScheduleViewComponent }
+    { path: '', component: ScheduleViewComponent },
+    { path: 'list', component: ScheduleListViewComponent },
+    { path: 'edit/:id', component: ScheduleEditViewComponent }
 ];
 
 @NgModule({

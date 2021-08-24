@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { EnvironmentService } from 'app/core/environment.service';
-import { GroupSchedule } from '../models';
+import { GroupSchedule, Schedule } from '../models';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,10 @@ export class ScheduleService {
         private environmentService: EnvironmentService
     ) {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
+    }
+
+    public getScheduleList(): Observable<Schedule[]>{
+        return this.client.get<Schedule[]>(`${this.baseUrl}/schedule`);
     }
 
     public getGroupSchedule(groupId: number): Observable<GroupSchedule> {

@@ -20,14 +20,24 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         return next.handle(request)
             .pipe(
-                catchError((err: HttpErrorResponse) => {
-                    const error = err.error;
+                catchError(({ error }) => {
+                    let message;
 
-                    this.snackBar.open(error.message, '', {
+                    const validationErrors = error.errors;
+                    if (validationErrors) {
+                        message = 'Validation error happened:\n';
+                        for (const key in validationErrors) {
+                            message += `${validationErrors[key].join('\n')}\n`;
+                        }
+                    } else {
+                        message = error.message ?? 'Unexpected error happened';
+                    }
+
+                    this.snackBar.open(message, '', {
                         panelClass: 'snackbar-warn'
                     });
 
-                    return throwError(err);
+                    return throwError(error);
                 })
             );
     }

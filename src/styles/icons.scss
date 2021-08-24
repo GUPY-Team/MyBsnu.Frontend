@@ -1,0 +1,17 @@
+@use '~styles/colors';
+
+.icon--blue {
+    color: colors.$blue-500;
+}
+
+.icon--red {
+    color: colors.$red-500;
+}
+
+.icon--gray {
+    color: colors.$gray-700;
+}
+
+.icon--green {
+    color: colors.$green-500;
+}

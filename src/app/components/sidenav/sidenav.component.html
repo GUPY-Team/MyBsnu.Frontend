@@ -12,6 +12,7 @@
         *ngFor="let link of sidenavService.menuLinks"
         [routerLink]="link.path"
         routerLinkActive="sidenav-link--active"
+        [routerLinkActiveOptions]="{exact: true}"
     >
         <div class="sidenav-link__content">
             <mat-icon>{{ link.icon }}</mat-icon>

@@ -1,25 +1,17 @@
-<ng-template [ngIf]="isLoading" [ngIfElse]="schedule">
-    <div class="loader">
-        <mat-spinner diameter="50"></mat-spinner>
-    </div>
-</ng-template>
-
-<ng-template #schedule>
-    <div
-        class="schedule__body"
-    >
-        <ng-container *ngFor="let column of columns;">
-            <div class="body__column">
-                <div class="column__weekday">
-                    {{ column.day }}
-                </div>
-                <div
-                    class="column__card"
-                    *ngFor="let class_ of column.classes"
-                >
-                    <app-schedule-item [class]="class_"></app-schedule-item>
-                </div>
+<div
+    class="schedule__body"
+>
+    <ng-container *ngFor="let column of columns | async">
+        <div class="body__column">
+            <div class="column__weekday">
+                {{ column.day }}
             </div>
-        </ng-container>
-    </div>
-</ng-template>
+            <div
+                class="column__card"
+                *ngFor="let class_ of column.classes"
+            >
+                <app-schedule-item [class]="class_"></app-schedule-item>
+            </div>
+        </div>
+    </ng-container>
+</div>
