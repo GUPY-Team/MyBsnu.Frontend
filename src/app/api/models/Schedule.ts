@@ -1,8 +1,8 @@
-import { HalfYear } from './HalfYear';
+import { Semester } from 'app/api/models/Semester';
 
 export interface Schedule {
     id: number;
-    halfYear: HalfYear;
+    semester: Semester;
     year: number;
     version: number;
     isPublished: boolean;

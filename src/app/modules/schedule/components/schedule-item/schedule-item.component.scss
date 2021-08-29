@@ -1,42 +1,46 @@
 @use '~styles/colors';
 @use '~styles/icons';
 
-.schedule__class {
+.schedule-item {
     border-radius: 0.125rem;
     border: 1px solid colors.$gray-200;
     border-bottom-width: 0;
     padding: 0.5rem;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__coursename {
+        color: colors.$gray-900;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    &__duration {
+        margin-bottom: 0.5rem;
+        color: colors.$gray-900;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        font-size: 1.01rem;
+    }
+
+    &__text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-left: 0.5rem;
+    }
+
+    &__underline {
+        height: 0.25rem;
+    }
 }
-
-.class__coursename {
-    color: colors.$gray-900;
-    text-transform: capitalize;
-    font-weight: 500;
-    margin-bottom: 0;
-}
-
-.class__duration {
-    margin-bottom: 0.5rem;
-    color: colors.$gray-900;
-    font-weight: 500;
-    font-style: italic;
-}
-
-.class__info {
-    display: flex;
-    align-items: center;
-    font-size: 1.01rem;
-}
-
-.info__text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-left: 0.5rem;
-}
-
-.line {
-    height: 0.25rem;
-}
-
-

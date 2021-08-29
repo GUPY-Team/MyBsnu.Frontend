@@ -1,8 +1,13 @@
-<div class="schedule__class">
-    <h2 class="class__coursename">
-        {{ class.courseName }}
-    </h2>
-    <h4 class="class__duration">{{ class.startTime }} - {{ class.endTime }}</h4>
+<div class="schedule-item">
+    <div class="schedule-item__header">
+        <h2 class="schedule-item__coursename">
+            {{ class.courseName }}
+        </h2>
+
+        <ng-content></ng-content>
+    </div>
+
+    <h4 class="schedule-item__duration">{{ class.startTime }} - {{ class.endTime }}</h4>
 
     <ng-container *ngTemplateOutlet="
         row;
@@ -44,11 +49,11 @@
         }"
     ></ng-container>
 </div>
-<div class="line" [ngStyle]="lineStyle"></div>
+<div class="schedule-item__underline" [ngStyle]="lineStyle"></div>
 
 <ng-template #row let-icon="icon" let-iconClass="iconClass" let-text="text">
-    <div class="class__info">
+    <div class="schedule-item__info">
         <mat-icon [ngClass]="iconClass">{{icon}}</mat-icon>
-        <span class="info__text">{{text}}</span>
+        <span class="schedule-item__text">{{text}}</span>
     </div>
 </ng-template>

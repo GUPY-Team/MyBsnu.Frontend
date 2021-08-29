@@ -3,9 +3,9 @@
 <div class="mat-elevation-z2">
     <mat-table class="schedule__list" [dataSource]="scheduleList"
     >
-        <ng-container matColumnDef="halfYear">
+        <ng-container matColumnDef="semester">
             <mat-header-cell *matHeaderCellDef>Semester</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element.halfYear }} </mat-cell>
+            <mat-cell *matCellDef="let element">{{ element.semester }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="year">

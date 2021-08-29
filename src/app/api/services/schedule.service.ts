@@ -18,13 +18,21 @@ export class ScheduleService {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
     }
 
-    public getScheduleList(): Observable<Schedule[]>{
+    public getScheduleById(scheduleId: number): Observable<Schedule> {
+        return this.client.get<Schedule>(`${this.baseUrl}/schedule/${scheduleId}`);
+    }
+
+    public getScheduleList(): Observable<Schedule[]> {
         return this.client.get<Schedule[]>(`${this.baseUrl}/schedule`);
     }
 
-    public getGroupSchedule(groupId: number): Observable<GroupSchedule> {
+    public getLatestGroupSchedule(groupId: number): Observable<GroupSchedule> {
         return this.client.get<GroupSchedule>(`${this.baseUrl}/schedule/latest`, {
             params: new HttpParams().set('groupId', groupId)
         });
+    }
+
+    public getGroupSchedule(scheduleId: number, groupId: number): Observable<GroupSchedule> {
+        return this.client.get<GroupSchedule>(`${this.baseUrl}/schedule/${scheduleId}/groups/${groupId}`);
     }
 }

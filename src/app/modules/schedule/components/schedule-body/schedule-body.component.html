@@ -1,8 +1,6 @@
-<div
-    class="schedule__body"
->
+<div class="schedule-body">
     <ng-container *ngFor="let column of columns | async">
-        <div class="body__column">
+        <div class="schedule-body__column">
             <div class="column__weekday">
                 {{ column.day }}
             </div>
@@ -10,7 +8,13 @@
                 class="column__card"
                 *ngFor="let class_ of column.classes"
             >
-                <app-schedule-item [class]="class_"></app-schedule-item>
+                <app-schedule-item [class]="class_">
+                    <ng-container *ngIf="editMode">
+                        <button mat-icon-button (click)="classEdit.emit(class_)">
+                            <mat-icon class="icon--gray">edit</mat-icon>
+                        </button>
+                    </ng-container>
+                </app-schedule-item>
             </div>
         </div>
     </ng-container>

@@ -1,0 +1,11 @@
+@use '~styles/colors';
+
+.btn--green {
+    background-color: colors.$green-500;
+    color: colors.$mat-white;
+}
+
+.btn--yellow {
+    background-color: colors.$yellow-500;
+    color: colors.$mat-white;
+}

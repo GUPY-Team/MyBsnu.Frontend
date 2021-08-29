@@ -7,12 +7,14 @@ import {
     ScheduleItemComponent,
     ScheduleCurrentDateComponent,
     ScheduleFiltersComponent,
-    ScheduleListViewComponent
+    ScheduleListViewComponent,
+    ScheduleEditViewComponent,
+    ScheduleEditFormComponent
 } from './components';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { MaterialModule } from 'app/modules/material/material.module';
 import { SharedModule } from 'app/modules/shared/shared.module';
-import { ScheduleEditViewComponent } from './components/schedule-edit-view/schedule-edit-view.component';
+import { ClassDialogComponent } from './components/class-dialog/class-dialog.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,9 @@ import { ScheduleEditViewComponent } from './components/schedule-edit-view/sched
         ScheduleCurrentDateComponent,
         ScheduleFiltersComponent,
         ScheduleListViewComponent,
-        ScheduleEditViewComponent
+        ScheduleEditViewComponent,
+        ScheduleEditFormComponent,
+        ClassDialogComponent,
     ],
     imports: [
         CommonModule,

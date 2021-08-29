@@ -1,4 +1,4 @@
-export enum HalfYear {
+export enum Semester {
     First = 'First',
     Second = 'Second'
 }

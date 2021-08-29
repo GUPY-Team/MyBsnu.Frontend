@@ -1,7 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Class, WeekDay, GroupSchedule } from 'app/api/models';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Class, WeekDay, Classes } from 'app/api/models';
 import { ScheduleService, WeekdayService } from 'app/api/services';
-import { combineLatest, Observable, of, Subject } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { ScheduleFiltersService } from 'app/modules/schedule/services';
 import { map } from 'rxjs/operators';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
@@ -17,9 +17,7 @@ interface ScheduleColumn {
     templateUrl: './schedule-body.component.html',
     styleUrls: ['./schedule-body.component.scss']
 })
-export class ScheduleBodyComponent implements OnInit, OnDestroy {
-
-    private unsubscribe = new Subject();
+export class ScheduleBodyComponent implements OnInit {
 
     private weekdays: WeekDay[] = [];
     private resize$: Observable<BreakpointState>;
@@ -27,14 +25,20 @@ export class ScheduleBodyComponent implements OnInit, OnDestroy {
     public columns: Observable<ScheduleColumn[]> = of([]);
 
     @Input()
-    public set schedule(schedule$: Observable<GroupSchedule>) {
+    public set classes(classes$: Observable<Classes>) {
         this.columns = combineLatest([
-            schedule$,
+            classes$,
             this.resize$
         ]).pipe(
-            map(([schedule, breakpoint]) => this.createColumns(schedule, breakpoint)),
+            map(([classes, breakpoint]) => this.createColumns(classes, breakpoint)),
         );
     }
+
+    @Input()
+    public editMode: boolean = false;
+
+    @Output()
+    public classEdit = new EventEmitter<Class>();
 
     constructor(
         private scheduleService: ScheduleService,
@@ -49,20 +53,10 @@ export class ScheduleBodyComponent implements OnInit, OnDestroy {
         this.weekdays = this.weekdayService.getStudyDays();
     }
 
-    public ngOnDestroy(): void {
-        this.unsubscribe.next();
-        this.unsubscribe.complete();
-    }
-
-    private createColumns(schedule: GroupSchedule | null, breakpoint: BreakpointState): ScheduleColumn[] {
+    private createColumns(classes: Classes, breakpoint: BreakpointState): ScheduleColumn[] {
         const columns: ScheduleColumn[] = [];
 
-        if (schedule === null) {
-            return columns;
-        }
-
         const hideEmptyColumns = !breakpoint.matches;
-        const classes = schedule.classes;
 
         for (const weekday of this.weekdays) {
             if (hideEmptyColumns && classes[weekday] === undefined) {

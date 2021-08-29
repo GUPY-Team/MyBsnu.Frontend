@@ -1,7 +1,8 @@
 @use "~styles/breakpoints";
 @use "~styles/colors";
+@use '~styles/icons';
 
-.schedule__body {
+.schedule-body {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -13,7 +14,7 @@
     }
 }
 
-.body__column {
+.schedule-body__column {
     display: flex;
     flex-direction: column;
 
@@ -42,6 +43,10 @@
     @include breakpoints.md {
         padding: 0 0.5rem;
     }
+
+    &--editable {
+        cursor: pointer;
+    }
 }
 
 .column__weekday {
@@ -51,8 +56,4 @@
     text-transform: uppercase;
     color: white;
     background-color: colors.$gray-600;
-}
-
-.loader {
-    min-height: 500px;
 }

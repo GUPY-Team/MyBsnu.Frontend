@@ -1,0 +1,26 @@
+@use '~styles/mixins';
+@use '~styles/colors';
+@use '~styles/breakpoints';
+
+.class-form {
+    @include mixins.form-vertical;
+
+    &__header {
+        @include mixins.header;
+    }
+
+    &__buttons {
+        display: flex;
+
+        & > * {
+            width: 100%;
+        }
+
+        @include breakpoints.sm {
+            & > :first-child:not(:only-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+

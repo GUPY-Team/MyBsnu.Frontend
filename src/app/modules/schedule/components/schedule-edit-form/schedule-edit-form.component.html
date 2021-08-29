@@ -1,0 +1,57 @@
+<div class="schedule-edit-form__actions">
+    <div matTooltip="Nothing to save" [matTooltipDisabled]="!saveDisabled">
+        <button mat-raised-button color="primary" class="w-full" [disabled]="saveDisabled">
+            <mat-icon>save</mat-icon>
+            Save
+        </button>
+    </div>
+
+    <div matTooltip="Schedule is already published" [matTooltipDisabled]="!publishDisabled">
+        <button mat-raised-button class="btn--green w-full" [disabled]="publishDisabled">
+            <mat-icon>publish</mat-icon>
+            Publish
+        </button>
+    </div>
+
+
+    <button mat-raised-button class="btn--yellow">
+        <mat-icon>content_copy</mat-icon>
+        Copy
+    </button>
+
+    <div matTooltip="Can't delete published schedule" [matTooltipDisabled]="!deleteDisabled">
+        <button mat-raised-button color="warn" class="w-full" [disabled]="deleteDisabled">
+            <mat-icon>delete</mat-icon>
+            Delete
+        </button>
+    </div>
+</div>
+
+<form
+    class="schedule-edit-form__form"
+    [formGroup]="scheduleForm"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year">
+        <mat-error>{{ errors['year'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Semester</mat-label>
+        <mat-select formControlName="semester">
+            <mat-option
+                *ngFor="let semester of semesters"
+                [value]="semester"
+            >
+                {{ semester }}
+            </mat-option>
+        </mat-select>
+        <mat-error>{{ errors['semester'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Version</mat-label>
+        <input matInput formControlName="version">
+    </mat-form-field>
+</form>

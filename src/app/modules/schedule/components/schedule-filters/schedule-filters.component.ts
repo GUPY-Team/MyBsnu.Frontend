@@ -4,12 +4,13 @@ import { Subject } from 'rxjs';
 import {
     ClassTypeService,
     GroupService,
-    TeachersService,
+    TeacherService,
     WeekdayService,
     EducationFormatService,
 } from 'app/api/services';
 import { ClassType, WeekDay, EducationFormat, Group } from 'app/api/models';
 import { ScheduleFiltersService } from '../../services';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-schedule-filters',
@@ -41,7 +42,7 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
 
     constructor(
         private groupService: GroupService,
-        private teacherService: TeachersService,
+        private teacherService: TeacherService,
         private weekdayService: WeekdayService,
         private classTypeService: ClassTypeService,
         private educationFormatService: EducationFormatService,
@@ -75,11 +76,15 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
     }
 
     private fetchData(): void {
-        this.groupService.getGroups().subscribe(g => {
-            this.groups = g;
-            this.groupControl.setValue(this.groups[0]);
-            this.filtersService.setGroupFilter(this.groups[0]);
-        });
+        this.groupService.getGroups()
+            .pipe(
+                takeUntil(this.unsubscribe)
+            )
+            .subscribe(g => {
+                this.groups = g;
+                this.groupControl.setValue(this.groups[0]);
+                this.filtersService.setGroupFilter(this.groups[0]);
+            });
 
         this.weekdays = this.weekdayService.getStudyDays();
         this.classTypes = this.classTypeService.getClassTypes();

@@ -13,6 +13,10 @@ export interface Class {
     endTime: string;
     duration: string;
     courseName: string;
+    courseId: number;
     teacherName: string;
+    teacherId: number;
     audienceNumber: string;
+    audienceId: number;
+    scheduleId: number;
 }

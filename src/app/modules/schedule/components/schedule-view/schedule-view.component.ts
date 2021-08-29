@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { debounceTime, filter, switchMap, tap } from 'rxjs/operators';
+import { debounceTime, filter, map, switchMap, tap } from 'rxjs/operators';
 import { ScheduleFiltersService } from 'app/modules/schedule/services';
 import { ScheduleService } from 'app/api/services';
 import { Observable } from 'rxjs';
-import { GroupSchedule } from 'app/api/models';
+import { Classes } from 'app/api/models';
 import { ToolbarService } from 'app/core';
 
 @Component({
@@ -13,19 +13,20 @@ import { ToolbarService } from 'app/core';
 })
 export class ScheduleViewComponent implements OnInit, OnDestroy {
 
-    public schedule$: Observable<GroupSchedule>;
+    public classes$: Observable<Classes>;
 
     constructor(
         private filtersService: ScheduleFiltersService,
         private scheduleService: ScheduleService,
         private toolbarService: ToolbarService
     ) {
-        this.schedule$ = this.filtersService.filter$
+        this.classes$ = this.filtersService.filter$
             .pipe(
                 filter(f => f.groupId !== null),
                 debounceTime(750),
                 tap(_ => this.toolbarService.setLoading(true)),
-                switchMap(f => this.scheduleService.getGroupSchedule(f.groupId!)),
+                switchMap(f => this.scheduleService.getLatestGroupSchedule(f.groupId!)),
+                map(s => s.classes),
                 tap(_ => this.toolbarService.setLoading(false))
             );
     }

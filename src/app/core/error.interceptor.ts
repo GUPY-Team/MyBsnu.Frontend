@@ -3,7 +3,7 @@ import {
     HttpRequest,
     HttpHandler,
     HttpEvent,
-    HttpInterceptor, HttpErrorResponse
+    HttpInterceptor
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -23,14 +23,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                 catchError(({ error }) => {
                     let message;
 
-                    const validationErrors = error.errors;
+                    const validationErrors = error?.errors;
                     if (validationErrors) {
                         message = 'Validation error happened:\n';
                         for (const key in validationErrors) {
                             message += `${validationErrors[key].join('\n')}\n`;
                         }
                     } else {
-                        message = error.message ?? 'Unexpected error happened';
+                        message = error?.message ?? 'Unexpected error happened';
                     }
 
                     this.snackBar.open(message, '', {

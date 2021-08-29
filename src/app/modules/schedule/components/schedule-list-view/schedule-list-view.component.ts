@@ -14,7 +14,7 @@ export class ScheduleListViewComponent implements OnInit {
     public loading = true;
 
     public displayColumns: ReadonlyArray<string> = [
-        'halfYear',
+        'semester',
         'year',
         'version',
         'isPublished',

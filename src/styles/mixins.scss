@@ -1,0 +1,23 @@
+@use '~styles/breakpoints';
+
+@mixin form-vertical {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+
+    & > * {
+        margin-bottom: 0.5rem;
+    }
+
+    @include breakpoints.sm {
+        max-width: breakpoints.$sm_width * 1px;
+    }
+}
+
+@mixin header {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 1.75rem;
+    text-align: center;
+}

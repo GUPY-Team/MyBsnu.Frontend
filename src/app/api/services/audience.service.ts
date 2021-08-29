@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { EnvironmentService } from 'app/core/environment.service';
-import { Teacher } from 'app/api/models';
+import { EnvironmentService } from 'app/core';
 import { Observable } from 'rxjs';
+import { Audience } from 'app/api/models';
 
 @Injectable({
     providedIn: 'root'
 })
-export class TeachersService {
+export class AudienceService {
 
     private readonly baseUrl: string;
 
@@ -18,7 +18,7 @@ export class TeachersService {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
     }
 
-    public getTeachers(): Observable<Teacher[]> {
-        return this.client.get<Teacher[]>(`${this.baseUrl}/teachers`);
+    public getAudiences(): Observable<Audience[]> {
+        return this.client.get<Audience[]>(`${this.baseUrl}/audiences`);
     }
 }
