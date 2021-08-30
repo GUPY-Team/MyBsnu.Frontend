@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable, of } from 'rxjs';
 import {
     ClassTypeService,
     GroupService,
@@ -10,33 +10,24 @@ import {
 } from 'app/api/services';
 import { ClassType, WeekDay, EducationFormat, Group } from 'app/api/models';
 import { ScheduleFiltersService } from '../../services';
-import { takeUntil } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-schedule-filters',
     templateUrl: './schedule-filters.component.html',
     styleUrls: ['./schedule-filters.component.scss']
 })
-export class ScheduleFiltersComponent implements OnInit, OnDestroy {
-
-    private unsubscribe = new Subject();
+export class ScheduleFiltersComponent implements OnInit {
 
     public groupControl = new FormControl();
     public educationFormatControl = new FormControl();
     public classTypeControl = new FormControl();
     public weekdayControl = new FormControl();
 
-    public groups: Group[] = [];
+    public groups$: Observable<Group[]> = of([]);
     public weekdays: WeekDay[] = [];
     public classTypes: ClassType[] = [];
     public educationFormats: EducationFormat[] = [];
-
-    public controls: FormArray = new FormArray([
-        this.groupControl,
-        this.educationFormatControl,
-        this.weekdayControl,
-        this.classTypeControl
-    ]);
 
     public classTypeColorMap = this.classTypeService.colorMap;
 
@@ -52,11 +43,6 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.fetchData();
-    }
-
-    public ngOnDestroy(): void {
-        this.unsubscribe.next();
-        this.unsubscribe.complete();
     }
 
     public groupSelected(): void {
@@ -76,15 +62,13 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
     }
 
     private fetchData(): void {
-        this.groupService.getGroups()
+        this.groups$ = this.groupService.getGroups()
             .pipe(
-                takeUntil(this.unsubscribe)
-            )
-            .subscribe(g => {
-                this.groups = g;
-                this.groupControl.setValue(this.groups[0]);
-                this.filtersService.setGroupFilter(this.groups[0]);
-            });
+                tap(groups => {
+                    this.groupControl.setValue(groups[0]);
+                    this.filtersService.setGroupFilter(groups[0]);
+                })
+            );
 
         this.weekdays = this.weekdayService.getStudyDays();
         this.classTypes = this.classTypeService.getClassTypes();

@@ -5,7 +5,7 @@
         (selectionChange)="groupSelected()"
     >
         <mat-option
-            *ngFor="let group of groups"
+            *ngFor="let group of groups$ | async"
             [value]="group"
         >
             {{ group.number }}
