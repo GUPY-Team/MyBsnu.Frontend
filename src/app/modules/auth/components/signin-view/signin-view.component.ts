@@ -2,10 +2,10 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'app/modules/auth/services';
 import { Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { getErrorMessages } from 'app/core/customValidators';
+import { getErrorMessages } from 'app/core/models/customValidators';
 
 @Component({
     selector: 'app-login-view',

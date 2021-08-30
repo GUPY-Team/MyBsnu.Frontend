@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { EnvironmentService } from 'app/core/environment.service';
+import { EnvironmentService } from 'app/core/services/environment.service';
 import { GroupSchedule, Schedule } from '../models';
 import { Observable } from 'rxjs';
 

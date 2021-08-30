@@ -11,7 +11,7 @@ import {
 } from 'app/api/services';
 import { Observable } from 'rxjs';
 import { getErrorMessages } from 'app/core';
-import { FormMode } from 'app/core/formMode';
+import { FormMode } from 'app/core/models/formMode';
 
 export interface ClassDialogData {
     class?: Class,
