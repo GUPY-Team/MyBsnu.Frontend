@@ -1,0 +1,28 @@
+<mat-form-field class="w-full" appearance="fill">
+    <mat-label>Teachers</mat-label>
+    <mat-chip-list #teacherList [formControl]="teacherControl">
+        <mat-chip
+            *ngFor="let teacher of selectedTeachers"
+            (removed)="teacherRemoved(teacher)">
+            {{ teacher.fullName }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input type="text"
+               #teachersInput
+               matInput
+               [formControl]="teacherNameControl"
+               [matAutocomplete]="teacherAutocomplete"
+               [matChipInputFor]="teacherList"
+        >
+    </mat-chip-list>
+    <mat-autocomplete
+        autoActiveFirstOption
+        #teacherAutocomplete
+        (optionSelected)="teacherSelected($event)"
+    >
+        <mat-option *ngFor="let teacher of filteredTeachers$ | async" [value]="teacher">
+            {{ teacher.fullName }}
+        </mat-option>
+    </mat-autocomplete>
+    <mat-error>{{ error }}</mat-error>
+</mat-form-field>

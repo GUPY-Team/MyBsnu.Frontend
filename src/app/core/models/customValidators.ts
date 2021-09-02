@@ -54,6 +54,12 @@ export function getErrorMessages(formGroup: FormGroup): { [key: string]: string 
         } else if (control.errors?.max) {
             const max = control.errors.max.max;
             errorMessages[controlName] = `Maximum value is ${max}`;
+        } else if (control.errors?.minlength) {
+            const min = control.errors.minlength.minlength;
+            errorMessages[controlName] = `Minimum length is ${min}`;
+        } else if (control.errors?.maxlength) {
+            const max = control.errors.maxlength.maxlength;
+            errorMessages[controlName] = `Maximum length is ${max}`;
         } else if (control.errors?.mustMatch) {
             const [first, second] = control.errors.mustMatch;
             errorMessages[second] = `Field must match ${first}`;

@@ -1,40 +1,40 @@
 <div class="schedule-item">
     <div class="schedule-item__header">
         <h2 class="schedule-item__coursename">
-            {{ class.courseName }}
+            {{ item.courseName }}
         </h2>
 
         <ng-content></ng-content>
     </div>
 
-    <h4 class="schedule-item__duration">{{ class.startTime }} - {{ class.endTime }}</h4>
+    <h4 class="schedule-item__duration">{{ item.startTime }} - {{ item.endTime }}</h4>
 
     <ng-container *ngTemplateOutlet="
         row;
         context: {
-            icon: class.format === format.Online ? 'public' : 'domain',
-            text: class.format === format.Online ? 'Online' : 'Offline',
+            icon: item.format === format.Online ? 'public' : 'domain',
+            text: item.format,
             iconClass: 'icon--blue'
         }"
     ></ng-container>
 
-    <ng-template [ngIf]="class.audienceNumber">
+    <ng-template [ngIf]="item.audiences">
         <ng-container *ngTemplateOutlet="
             row;
             context: {
                 icon: 'place',
-                text: class.audienceNumber,
+                text: item.audiences,
                 iconClass: 'icon--red'
             }"
         ></ng-container>
     </ng-template>
 
-    <ng-template [ngIf]="class.weekType">
+    <ng-template [ngIf]="item.weekType">
         <ng-container *ngTemplateOutlet="
         row;
         context: {
             icon: 'date_range',
-            text: class.weekType,
+            text: item.weekType,
             iconClass: 'icon--gray'
         }"
         ></ng-container>
@@ -44,7 +44,7 @@
         row;
         context: {
             icon: 'school',
-            text: class.teacherName,
+            text: item.teachers,
             iconClass: 'icon--gray'
         }"
     ></ng-container>
@@ -53,7 +53,7 @@
 
 <ng-template #row let-icon="icon" let-iconClass="iconClass" let-text="text">
     <div class="schedule-item__info">
-        <mat-icon [ngClass]="iconClass">{{icon}}</mat-icon>
-        <span class="schedule-item__text">{{text}}</span>
+        <mat-icon [ngClass]="iconClass">{{ icon }}</mat-icon>
+        <span class="schedule-item__text">{{ text }}</span>
     </div>
 </ng-template>

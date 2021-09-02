@@ -3,7 +3,7 @@ import { filter, map, switchMap } from 'rxjs/operators';
 import { ScheduleFiltersService } from 'app/modules/schedule/services';
 import { ScheduleService } from 'app/api/services';
 import { Observable } from 'rxjs';
-import { Classes } from 'app/api/models';
+import { GroupScheduleClasses } from 'app/api/models';
 
 @Component({
     selector: 'app-schedule',
@@ -12,7 +12,7 @@ import { Classes } from 'app/api/models';
 })
 export class ScheduleViewComponent {
 
-    public classes$: Observable<Classes>;
+    public classes$: Observable<GroupScheduleClasses>;
 
     constructor(
         private filtersService: ScheduleFiltersService,

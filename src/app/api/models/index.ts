@@ -1,5 +1,5 @@
-export * from './Class';
 export * from './ClassType';
+export * from './Class';
 export * from './WeekDay';
 export * from './GroupSchedule';
 export * from './Semester';

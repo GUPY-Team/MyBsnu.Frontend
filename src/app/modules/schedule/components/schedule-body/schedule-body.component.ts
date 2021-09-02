@@ -1,5 +1,9 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Class, WeekDay, Classes } from 'app/api/models';
+import {
+    WeekDay,
+    Class,
+    GroupScheduleClasses
+} from 'app/api/models';
 import { ScheduleService, WeekdayService } from 'app/api/services';
 import { combineLatest, Observable, of } from 'rxjs';
 import { ScheduleFiltersService } from 'app/modules/schedule/services';
@@ -25,7 +29,7 @@ export class ScheduleBodyComponent implements OnInit {
     public columns: Observable<ScheduleColumn[]> = of([]);
 
     @Input()
-    public set classes(classes$: Observable<Classes>) {
+    public set classes(classes$: Observable<GroupScheduleClasses>) {
         this.columns = combineLatest([
             classes$,
             this.resize$
@@ -53,7 +57,7 @@ export class ScheduleBodyComponent implements OnInit {
         this.weekdays = this.weekdayService.getStudyDays();
     }
 
-    private createColumns(classes: Classes, breakpoint: BreakpointState): ScheduleColumn[] {
+    private createColumns(classes: GroupScheduleClasses, breakpoint: BreakpointState): ScheduleColumn[] {
         const columns: ScheduleColumn[] = [];
 
         const hideEmptyColumns = !breakpoint.matches;

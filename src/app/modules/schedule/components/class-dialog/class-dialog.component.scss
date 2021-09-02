@@ -10,17 +10,12 @@
     }
 
     &__buttons {
-        display: flex;
-
         & > * {
-            width: 100%;
+            flex-grow: 1;
         }
 
-        @include breakpoints.sm {
-            & > :first-child:not(:only-child) {
-                margin-right: 1rem;
-            }
-        }
+        margin: 0 auto;
+        max-width: breakpoints.$sm_width * 1px;
     }
 }
 

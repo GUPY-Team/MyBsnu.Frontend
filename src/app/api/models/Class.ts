@@ -1,7 +1,10 @@
+import { EducationFormat } from './EducationFormat';
 import { ClassType } from './ClassType';
 import { WeekDay } from './WeekDay';
 import { WeekType } from './WeekType';
-import { EducationFormat } from './EducationFormat';
+import { Teacher } from './Teacher';
+import { Audience } from './Audience';
+import { Group } from './Group';
 
 export interface Class {
     id: number;
@@ -14,9 +17,8 @@ export interface Class {
     duration: string;
     courseName: string;
     courseId: number;
-    teacherName: string;
-    teacherId: number;
-    audienceNumber: string;
-    audienceId: number;
+    teachers: Teacher[];
+    audiences: Audience[];
+    groups: Group[];
     scheduleId: number;
 }

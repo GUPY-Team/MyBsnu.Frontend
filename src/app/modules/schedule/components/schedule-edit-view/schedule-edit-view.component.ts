@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { GroupService, ScheduleService } from 'app/api/services';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Class, Classes, Group, Schedule } from 'app/api/models';
+import { Group, Schedule, Class, GroupScheduleClasses } from 'app/api/models';
 import { FormControl } from '@angular/forms';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import {
     ClassDialogComponent,
     ClassDialogData
-} from 'app/modules/schedule/components/class-dialog/class-dialog.component';
+} from '../class-dialog/class-dialog.component';
 
 @Component({
     selector: 'app-schedule-edit-view',
@@ -20,7 +20,7 @@ export class ScheduleEditViewComponent {
 
     public schedule$: Observable<Schedule>;
     public groups$: Observable<Group[]>;
-    public classes$: Observable<Classes>;
+    public classes$: Observable<GroupScheduleClasses>;
 
     public groupControl = new FormControl();
 

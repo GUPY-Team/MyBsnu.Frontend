@@ -1,7 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Audience, Class, ClassType, EducationFormat, Teacher, WeekDay } from 'app/api/models';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Audience, ClassType, EducationFormat, Teacher, WeekDay, Class } from 'app/api/models';
+import {
+    FormBuilder, FormControl,
+    FormGroup,
+    Validators
+} from '@angular/forms';
 import {
     AudienceService,
     ClassTypeService,
@@ -24,6 +28,9 @@ export interface ClassDialogData {
     styleUrls: ['./class-dialog.component.scss']
 })
 export class ClassDialogComponent implements OnInit {
+
+    public teacherControl!: FormControl;
+    public audienceControl!: FormControl;
 
     public classForm!: FormGroup;
 
@@ -63,6 +70,18 @@ export class ClassDialogComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.initForm();
+    }
+
+    public get isCreateMode() {
+        return this.formMode === FormMode.Create;
+    }
+
+    public get saveDisabled() {
+        return !(this.classForm.dirty && this.classForm.valid);
+    }
+
+    private initForm(): void {
         const { class: class_, scheduleId } = this.data;
 
         this.formMode = class_?.id ? FormMode.Edit : FormMode.Create;
@@ -74,17 +93,12 @@ export class ClassDialogComponent implements OnInit {
             weekDay: [class_?.weekDay, [Validators.required]],
             startTime: [class_?.startTime, [Validators.required]],
             endTime: [class_?.endTime, [Validators.required]],
-            teacherId: [class_?.teacherId, [Validators.required]],
-            audienceId: [class_?.audienceId],
+            teachers: [class_?.teachers, [Validators.required]],
+            audiences: [class_?.audiences],
             scheduleId: [scheduleId, [Validators.required]],
         });
-    }
 
-    public get isCreateMode() {
-        return this.formMode === FormMode.Create;
-    }
-
-    public get saveDisabled() {
-        return !(this.classForm.dirty && this.classForm.valid);
+        this.teacherControl = this.classForm.controls['teachers'] as FormControl;
+        this.audienceControl = this.classForm.controls['audiences'] as FormControl;
     }
 }

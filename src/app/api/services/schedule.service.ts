@@ -27,12 +27,14 @@ export class ScheduleService {
     }
 
     public getLatestGroupSchedule(groupId: number): Observable<GroupSchedule> {
-        return this.client.get<GroupSchedule>(`${this.baseUrl}/schedule/latest`, {
+        return this.client.get<GroupSchedule>(`${this.baseUrl}/groupSchedule/latest`, {
             params: new HttpParams().set('groupId', groupId)
         });
     }
 
     public getGroupSchedule(scheduleId: number, groupId: number): Observable<GroupSchedule> {
-        return this.client.get<GroupSchedule>(`${this.baseUrl}/schedule/${scheduleId}/groups/${groupId}`);
+        return this.client.get<GroupSchedule>(`${this.baseUrl}/groupSchedule/${scheduleId}`, {
+            params: new HttpParams().set('groupId', groupId)
+        });
     }
 }
