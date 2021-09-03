@@ -22,6 +22,7 @@
                 mat-raised-button
                 color="primary"
                 (click)="onClassCreate(schedule.id)"
+                [disabled]="createDisabled"
             >
                 <mat-icon>add</mat-icon>
                 Add class

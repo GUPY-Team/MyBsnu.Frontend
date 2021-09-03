@@ -4,7 +4,7 @@ import {
     Class,
     GroupScheduleClasses
 } from 'app/api/models';
-import { ScheduleService, WeekdayService } from 'app/api/services';
+import { EnumService, ScheduleService } from 'app/api/services';
 import { combineLatest, Observable, of } from 'rxjs';
 import { ScheduleFiltersService } from 'app/modules/schedule/services';
 import { map } from 'rxjs/operators';
@@ -46,7 +46,7 @@ export class ScheduleBodyComponent implements OnInit {
 
     constructor(
         private scheduleService: ScheduleService,
-        private weekdayService: WeekdayService,
+        private enumService: EnumService,
         private filtersService: ScheduleFiltersService,
         private breakpointObserver: BreakpointObserver
     ) {
@@ -54,7 +54,7 @@ export class ScheduleBodyComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.weekdays = this.weekdayService.getStudyDays();
+        this.weekdays = this.enumService.getStudyDays();
     }
 
     private createColumns(classes: GroupScheduleClasses, breakpoint: BreakpointState): ScheduleColumn[] {

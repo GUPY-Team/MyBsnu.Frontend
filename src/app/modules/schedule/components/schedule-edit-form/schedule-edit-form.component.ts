@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators, getErrorMessages } from 'app/core';
 import { Schedule, Semester } from 'app/api/models';
-import { SemesterService } from 'app/api/services';
+import { EnumService } from 'app/api/services';
 
 @Component({
     selector: 'app-schedule-edit-form',
@@ -23,13 +23,13 @@ export class ScheduleEditFormComponent implements OnInit {
     public schedule!: Schedule;
 
     constructor(
-        private semesterService: SemesterService,
+        private enumService: EnumService,
         private formBuilder: FormBuilder
     ) {
     }
 
     public ngOnInit(): void {
-        this.semesters = this.semesterService.getSemesters();
+        this.semesters = this.enumService.getSemesters();
 
         const currentYear = new Date().getFullYear();
 

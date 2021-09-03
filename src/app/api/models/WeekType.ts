@@ -1,4 +1,4 @@
 export enum WeekType {
-    AboveLine = 'AboveLine',
-    UnderLine = 'UnderLine'
+    Odd = 'Odd',
+    Even = 'Even'
 }

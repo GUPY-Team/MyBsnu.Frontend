@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GroupService, ScheduleService } from 'app/api/services';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { Group, Schedule, Class, GroupScheduleClasses } from 'app/api/models';
 import { FormControl } from '@angular/forms';
-import { map, startWith, switchMap } from 'rxjs/operators';
+import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import {
     ClassDialogComponent,
@@ -16,7 +16,11 @@ import {
     templateUrl: './schedule-edit-view.component.html',
     styleUrls: ['./schedule-edit-view.component.scss']
 })
-export class ScheduleEditViewComponent {
+export class ScheduleEditViewComponent implements OnDestroy {
+
+    private unsubsribe = new Subject();
+
+    private refresh$ = new BehaviorSubject(null);
 
     public schedule$: Observable<Schedule>;
     public groups$: Observable<Group[]>;
@@ -34,29 +38,55 @@ export class ScheduleEditViewComponent {
 
         this.schedule$ = this.scheduleService.getScheduleById(scheduleId);
         this.groups$ = this.groupService.getGroups();
-        this.classes$ = this.groupControl.valueChanges.pipe(
-            switchMap(groupId => this.scheduleService.getGroupSchedule(scheduleId, groupId)),
-            map(s => s.classes),
-            startWith({})
-        );
+        this.classes$ = combineLatest([this.refresh$, this.groupControl.valueChanges])
+            .pipe(
+                map(([_, groupId]) => groupId),
+                switchMap(groupId => this.scheduleService.getGroupSchedule(scheduleId, groupId)),
+                map(s => s.classes),
+                startWith({})
+            );
+    }
+
+    public ngOnDestroy(): void {
+        this.unsubsribe.next();
+        this.unsubsribe.complete();
+    }
+
+    public get createDisabled(): boolean {
+        return this.groupControl.value === null;
     }
 
     public onClassEdit(class_: Class, scheduleId: number): void {
-        this.dialog.open(ClassDialogComponent, {
-            width: '1000px',
-            data: {
-                class: class_,
-                scheduleId
-            } as ClassDialogData
+        this.openDialog({
+            groupId: this.groupControl.value,
+            class: class_,
+            scheduleId
         });
     }
 
     public onClassCreate(scheduleId: number): void {
-        this.dialog.open(ClassDialogComponent, {
-            width: '1000px',
-            data: {
-                scheduleId
-            } as ClassDialogData
+        this.openDialog({
+            groupId: this.groupControl.value,
+            scheduleId
         });
+    }
+
+    private openDialog(data: ClassDialogData): void {
+        const ref = this.dialog.open(ClassDialogComponent, {
+            width: '1000px',
+            data
+        });
+
+        ref.afterClosed().pipe(
+            takeUntil(this.unsubsribe)
+        ).subscribe(result => {
+            if (result) {
+                this.refreshClasses();
+            }
+        });
+    }
+
+    private refreshClasses() {
+        this.refresh$.next(null);
     }
 }

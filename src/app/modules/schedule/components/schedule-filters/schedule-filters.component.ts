@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import {
-    ClassTypeService,
+    EnumService,
     GroupService,
     TeacherService,
-    WeekdayService,
-    EducationFormatService,
 } from 'app/api/services';
 import { ClassType, WeekDay, EducationFormat, Group } from 'app/api/models';
 import { ScheduleFiltersService } from '../../services';
@@ -29,14 +27,12 @@ export class ScheduleFiltersComponent implements OnInit {
     public classTypes: ClassType[] = [];
     public educationFormats: EducationFormat[] = [];
 
-    public classTypeColorMap = this.classTypeService.colorMap;
+    public classTypeColorMap = this.enumService.classTypeColorMap;
 
     constructor(
         private groupService: GroupService,
         private teacherService: TeacherService,
-        private weekdayService: WeekdayService,
-        private classTypeService: ClassTypeService,
-        private educationFormatService: EducationFormatService,
+        private enumService: EnumService,
         private filtersService: ScheduleFiltersService,
     ) {
     }
@@ -70,8 +66,8 @@ export class ScheduleFiltersComponent implements OnInit {
                 })
             );
 
-        this.weekdays = this.weekdayService.getStudyDays();
-        this.classTypes = this.classTypeService.getClassTypes();
-        this.educationFormats = this.educationFormatService.getEducationFormats();
+        this.weekdays = this.enumService.getStudyDays();
+        this.classTypes = this.enumService.getClassTypes();
+        this.educationFormats = this.enumService.getEducationFormats();
     }
 }

@@ -9,3 +9,5 @@ export * from './Teacher';
 export * from './EducationFormat';
 export * from './Schedule';
 export * from './Audience';
+export * from './Time';
+export * from './Course';

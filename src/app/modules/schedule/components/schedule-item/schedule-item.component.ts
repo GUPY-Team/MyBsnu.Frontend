@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Class, ClassType, EducationFormat, WeekDay, WeekType } from 'app/api/models';
-import { ClassTypeService } from 'app/api/services';
+import { EnumService } from 'app/api/services';
 
 interface ScheduleItem {
     format: EducationFormat;
@@ -35,12 +35,12 @@ export class ScheduleItemComponent {
     public format = EducationFormat;
     public type = ClassType;
 
-    constructor(private classTypeService: ClassTypeService) {
+    constructor(private enumService: EnumService) {
     }
 
     public get lineStyle() {
         return {
-            'background-color': this.classTypeService.colorMap.get(this.item.type)
+            'background-color': this.enumService.classTypeColorMap.get(this.item.type)
         };
     }
 }

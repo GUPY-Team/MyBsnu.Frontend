@@ -37,6 +37,19 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill">
+            <mat-label>Course</mat-label>
+            <mat-select formControlName="courseId">
+                <mat-option
+                    *ngFor="let course of courses$ | async"
+                    [value]="course.id"
+                >
+                    {{ course.name }}
+                </mat-option>
+            </mat-select>
+            <mat-error>{{ errors['courseId'] }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
             <mat-label>Weekday</mat-label>
             <mat-select formControlName="weekDay">
                 <mat-option
@@ -47,6 +60,19 @@
                 </mat-option>
             </mat-select>
             <mat-error>{{ errors['weekDay'] }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Week type</mat-label>
+            <mat-select formControlName="weekType">
+                <mat-option
+                    *ngFor="let weekType of weekTypes"
+                    [value]="weekType"
+                >
+                    {{ weekType }}
+                </mat-option>
+            </mat-select>
+            <mat-error>{{ errors['weekType'] }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -78,19 +104,32 @@
 
 <mat-dialog-actions class="class-form__buttons">
     <ng-template [ngIf]="isCreateMode" [ngIfElse]="editButtons">
-        <button mat-raised-button color="primary">
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="submit()"
+        >
             <mat-icon>add</mat-icon>
             Create
         </button>
     </ng-template>
 
     <ng-template #editButtons>
-        <button mat-raised-button color="primary" [disabled]="saveDisabled">
+        <button
+            mat-raised-button
+            color="primary"
+            [disabled]="saveDisabled"
+            (click)="submit()"
+        >
             <mat-icon>save</mat-icon>
             Save
         </button>
 
-        <button mat-raised-button color="warn">
+        <button
+            mat-raised-button
+            color="warn"
+            (click)="delete()"
+        >
             <mat-icon>delete</mat-icon>
             Delete
         </button>
