@@ -10,7 +10,7 @@
             <mat-select [formControl]="groupControl">
                 <mat-option
                     *ngFor="let group of groups$ | async"
-                    [value]="group.id"
+                    [value]="group"
                 >
                     {{ group.number }}
                 </mat-option>

@@ -20,7 +20,7 @@ import {
 import {
     AudienceService,
     ClassService,
-    EnumService,
+    EnumService, GroupService,
     TeacherService,
 } from 'app/api/services';
 import { Observable, Subject } from 'rxjs';
@@ -32,7 +32,7 @@ import { shareReplay, takeUntil } from 'rxjs/operators';
 
 export interface ClassDialogData {
     class?: Class,
-    groupId?: number,
+    group?: Group,
     scheduleId: number,
 }
 
@@ -47,6 +47,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
 
     public teacherControl!: FormControl;
     public audienceControl!: FormControl;
+    public groupControl!: FormControl;
 
     public classForm!: FormGroup;
 
@@ -58,6 +59,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
     public teachers$: Observable<Teacher[]>;
     public audiences$: Observable<Audience[]>;
     public courses$: Observable<Course[]>;
+    public groups$: Observable<Group[]>;
 
     public formMode: FormMode = FormMode.Create;
 
@@ -78,6 +80,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
         private courseService: CourseService,
         private teacherService: TeacherService,
         private audienceService: AudienceService,
+        private groupService: GroupService
     ) {
         this.educationFormats = this.enumService.getEducationFormats();
         this.classTypes = this.enumService.getClassTypes();
@@ -87,6 +90,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
         this.teachers$ = this.teacherService.getTeachers().pipe(shareReplay());
         this.audiences$ = this.audienceService.getAudiences().pipe(shareReplay());
         this.courses$ = this.courseService.getCourses();
+        this.groups$ = this.groupService.getGroups().pipe(shareReplay());
     }
 
     public ngOnInit(): void {
@@ -133,7 +137,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
     }
 
     private initForm(): void {
-        const { class: class_, groupId, scheduleId } = this.data;
+        const { class: class_, group, scheduleId } = this.data;
 
         this.formMode = class_?.id ? FormMode.Edit : FormMode.Create;
         this.classForm = this.formBuilder.group({
@@ -146,13 +150,14 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
             endTime: [class_?.endTime, [Validators.required]],
             teachers: [class_?.teachers, [Validators.required]],
             audiences: [class_?.audiences],
-            groups: [class_?.groups ?? [{ id: groupId }], Validators.required],
+            groups: [class_?.groups ?? [group], Validators.required],
             scheduleId: [scheduleId, [Validators.required]],
             courseId: [class_?.courseId, [Validators.required]]
         });
 
         this.teacherControl = this.classForm.controls['teachers'] as FormControl;
         this.audienceControl = this.classForm.controls['audiences'] as FormControl;
+        this.groupControl = this.classForm.controls['groups'] as FormControl;
     }
 
     private getCommand(): CreateClassCommand | UpdateClassCommand {

@@ -12,7 +12,8 @@ import {
     ScheduleEditFormComponent,
     ClassDialogComponent,
     TeachersSelectListComponent,
-    AudiencesSelectListComponent
+    AudiencesSelectListComponent,
+    GroupsSelectListComponent
 } from './components';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { MaterialModule } from 'app/modules/material/material.module';
@@ -31,6 +32,7 @@ import { SharedModule } from 'app/modules/shared/shared.module';
         ClassDialogComponent,
         TeachersSelectListComponent,
         AudiencesSelectListComponent,
+        GroupsSelectListComponent,
     ],
     imports: [
         CommonModule,

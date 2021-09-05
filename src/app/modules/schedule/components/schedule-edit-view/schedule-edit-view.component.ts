@@ -18,7 +18,7 @@ import {
 })
 export class ScheduleEditViewComponent implements OnDestroy {
 
-    private unsubsribe = new Subject();
+    private unsubscribe = new Subject();
 
     private refresh$ = new BehaviorSubject(null);
 
@@ -40,7 +40,7 @@ export class ScheduleEditViewComponent implements OnDestroy {
         this.groups$ = this.groupService.getGroups();
         this.classes$ = combineLatest([this.refresh$, this.groupControl.valueChanges])
             .pipe(
-                map(([_, groupId]) => groupId),
+                map(([_, group]) => group.id),
                 switchMap(groupId => this.scheduleService.getGroupSchedule(scheduleId, groupId)),
                 map(s => s.classes),
                 startWith({})
@@ -48,8 +48,8 @@ export class ScheduleEditViewComponent implements OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.unsubsribe.next();
-        this.unsubsribe.complete();
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 
     public get createDisabled(): boolean {
@@ -58,7 +58,7 @@ export class ScheduleEditViewComponent implements OnDestroy {
 
     public onClassEdit(class_: Class, scheduleId: number): void {
         this.openDialog({
-            groupId: this.groupControl.value,
+            group: this.groupControl.value,
             class: class_,
             scheduleId
         });
@@ -66,7 +66,7 @@ export class ScheduleEditViewComponent implements OnDestroy {
 
     public onClassCreate(scheduleId: number): void {
         this.openDialog({
-            groupId: this.groupControl.value,
+            group: this.groupControl.value,
             scheduleId
         });
     }
@@ -78,7 +78,7 @@ export class ScheduleEditViewComponent implements OnDestroy {
         });
 
         ref.afterClosed().pipe(
-            takeUntil(this.unsubsribe)
+            takeUntil(this.unsubscribe)
         ).subscribe(result => {
             if (result) {
                 this.refreshClasses();
