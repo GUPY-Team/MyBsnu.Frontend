@@ -1,0 +1,31 @@
+<mat-form-field class="w-full" appearance="fill">
+    <mat-label>{{ title }}</mat-label>
+    <mat-chip-list #list [formControl]="control">
+        <mat-chip
+            *ngFor="let entity of selectedEntities"
+            (removed)="entityRemoved(entity)">
+            {{ displayEntity(entity) }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input type="text"
+               #autocompleteInput
+               matInput
+               [formControl]="autocompleteControl"
+               [matAutocomplete]="autocomplete"
+               [matChipInputFor]="list"
+        >
+    </mat-chip-list>
+    <mat-autocomplete
+        autoActiveFirstOption
+        #autocomplete
+        (optionSelected)="entitySelected($event)"
+    >
+        <mat-option
+            *ngFor="let entity of filteredEntities$ | async"
+            [value]="entity"
+        >
+            {{ displayEntity(entity) }}
+        </mat-option>
+    </mat-autocomplete>
+    <mat-error>{{ error }}</mat-error>
+</mat-form-field>

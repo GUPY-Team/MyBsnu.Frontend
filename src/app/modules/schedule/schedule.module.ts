@@ -11,13 +11,11 @@ import {
     ScheduleEditViewComponent,
     ScheduleEditFormComponent,
     ClassDialogComponent,
-    TeachersSelectListComponent,
-    AudiencesSelectListComponent,
-    GroupsSelectListComponent
 } from './components';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { MaterialModule } from 'app/modules/material/material.module';
 import { SharedModule } from 'app/modules/shared/shared.module';
+import { SelectListComponent } from './shared';
 
 @NgModule({
     declarations: [
@@ -30,9 +28,7 @@ import { SharedModule } from 'app/modules/shared/shared.module';
         ScheduleEditViewComponent,
         ScheduleEditFormComponent,
         ClassDialogComponent,
-        TeachersSelectListComponent,
-        AudiencesSelectListComponent,
-        GroupsSelectListComponent,
+        SelectListComponent,
     ],
     imports: [
         CommonModule,

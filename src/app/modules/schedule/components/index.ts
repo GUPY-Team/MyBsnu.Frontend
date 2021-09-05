@@ -9,6 +9,3 @@ export * from './schedule-edit-view/schedule-edit-view.component';
 export * from './schedule-edit-form/schedule-edit-form.component';
 
 export * from './class-dialog/class-dialog.component';
-export * from './teachers-select-list/teachers-select-list.component';
-export * from './audiences-select-list/audiences-select-list.component';
-export * from './groups-select-list/groups-select-list.component';

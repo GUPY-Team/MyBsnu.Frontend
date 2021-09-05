@@ -136,6 +136,30 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
         return !(this.classForm.dirty && this.classForm.valid);
     }
 
+    public filterTeachers(teachers: Teacher[], value: string): Teacher[] {
+        return teachers.filter(t => t.fullName.includes(value));
+    }
+
+    public displayTeacher(teacher: Teacher): string {
+        return teacher.fullName;
+    }
+
+    public filterAudiences(audiences: Audience[], value: string): Audience[] {
+        return audiences.filter(a => a.fullNumber.includes(value));
+    }
+
+    public displayAudience(audience: Audience): string {
+        return audience.fullNumber;
+    }
+
+    public filterGroups(groups: Group[], value: string): Group[] {
+        return groups.filter(a => a.number.includes(value));
+    }
+
+    public displayGroup(group: Group): string {
+        return group.number;
+    }
+
     private initForm(): void {
         const { class: class_, group, scheduleId } = this.data;
 
