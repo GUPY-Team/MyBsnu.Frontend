@@ -13,7 +13,7 @@ import {
     WeekType
 } from 'app/api/models';
 import {
-    FormBuilder, FormControl,
+    FormBuilder,
     FormGroup,
     Validators
 } from '@angular/forms';
@@ -44,10 +44,6 @@ export interface ClassDialogData {
 export class ClassDialogComponent implements OnInit, OnDestroy {
 
     private unsubscribe = new Subject();
-
-    public teacherControl!: FormControl;
-    public audienceControl!: FormControl;
-    public groupControl!: FormControl;
 
     public classForm!: FormGroup;
 
@@ -172,16 +168,12 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
             weekType: [class_?.weekType, [Validators.required]],
             startTime: [class_?.startTime, [Validators.required]],
             endTime: [class_?.endTime, [Validators.required]],
-            teachers: [class_?.teachers, [Validators.required]],
-            audiences: [class_?.audiences],
+            teachers: [class_?.teachers ?? [], [Validators.required]],
+            audiences: [class_?.audiences ?? []],
             groups: [class_?.groups ?? [group], Validators.required],
             scheduleId: [scheduleId, [Validators.required]],
             courseId: [class_?.courseId, [Validators.required]]
         });
-
-        this.teacherControl = this.classForm.controls['teachers'] as FormControl;
-        this.audienceControl = this.classForm.controls['audiences'] as FormControl;
-        this.groupControl = this.classForm.controls['groups'] as FormControl;
     }
 
     private getCommand(): CreateClassCommand | UpdateClassCommand {

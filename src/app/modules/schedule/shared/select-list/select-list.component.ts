@@ -1,47 +1,56 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
-export interface Entity {
+export interface Item {
     id: number
 }
 
 @Component({
     selector: 'app-select-list',
     templateUrl: './select-list.component.html',
-    styleUrls: ['./select-list.component.scss']
+    styleUrls: ['./select-list.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SelectListComponent
+        }
+    ]
 })
-export class SelectListComponent implements OnInit {
+export class SelectListComponent implements ControlValueAccessor {
+
+    public onChange = (items: Item[]) => {
+    };
+
+    public onTouched = () => {
+    };
+
+    public touched = false;
+
+    public disabled = false;
+
     public autocompleteControl: FormControl = new FormControl();
 
-    public selectedEntities: Entity[] = [];
-    public filteredEntities$: Observable<Entity[]> = of([]);
-
-    public displayEntity(entity: any): string {
-        return this.displayWith
-            ? this.displayWith(entity)
-            : entity.toString();
-    }
+    public selectedItems: Item[] = [];
+    public filteredItems$: Observable<Item[]> = of([]);
 
     @Input()
-    public set entities(entities$: Observable<Entity[]>) {
-        const entities = entities$.pipe(
-            map(e => this.filterSelectedEntities(e))
+    public set items(items$: Observable<Item[]>) {
+        const items = items$.pipe(
+            map(i => this.filterSelectedItems(i))
         );
 
-        this.filteredEntities$ = this.autocompleteControl.valueChanges.pipe(
+        this.filteredItems$ = this.autocompleteControl.valueChanges.pipe(
             startWith(''),
             switchMap(val => val
-                ? entities.pipe(map(e => this.filter(e, val)))
-                : entities
+                ? items.pipe(map(i => this.filter(i, val)))
+                : items
             )
         );
     }
-
-    @Input()
-    public control!: FormControl;
 
     @Input()
     public filter!: (entities: any[], value: string) => any[];
@@ -57,30 +66,52 @@ export class SelectListComponent implements OnInit {
 
     @ViewChild('autocompleteInput') autocompleteInput!: ElementRef<HTMLInputElement>;
 
-    public ngOnInit(): void {
-        this.selectedEntities = this.control.value ?? [];
+    public registerOnChange(fn: any): void {
+        this.onChange = fn;
     }
 
-    public entityRemoved(entity: Entity) {
-        this.selectedEntities = this.selectedEntities.filter(t => t.id !== entity.id);
-        this.updateControlValue();
+    public registerOnTouched(fn: any): void {
+        this.onTouched = fn;
     }
 
-    public entitySelected(event: MatAutocompleteSelectedEvent) {
-        this.selectedEntities.push(event.option.value);
-        this.updateControlValue();
+    public setDisabledState(isDisabled: boolean): void {
+        this.disabled = isDisabled;
+    }
+
+    public writeValue(selectedItems: Item[]): void {
+        this.selectedItems = selectedItems;
+    }
+
+    public itemRemoved(item: Item) {
+        this.markAsTouched();
+        this.selectedItems = this.selectedItems.filter(i => i.id !== item.id);
+        this.onChange(this.selectedItems);
+    }
+
+    public itemSelected(event: MatAutocompleteSelectedEvent) {
+        this.markAsTouched();
+        this.selectedItems.push(event.option.value);
+        this.onChange(this.selectedItems);
 
         this.autocompleteControl.setValue('');
         this.autocompleteInput.nativeElement.value = '';
     }
 
-    private filterSelectedEntities(entities: Entity[]): Entity[] {
-        const selectedEntities = new Set<number>(this.selectedEntities.map(e => e.id));
-        return entities.filter(e => !selectedEntities.has(e.id));
+    public displayItem(item: any): string {
+        return this.displayWith
+            ? this.displayWith(item)
+            : item.toString();
     }
 
-    private updateControlValue() {
-        this.control.setValue(this.selectedEntities);
-        this.control.markAsDirty();
+    private filterSelectedItems(items: Item[]): Item[] {
+        const selectedEntities = new Set<number>(this.selectedItems.map(e => e.id));
+        return items.filter(e => !selectedEntities.has(e.id));
+    }
+
+    private markAsTouched() {
+        if (!this.touched) {
+            this.onTouched();
+            this.touched = true;
+        }
     }
 }

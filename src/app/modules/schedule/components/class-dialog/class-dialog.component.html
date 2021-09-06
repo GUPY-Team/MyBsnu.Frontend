@@ -89,27 +89,27 @@
         </mat-form-field>
 
         <app-select-list
+            formControlName="teachers"
             title="Teachers"
-            [entities]="teachers$"
-            [control]="teacherControl"
+            [items]="teachers$"
             [filter]="filterTeachers"
             [displayWith]="displayTeacher"
             [error]="errors['teachers']"
         ></app-select-list>
 
         <app-select-list
+            formControlName="audiences"
             title="Audiences"
-            [entities]="audiences$"
-            [control]="audienceControl"
+            [items]="audiences$"
             [filter]="filterAudiences"
             [displayWith]="displayAudience"
             [error]="errors['audiences']"
         ></app-select-list>
 
         <app-select-list
+            formControlName="groups"
             title="Groups"
-            [entities]="groups$"
-            [control]="groupControl"
+            [items]="groups$"
             [filter]="filterGroups"
             [displayWith]="displayGroup"
             [error]="errors['groups']"
