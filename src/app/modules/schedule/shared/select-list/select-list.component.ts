@@ -79,7 +79,7 @@ export class SelectListComponent implements ControlValueAccessor {
     }
 
     public writeValue(selectedItems: Item[]): void {
-        this.selectedItems = selectedItems;
+        this.selectedItems = selectedItems ?? [];
     }
 
     public itemRemoved(item: Item) {
