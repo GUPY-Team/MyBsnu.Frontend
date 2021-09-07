@@ -84,17 +84,21 @@ export class SelectListComponent implements ControlValueAccessor {
 
     public itemRemoved(item: Item) {
         this.markAsTouched();
-        this.selectedItems = this.selectedItems.filter(i => i.id !== item.id);
-        this.onChange(this.selectedItems);
+        if (!this.disabled) {
+            this.selectedItems = this.selectedItems.filter(i => i.id !== item.id);
+            this.onChange(this.selectedItems);
+        }
     }
 
     public itemSelected(event: MatAutocompleteSelectedEvent) {
         this.markAsTouched();
-        this.selectedItems.push(event.option.value);
-        this.onChange(this.selectedItems);
+        if (!this.disabled) {
+            this.selectedItems.push(event.option.value);
+            this.onChange(this.selectedItems);
 
-        this.autocompleteControl.setValue('');
-        this.autocompleteInput.nativeElement.value = '';
+            this.autocompleteControl.setValue('');
+            this.autocompleteInput.nativeElement.value = '';
+        }
     }
 
     public displayItem(item: any): string {
