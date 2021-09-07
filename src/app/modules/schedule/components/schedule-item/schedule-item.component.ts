@@ -27,7 +27,7 @@ export class ScheduleItemComponent {
     public set class(class_: Class) {
         this.item = {
             ...class_,
-            teachers: class_.teachers.map(t => t.fullName).join(', '),
+            teachers: class_.teachers.map(t => t.shortName).join(', '),
             audiences: class_.audiences.map(a => a.fullNumber).join(', ')
         };
     }

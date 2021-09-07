@@ -137,7 +137,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
     }
 
     public displayTeacher(teacher: Teacher): string {
-        return teacher.fullName;
+        return teacher.shortName;
     }
 
     public filterAudiences(audiences: Audience[], value: string): Audience[] {

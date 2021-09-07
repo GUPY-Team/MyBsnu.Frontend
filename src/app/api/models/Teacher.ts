@@ -4,4 +4,5 @@ export interface Teacher {
     lastName: string;
     thirdName: string;
     fullName: string;
+    shortName: string;
 }
