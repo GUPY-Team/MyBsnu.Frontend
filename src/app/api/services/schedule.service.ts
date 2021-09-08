@@ -43,13 +43,17 @@ export class ScheduleService {
         return this.client.put<Schedule>(`${this.baseUrl}/schedule`, command);
     }
 
+    public deleteSchedule(scheduleId: number): Observable<void> {
+        return this.client.delete<void>(`${this.baseUrl}/schedule/${scheduleId}`);
+    }
+
     public copySchedule(scheduleId: number): Observable<void> {
         return this.client.post<void>(`${this.baseUrl}/schedule`, {}, {
             params: new HttpParams().set('sourceId', scheduleId)
         });
     }
 
-    public deleteSchedule(scheduleId: number): Observable<void> {
-        return this.client.delete<void>(`${this.baseUrl}/schedule/${scheduleId}`);
+    public publishSchedule(scheduleId: number): Observable<Schedule> {
+        return this.client.post<Schedule>(`${this.baseUrl}/schedule/${scheduleId}/publish`, {});
     }
 }

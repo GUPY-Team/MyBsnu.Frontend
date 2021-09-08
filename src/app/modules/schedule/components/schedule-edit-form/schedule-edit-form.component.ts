@@ -18,6 +18,8 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
     private unsubscribe = new Subject();
 
     public copyDisabled = false;
+    public publishDisabled = false;
+    public deleteDisabled = false;
 
     public scheduleForm!: FormGroup;
 
@@ -49,10 +51,14 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             id: [schedule.id],
             year: [schedule.year, [Validators.required, Validators.min(currentYear), Validators.max(currentYear + 1)]],
             semester: [schedule.semester, [Validators.required, CustomValidators.isInEnumValidator(Semester)]],
-            version: [schedule.version]
+            version: [{
+                value: schedule.version,
+                disabled: true
+            }]
         });
 
-        this.scheduleForm.controls['version'].disable();
+        this.publishDisabled = this.schedule.isPublished;
+        this.deleteDisabled = this.schedule.isPublished;
     }
 
     public ngOnDestroy(): void {
@@ -78,6 +84,15 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             });
     }
 
+    public onPublish(): void {
+        this.scheduleService.publishSchedule(this.schedule.id)
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe(r => {
+                this.publishDisabled = r.isPublished;
+                this.deleteDisabled = r.isPublished;
+            });
+    }
+
     public onCopy(): void {
         this.copyDisabled = true;
 
@@ -97,13 +112,5 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
         this.scheduleService.deleteSchedule(this.schedule.id)
             .pipe(takeUntil(this.unsubscribe))
             .subscribe(() => this.router.navigate(['/schedule/list']));
-    }
-
-    public get publishDisabled(): boolean {
-        return this.schedule.isPublished;
-    }
-
-    public get deleteDisabled(): boolean {
-        return this.schedule.isPublished;
     }
 }
