@@ -3,19 +3,46 @@
 @use '~styles/breakpoints';
 
 .class-form {
-    @include mixins.form-vertical;
+    display: flex;
+    flex-direction: column;
+
+    &__input-group {
+        display: flex;
+        flex-direction: column;
+
+        & > * {
+            width: 100%;
+        }
+
+        @include breakpoints.sm {
+            flex-direction: row;
+            column-gap: 1rem;
+        }
+    }
 
     &__header {
         @include mixins.header;
     }
 
     &__buttons {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+
         & > * {
+            width: 100%;
             flex-grow: 1;
+            margin-left: 0;
         }
 
-        margin: 0 auto;
-        max-width: breakpoints.$sm_width * 1px;
+        @include breakpoints.sm {
+            flex-direction: row;
+            column-gap: 1rem;
+
+            & > * {
+                width: auto;
+            }
+        }
     }
 }
 

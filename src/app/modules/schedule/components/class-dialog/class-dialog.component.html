@@ -10,31 +10,76 @@
         [formGroup]="classForm"
     >
 
-        <mat-form-field appearance="fill">
-            <mat-label>Education format</mat-label>
-            <mat-select formControlName="format">
-                <mat-option
-                    *ngFor="let format of educationFormats"
-                    [value]="format"
-                >
-                    {{ format }}
-                </mat-option>
-            </mat-select>
-            <mat-error>{{ errors['format'] }}</mat-error>
-        </mat-form-field>
+        <div class="class-form__input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Education format</mat-label>
+                <mat-select formControlName="format">
+                    <mat-option
+                        *ngFor="let format of educationFormats"
+                        [value]="format"
+                    >
+                        {{ format }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['format'] }}</mat-error>
+            </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Class type</mat-label>
-            <mat-select formControlName="type">
-                <mat-option
-                    *ngFor="let type of classTypes"
-                    [value]="type"
-                >
-                    {{ type }}
-                </mat-option>
-            </mat-select>
-            <mat-error>{{ errors['type'] }}</mat-error>
-        </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Class type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option
+                        *ngFor="let type of classTypes"
+                        [value]="type"
+                    >
+                        {{ type }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['type'] }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="class-form__input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Weekday</mat-label>
+                <mat-select formControlName="weekDay">
+                    <mat-option
+                        *ngFor="let weekDay of weekdays"
+                        [value]="weekDay"
+                    >
+                        {{ weekDay }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['weekDay'] }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Week type</mat-label>
+                <mat-select formControlName="weekType">
+                    <mat-option [value]="null">None</mat-option>
+                    <mat-option
+                        *ngFor="let weekType of weekTypes"
+                        [value]="weekType"
+                    >
+                        {{ weekType }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['weekType'] }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="class-form__input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Start Time</mat-label>
+                <input matInput formControlName="startTime" type="time">
+                <mat-error>{{ errors['startTime'] }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>End Time</mat-label>
+                <input matInput formControlName="endTime" type="time">
+                <mat-error>{{ errors['endTime'] }}</mat-error>
+            </mat-form-field>
+        </div>
 
         <mat-form-field appearance="fill">
             <mat-label>Course</mat-label>
@@ -47,45 +92,6 @@
                 </mat-option>
             </mat-select>
             <mat-error>{{ errors['courseId'] }}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Weekday</mat-label>
-            <mat-select formControlName="weekDay">
-                <mat-option
-                    *ngFor="let weekDay of weekdays"
-                    [value]="weekDay"
-                >
-                    {{ weekDay }}
-                </mat-option>
-            </mat-select>
-            <mat-error>{{ errors['weekDay'] }}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Week type</mat-label>
-            <mat-select formControlName="weekType">
-                <mat-option [value]="null">None</mat-option>
-                <mat-option
-                    *ngFor="let weekType of weekTypes"
-                    [value]="weekType"
-                >
-                    {{ weekType }}
-                </mat-option>
-            </mat-select>
-            <mat-error>{{ errors['weekType'] }}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Start Time</mat-label>
-            <input matInput formControlName="startTime" type="time">
-            <mat-error>{{ errors['startTime'] }}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>End Time</mat-label>
-            <input matInput formControlName="endTime" type="time">
-            <mat-error>{{ errors['endTime'] }}</mat-error>
         </mat-form-field>
 
         <app-select-list
