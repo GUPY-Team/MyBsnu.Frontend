@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-    ScheduleViewComponent,
+    GroupScheduleViewComponent,
     ScheduleBodyComponent,
     ScheduleItemComponent,
     ScheduleCurrentDateComponent,
@@ -11,6 +11,7 @@ import {
     ScheduleEditViewComponent,
     ScheduleEditFormComponent,
     ClassDialogComponent,
+    TeacherScheduleViewComponent
 } from './components';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { MaterialModule } from 'app/modules/material/material.module';
@@ -19,7 +20,7 @@ import { SelectListComponent } from './shared';
 
 @NgModule({
     declarations: [
-        ScheduleViewComponent,
+        GroupScheduleViewComponent,
         ScheduleBodyComponent,
         ScheduleItemComponent,
         ScheduleCurrentDateComponent,
@@ -29,6 +30,7 @@ import { SelectListComponent } from './shared';
         ScheduleEditFormComponent,
         ClassDialogComponent,
         SelectListComponent,
+        TeacherScheduleViewComponent,
     ],
     imports: [
         CommonModule,

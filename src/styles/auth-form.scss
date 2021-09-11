@@ -2,7 +2,7 @@
 @use "~styles/colors";
 
 .auth-form__header {
-    @include mixins.header;
+    @include mixins.form-header;
 }
 
 .auth-form__form {
@@ -10,6 +10,7 @@
 }
 
 .auth-form__footer {
+    margin-top: 0.5rem;
     text-align: center;
 }
 

@@ -3,13 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import {
     ScheduleEditViewComponent,
     ScheduleListViewComponent,
-    ScheduleViewComponent
+    GroupScheduleViewComponent,
+    TeacherScheduleViewComponent
 } from './components';
 
 const routes: Routes = [
-    { path: '', component: ScheduleViewComponent },
+    { path: 'group-schedule', component: GroupScheduleViewComponent },
+    { path: 'teacher-schedule', component: TeacherScheduleViewComponent },
     { path: 'list', component: ScheduleListViewComponent },
-    { path: 'edit/:id', component: ScheduleEditViewComponent }
+    { path: 'edit/:id', component: ScheduleEditViewComponent },
+    { path: '**', redirectTo: 'group-schedule' }
 ];
 
 @NgModule({

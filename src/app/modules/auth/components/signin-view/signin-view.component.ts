@@ -53,7 +53,7 @@ export class SigninViewComponent implements OnDestroy {
                 takeUntil(this.unsubscribe),
             )
             .subscribe(
-                _ => this.router.navigate(['/schedule']),
+                _ => this.router.navigate(['/group-schedule']),
                 _ => this.submitDisabled = false
             );
     }

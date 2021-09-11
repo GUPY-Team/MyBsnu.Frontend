@@ -1,73 +1,72 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
 import {
     EnumService,
-    GroupService,
-    TeacherService,
 } from 'app/api/services';
-import { ClassType, WeekDay, EducationFormat, Group } from 'app/api/models';
-import { ScheduleFiltersService } from '../../services';
-import { tap } from 'rxjs/operators';
+import { ClassType, EducationFormat, Group, Teacher } from 'app/api/models';
+import { ScheduleFilter, ScheduleFiltersService } from '../../services';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-schedule-filters',
     templateUrl: './schedule-filters.component.html',
     styleUrls: ['./schedule-filters.component.scss']
 })
-export class ScheduleFiltersComponent implements OnInit {
+export class ScheduleFiltersComponent implements OnInit, OnDestroy {
 
-    public groupControl = new FormControl();
-    public educationFormatControl = new FormControl();
-    public classTypeControl = new FormControl();
-    public weekdayControl = new FormControl();
-
-    public groups$: Observable<Group[]> = of([]);
-    public weekdays: WeekDay[] = [];
-    public classTypes: ClassType[] = [];
-    public educationFormats: EducationFormat[] = [];
+    private unsubscribe = new Subject();
 
     public classTypeColorMap = this.enumService.classTypeColorMap;
+    public filtersForm!: FormGroup;
+
+    @Input()
+    public groups: Group[] = [];
+
+    @Input()
+    public teachers: Teacher[] = [];
+
+    @Input()
+    public classTypes: ClassType[] = [];
+
+    @Input()
+    public educationFormats: EducationFormat[] = [];
+
+    @Input()
+    public set filter(filter: ScheduleFilter | null) {
+        if (filter) {
+            this.filtersForm.patchValue(filter);
+        }
+    }
 
     constructor(
-        private groupService: GroupService,
-        private teacherService: TeacherService,
         private enumService: EnumService,
         private filtersService: ScheduleFiltersService,
+        private formBuilder: FormBuilder
     ) {
     }
 
     public ngOnInit(): void {
-        this.fetchData();
-    }
+        this.filtersForm = this.formBuilder.group({
+            group: [null],
+            teacher: [null],
+            classType: [null],
+            classFormat: [null]
+        });
 
-    public groupSelected(): void {
-        this.filtersService.setGroupFilter(this.groupControl.value);
-    }
-
-    public educationFormatSelected(): void {
-        this.filtersService.setEducationFormatFilter(this.educationFormatControl.value);
-    }
-
-    public weekdaySelected(): void {
-        this.filtersService.setWeekdayFilter(this.weekdayControl.value);
-    }
-
-    public classTypeSelected(): void {
-        this.filtersService.setClassTypeFilter(this.classTypeControl.value);
-    }
-
-    private fetchData(): void {
-        this.groups$ = this.groupService.getGroups()
+        this.filtersForm.valueChanges
             .pipe(
-                tap(groups => {
-                    this.groupControl.setValue(groups[0]);
-                    this.filtersService.setGroupFilter(groups[0]);
-                })
-            );
+                takeUntil(this.unsubscribe)
+            )
+            .subscribe(value => this.filtersService.setFilter(value));
+    }
 
-        this.weekdays = this.enumService.getStudyDays();
-        this.classTypes = this.enumService.getClassTypes();
-        this.educationFormats = this.enumService.getEducationFormats();
+    public ngOnDestroy(): void {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
+    }
+
+    public compareEntities(t1: { id: number }, t2: { id: number }): boolean {
+        return t1?.id === t2?.id;
     }
 }

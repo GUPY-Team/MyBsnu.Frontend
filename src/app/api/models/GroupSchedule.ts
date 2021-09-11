@@ -1,10 +1,8 @@
 import { Semester } from './Semester';
-import { Class } from './Class';
-
-export type GroupScheduleClasses = { [key: string]: Class[] };
+import { ScheduleClasses } from './ScheduleClasses';
 
 export interface GroupSchedule {
     semester: Semester;
     year: number;
-    classes: GroupScheduleClasses;
+    classes: ScheduleClasses;
 }

@@ -1,72 +1,67 @@
-<mat-form-field appearance="fill">
-    <mat-label>Group Number</mat-label>
-    <mat-select
-        [formControl]="groupControl"
-        (selectionChange)="groupSelected()"
-    >
-        <mat-option
-            *ngFor="let group of groups$ | async"
-            [value]="group"
+<form class="schedule__filters"
+      [formGroup]="filtersForm"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>Group Number</mat-label>
+        <mat-select
+            formControlName="group"
+            [compareWith]="compareEntities"
         >
-            {{ group.number }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+            <mat-option
+                *ngFor="let group of groups"
+                [value]="group"
+            >
+                {{ group.number }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Class Format</mat-label>
-    <mat-select
-        [formControl]="weekdayControl"
-        (selectionChange)="educationFormatSelected()"
-    >
-        <mat-option [value]="null">
-            None
-        </mat-option>
-        <mat-option
-            *ngFor="let format of educationFormats"
-            [value]="format"
+    <mat-form-field appearance="fill">
+        <mat-label>Teacher</mat-label>
+        <mat-select
+            formControlName="teacher"
+            [compareWith]="compareEntities"
         >
-            {{ format }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+            <mat-option
+                *ngFor="let teacher of teachers"
+                [value]="teacher"
+            >
+                {{ teacher.fullName }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Class Type</mat-label>
-    <mat-select
-        [formControl]="classTypeControl"
-        (selectionChange)="classTypeSelected()"
-    >
-        <mat-select-trigger>
-            {{ classTypeControl.value }}
-        </mat-select-trigger>
-        <mat-option [value]="null">
-            None
-        </mat-option>
-        <mat-option
-            *ngFor="let classType of classTypes"
-            [value]="classType"
-        >
-            <mat-icon [style.color]="classTypeColorMap.get(classType)">brightness_1</mat-icon>
-            {{ classType }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Class Type</mat-label>
+        <mat-select formControlName="classType">
+            <mat-select-trigger>
+                {{ filtersForm.controls['classType'].value }}
+            </mat-select-trigger>
+            <mat-option [value]="null">
+                None
+            </mat-option>
+            <mat-option
+                *ngFor="let classType of classTypes"
+                [value]="classType"
+            >
+                <mat-icon [style.color]="classTypeColorMap.get(classType)">brightness_1</mat-icon>
+                {{ classType }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Weekday</mat-label>
-    <mat-select
-        [formControl]="weekdayControl"
-        (selectionChange)="weekdaySelected()"
-    >
-        <mat-option [value]="null">
-            None
-        </mat-option>
-        <mat-option
-            *ngFor="let weekday of weekdays"
-            [value]="weekday"
-        >
-            {{ weekday }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Class Format</mat-label>
+        <mat-select formControlName="classFormat">
+            <mat-option [value]="null">
+                None
+            </mat-option>
+            <mat-option
+                *ngFor="let format of educationFormats"
+                [value]="format"
+            >
+                {{ format }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

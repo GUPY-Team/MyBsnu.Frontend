@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { GroupService, ScheduleService } from 'app/api/services';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
-import { Group, Schedule, Class, GroupScheduleClasses } from 'app/api/models';
+import { Group, Schedule, Class, ScheduleClasses } from 'app/api/models';
 import { FormControl } from '@angular/forms';
 import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,7 +24,7 @@ export class ScheduleEditViewComponent implements OnDestroy {
 
     public schedule$: Observable<Schedule>;
     public groups$: Observable<Group[]>;
-    public classes$: Observable<GroupScheduleClasses>;
+    public classes$: Observable<ScheduleClasses>;
 
     public groupControl = new FormControl();
 

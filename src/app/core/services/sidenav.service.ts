@@ -18,9 +18,14 @@ export class SidenavService {
 
     public menuLinks: ReadonlyArray<MenuLink> = [
         {
-            path: '/schedule',
-            icon: 'date_range',
-            text: 'Schedule'
+            path: '/schedule/group-schedule',
+            icon: 'groups',
+            text: 'Group schedule'
+        },
+        {
+            path: '/schedule/teacher-schedule',
+            icon: 'school',
+            text: 'Teacher schedule'
         },
         {
             path: '/auth/signin',

@@ -11,3 +11,5 @@ export * from './Schedule';
 export * from './Audience';
 export * from './Time';
 export * from './Course';
+export * from './ScheduleClasses';
+export * from './TeacherSchedule';

@@ -21,7 +21,7 @@
     }
 
     &__header {
-        @include mixins.header;
+        @include mixins.form-header;
     }
 
     &__buttons {
