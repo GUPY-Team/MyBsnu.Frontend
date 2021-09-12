@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
-import { MaterialModule } from 'app/modules/material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SigninViewComponent, SignupViewComponent } from './components';
+import { SharedModule } from 'app/modules/shared/shared.module';
 
 
 @NgModule({
@@ -12,10 +10,8 @@ import { SigninViewComponent, SignupViewComponent } from './components';
         SignupViewComponent,
     ],
     imports: [
-        CommonModule,
         AuthRoutingModule,
-        MaterialModule,
-        ReactiveFormsModule
+        SharedModule
     ]
 })
 export class AuthModule {

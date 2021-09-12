@@ -25,7 +25,7 @@ import {
 } from 'app/api/services';
 import { Observable, Subject } from 'rxjs';
 import { getErrorMessages } from 'app/core';
-import { FormMode } from 'app/core/models/formMode';
+import { FormMode } from 'app/core/models/FormMode';
 import { CourseService } from 'app/api/services/course.service';
 import { CreateClassCommand, UpdateClassCommand } from 'app/api/commands';
 import { shareReplay, takeUntil } from 'rxjs/operators';
@@ -64,7 +64,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
     }
 
     public get formTitle() {
-        return this.formMode === FormMode.Create ? `Create class` : `Edit class`;
+        return this.formMode === FormMode.Create ? `CLASS.FORM.CREATE_TITLE` : `CLASS.FORM.EDIT_TITLE`;
     }
 
     constructor(

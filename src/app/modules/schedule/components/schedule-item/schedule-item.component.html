@@ -13,7 +13,7 @@
         row;
         context: {
             icon: item.format === format.Online ? 'public' : 'domain',
-            text: item.format,
+            text: 'EDUCATION_FORMAT.' + item.format | uppercase | translate,
             iconClass: 'icon--blue'
         }"
     ></ng-container>
@@ -34,7 +34,7 @@
         row;
         context: {
             icon: 'date_range',
-            text: item.weekType,
+            text: 'WEEK_TYPE.' + item.weekType | uppercase | translate,
             iconClass: 'icon--gray'
         }"
         ></ng-container>

@@ -1,4 +1,4 @@
-<h3 class="auth-form__header">Sign in</h3>
+<h3 class="auth-form__header">{{ 'AUTH.SIGNIN_TITLE' | translate }}</h3>
 
 <form
     class="auth-form__form"
@@ -6,20 +6,20 @@
     (ngSubmit)="onSubmit()"
 >
     <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
+        <mat-label>{{ 'AUTH.EMAIL' | translate }}</mat-label>
         <input matInput
                formControlName="email"
-               placeholder="Your email"
+               [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
         >
         <mat-error>{{ errors['email'] }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
+        <mat-label>{{ 'AUTH.PASS' | translate }}</mat-label>
         <input matInput
                formControlName="password"
                type="password"
-               placeholder="Your password"
+               [placeholder]="'AUTH.PASS_PLACEHOLDER' | translate"
         >
         <mat-error>{{ errors['password'] }}</mat-error>
     </mat-form-field>
@@ -29,15 +29,15 @@
         color="primary"
         [disabled]="submitDisabled"
     >
-        Sign in
+        {{ 'AUTH.SIGNIN' | translate }}
     </button>
 
 </form>
 
 <div class="auth-form__footer">
     <p>
-        Don't have an account?
-        <a class="auth-form__link" routerLink="/auth/signup">Sign up</a>
+        {{ 'AUTH.NO_ACCOUNT' | translate }}
+        <a class="auth-form__link" routerLink="/auth/signup">{{ 'AUTH.SIGNUP' | translate }}</a>
     </p>
 </div>
 

@@ -2,7 +2,7 @@
       [formGroup]="filtersForm"
 >
     <mat-form-field appearance="fill">
-        <mat-label>Group Number</mat-label>
+        <mat-label>{{ 'FILTERS.GROUP_NUMBER' | translate }}</mat-label>
         <mat-select
             formControlName="group"
             [compareWith]="compareEntities"
@@ -17,7 +17,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Teacher</mat-label>
+        <mat-label>{{ 'FILTERS.TEACHER' | translate }}</mat-label>
         <mat-select
             formControlName="teacher"
             [compareWith]="compareEntities"
@@ -32,10 +32,10 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Class Type</mat-label>
+        <mat-label>{{ 'FILTERS.CLASS_TYPE' | translate }}</mat-label>
         <mat-select formControlName="classType">
             <mat-select-trigger>
-                {{ filtersForm.controls['classType'].value }}
+                {{ 'CLASS_TYPE.' + filtersForm.controls['classType'].value | uppercase | translate}}
             </mat-select-trigger>
             <mat-option [value]="null">
                 None
@@ -45,13 +45,13 @@
                 [value]="classType"
             >
                 <mat-icon [style.color]="classTypeColorMap.get(classType)">brightness_1</mat-icon>
-                {{ classType }}
+                {{ 'CLASS_TYPE.' + classType | uppercase | translate }}
             </mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Class Format</mat-label>
+        <mat-label>{{ 'FILTERS.CLASS_FORMAT' | translate }}</mat-label>
         <mat-select formControlName="classFormat">
             <mat-option [value]="null">
                 None
@@ -60,7 +60,7 @@
                 *ngFor="let format of educationFormats"
                 [value]="format"
             >
-                {{ format }}
+                {{ 'EDUCATION_FORMAT.' + format | uppercase | translate }}
             </mat-option>
         </mat-select>
     </mat-form-field>

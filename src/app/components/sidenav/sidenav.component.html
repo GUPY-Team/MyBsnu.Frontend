@@ -1,5 +1,5 @@
 <div class="sidenav-header">
-    <h1>MyBSNU</h1>
+    <h1>{{ 'SIDENAV.TITLE' | translate }}</h1>
     <button
         mat-icon-button
         (click)="sidenavService.closeSidenav()"
@@ -16,7 +16,7 @@
     >
         <div class="sidenav-link__content">
             <mat-icon>{{ link.icon }}</mat-icon>
-            <span>{{ link.text }}</span>
+            <span>{{ 'SIDENAV.LINKS.' + link.text | translate }}</span>
         </div>
     </mat-list-item>
 </mat-nav-list>

@@ -1,4 +1,4 @@
-<h3 class="auth-form__header">Sign up</h3>
+<h3 class="auth-form__header">{{ 'AUTH.SIGNUP_TITLE' | translate }}</h3>
 
 <form
     class="auth-form__form"
@@ -6,39 +6,39 @@
     (ngSubmit)="onSubmit()"
 >
     <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
+        <mat-label>{{ 'AUTH.EMAIL' | translate }}</mat-label>
         <input matInput
                formControlName="email"
-               placeholder="Your email"
+               [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
         >
         <mat-error>{{ errors['email'] }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
+        <mat-label>{{ 'AUTH.USERNAME' | translate }}</mat-label>
         <input matInput
                formControlName="username"
-               placeholder="Username"
+               [placeholder]="'AUTH.USERNAME_PLACEHOLDER' | translate"
         >
         <mat-error>{{ errors['username'] }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
+        <mat-label>{{ 'AUTH.PASS' | translate }}</mat-label>
         <input matInput
                formControlName="password"
                type="password"
-               placeholder="Your password"
+               [placeholder]="'AUTH.PASS_PLACEHOLDER' | translate"
         >
         <mat-error>{{ errors['password'] }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Confirm password</mat-label>
+        <mat-label>{{ 'AUTH.PASS_CONFIRM' | translate}}</mat-label>
         <input matInput
                formControlName="passwordConfirm"
                type="password"
-               placeholder="Confirm password"
+               [placeholder]="'AUTH.PASS_CONFIRM_PLACEHOLDER' | translate"
         >
         <mat-error>{{ errors['passwordConfirm'] }}</mat-error>
     </mat-form-field>
@@ -48,13 +48,13 @@
         color="primary"
         [disabled]="submitDisabled"
     >
-        Sign up
+        {{ 'AUTH.SIGNUP' | translate }}
     </button>
 </form>
 
 <div class="auth-form__footer">
     <p>
-        Already have an account?
-        <a class="auth-form__link" routerLink="/auth/signin">Sign in</a>
+        {{ 'AUTH.HAVE_ACCOUNT' | translate }}
+        <a class="auth-form__link" routerLink="/auth/signin">{{ 'AUTH.SIGNIN' | translate }}</a>
     </p>
 </div>

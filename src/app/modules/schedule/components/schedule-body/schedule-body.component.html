@@ -2,7 +2,7 @@
     <ng-container *ngFor="let column of columns | async">
         <div class="schedule-body__column">
             <div class="column__weekday">
-                {{ column.day }}
+                {{ 'WEEKDAY.' + column.day | uppercase | translate }}
             </div>
             <div
                 class="column__card"

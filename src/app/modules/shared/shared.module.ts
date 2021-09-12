@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoaderComponent } from './components';
 import { MaterialModule } from 'app/modules/material/material.module';
+import { ConfirmDialogComponent } from './components';
+import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     declarations: [
-        LoaderComponent
+        ConfirmDialogComponent
     ],
     exports: [
-        LoaderComponent
+        TranslateModule,
+        MaterialModule,
+        ReactiveFormsModule,
+        ConfirmDialogComponent,
     ],
     imports: [
         CommonModule,
-        MaterialModule
+        TranslateModule,
+        MaterialModule,
+        ReactiveFormsModule,
     ]
 })
 export class SharedModule {

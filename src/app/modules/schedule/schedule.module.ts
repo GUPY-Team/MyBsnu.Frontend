@@ -38,7 +38,7 @@ import { SelectListComponent } from './shared';
         FormsModule,
         MaterialModule,
         ReactiveFormsModule,
-        SharedModule,
+        SharedModule
     ]
 })
 export class ScheduleModule {

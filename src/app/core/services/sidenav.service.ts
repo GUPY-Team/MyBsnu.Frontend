@@ -20,22 +20,22 @@ export class SidenavService {
         {
             path: '/schedule/group-schedule',
             icon: 'groups',
-            text: 'Group schedule'
+            text: 'GROUP_SCHEDULE'
         },
         {
             path: '/schedule/teacher-schedule',
             icon: 'school',
-            text: 'Teacher schedule'
+            text: 'TEACHER_SCHEDULE'
         },
         {
             path: '/auth/signin',
             icon: 'account_circle',
-            text: 'Account'
+            text: 'ACCOUNT'
         },
         {
             path: '/schedule/list',
             icon: 'edit_calendar',
-            text: 'Schedule designer'
+            text: 'SCHEDULE_DESIGNER'
         }
     ];
 

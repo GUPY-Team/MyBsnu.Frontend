@@ -1,5 +1,5 @@
 <div class="schedule-edit-form__actions">
-    <div matTooltip="Nothing to save" [matTooltipDisabled]="!saveDisabled">
+    <div [matTooltip]="'SCHEDULE_FORM.SAVE_DISABLED' | translate" [matTooltipDisabled]="!saveDisabled">
         <button
             mat-raised-button
             color="primary"
@@ -8,11 +8,11 @@
             (click)="onSave()"
         >
             <mat-icon>save</mat-icon>
-            Save
+            {{ 'COMMON.SAVE' | translate }}
         </button>
     </div>
 
-    <div matTooltip="Schedule is already published" [matTooltipDisabled]="!publishDisabled">
+    <div [matTooltip]="'SCHEDULE_FORM.PUBLISHED' | translate" [matTooltipDisabled]="!publishDisabled">
         <button
             mat-raised-button
             class="btn--green w-full"
@@ -20,7 +20,7 @@
             (click)="onPublish()"
         >
             <mat-icon>publish</mat-icon>
-            Publish
+            {{ 'COMMON.PUBLISH' | translate }}
         </button>
     </div>
 
@@ -31,10 +31,10 @@
         (click)="onCopy()"
     >
         <mat-icon>content_copy</mat-icon>
-        Copy
+        {{ 'COMMON.COPY' | translate }}
     </button>
 
-    <div matTooltip="Can't delete published schedule" [matTooltipDisabled]="!deleteDisabled">
+    <div [matTooltip]="'SCHEDULE_FORM.DELETE_DISABLED' | translate" [matTooltipDisabled]="!deleteDisabled">
         <button
             mat-raised-button
             color="warn"
@@ -43,7 +43,7 @@
             (click)="onDelete()"
         >
             <mat-icon>delete</mat-icon>
-            Delete
+            {{ 'COMMON.DELETE' | translate }}
         </button>
     </div>
 </div>
@@ -53,26 +53,26 @@
     [formGroup]="scheduleForm"
 >
     <mat-form-field appearance="fill">
-        <mat-label>Year</mat-label>
+        <mat-label>{{ 'COMMON.YEAR' | translate }}</mat-label>
         <input matInput formControlName="year">
         <mat-error>{{ errors['year'] }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Semester</mat-label>
+        <mat-label>{{ 'COMMON.SEMESTER' | translate }}</mat-label>
         <mat-select formControlName="semester">
             <mat-option
                 *ngFor="let semester of semesters"
                 [value]="semester"
             >
-                {{ semester }}
+                {{ 'SEMESTER.' + semester | uppercase | translate }}
             </mat-option>
         </mat-select>
         <mat-error>{{ errors['semester'] }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Version</mat-label>
+        <mat-label>{{ 'COMMON.VERSION' | translate }}</mat-label>
         <input matInput formControlName="version">
     </mat-form-field>
 </form>

@@ -2,7 +2,7 @@
     class="class-form__header"
     mat-dialog-title
 >
-    {{ formTitle }}
+    {{ formTitle | translate }}
 </h3>
 <mat-dialog-content>
     <form
@@ -12,26 +12,26 @@
 
         <div class="class-form__input-group">
             <mat-form-field appearance="fill">
-                <mat-label>Education format</mat-label>
+                <mat-label>{{ 'CLASS.FORM.EDUCATION_FORMAT' | translate }}</mat-label>
                 <mat-select formControlName="format">
                     <mat-option
                         *ngFor="let format of educationFormats"
                         [value]="format"
                     >
-                        {{ format }}
+                        {{ 'EDUCATION_FORMAT.' + format | uppercase | translate }}
                     </mat-option>
                 </mat-select>
                 <mat-error>{{ errors['format'] }}</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>Class type</mat-label>
+                <mat-label>{{ 'CLASS.FORM.CLASS_TYPE' | translate }}</mat-label>
                 <mat-select formControlName="type">
                     <mat-option
                         *ngFor="let type of classTypes"
                         [value]="type"
                     >
-                        {{ type }}
+                        {{ 'CLASS_TYPE.' + type | uppercase | translate }}
                     </mat-option>
                 </mat-select>
                 <mat-error>{{ errors['type'] }}</mat-error>
@@ -40,27 +40,27 @@
 
         <div class="class-form__input-group">
             <mat-form-field appearance="fill">
-                <mat-label>Weekday</mat-label>
+                <mat-label>{{ 'CLASS.FORM.WEEKDAY' | translate }}</mat-label>
                 <mat-select formControlName="weekDay">
                     <mat-option
                         *ngFor="let weekDay of weekdays"
                         [value]="weekDay"
                     >
-                        {{ weekDay }}
+                        {{ 'WEEKDAY.' + weekDay | uppercase | translate }}
                     </mat-option>
                 </mat-select>
                 <mat-error>{{ errors['weekDay'] }}</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>Week type</mat-label>
+                <mat-label>{{ 'CLASS.FORM.WEEK_TYPE' | translate }}</mat-label>
                 <mat-select formControlName="weekType">
-                    <mat-option [value]="null">None</mat-option>
+                    <mat-option [value]="null">{{ 'COMMON.NONE' | translate }}</mat-option>
                     <mat-option
                         *ngFor="let weekType of weekTypes"
                         [value]="weekType"
                     >
-                        {{ weekType }}
+                        {{ 'WEEK_TYPE.' + weekType | uppercase | translate }}
                     </mat-option>
                 </mat-select>
                 <mat-error>{{ errors['weekType'] }}</mat-error>
@@ -69,20 +69,20 @@
 
         <div class="class-form__input-group">
             <mat-form-field appearance="fill">
-                <mat-label>Start Time</mat-label>
+                <mat-label>{{ 'CLASS.FORM.START_TIME' | translate }}</mat-label>
                 <input matInput formControlName="startTime" type="time">
                 <mat-error>{{ errors['startTime'] }}</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>End Time</mat-label>
+                <mat-label>{{ 'CLASS.FORM.END_TIME' | translate }}</mat-label>
                 <input matInput formControlName="endTime" type="time">
                 <mat-error>{{ errors['endTime'] }}</mat-error>
             </mat-form-field>
         </div>
 
         <mat-form-field appearance="fill">
-            <mat-label>Course</mat-label>
+            <mat-label>{{ 'CLASS.FORM.COURSE' | translate }}</mat-label>
             <mat-select formControlName="courseId">
                 <mat-option
                     *ngFor="let course of courses$ | async"
@@ -96,7 +96,7 @@
 
         <app-select-list
             formControlName="teachers"
-            title="Teachers"
+            [title]="'CLASS.FORM.TEACHER' | translate"
             [items]="teachers$"
             [filter]="filterTeachers"
             [displayWith]="displayTeacher"
@@ -105,7 +105,7 @@
 
         <app-select-list
             formControlName="audiences"
-            title="Audiences"
+            [title]="'CLASS.FORM.AUDIENCE' | translate"
             [items]="audiences$"
             [filter]="filterAudiences"
             [displayWith]="displayAudience"
@@ -114,7 +114,7 @@
 
         <app-select-list
             formControlName="groups"
-            title="Groups"
+            [title]="'CLASS.FORM.GROUP' | translate"
             [items]="groups$"
             [filter]="filterGroups"
             [displayWith]="displayGroup"
@@ -132,7 +132,7 @@
             (click)="submit()"
         >
             <mat-icon>add</mat-icon>
-            Create
+            {{ 'COMMON.CREATE' | translate }}
         </button>
     </ng-template>
 
@@ -144,7 +144,7 @@
             (click)="submit()"
         >
             <mat-icon>save</mat-icon>
-            Save
+            {{ 'COMMON.SAVE' | translate }}
         </button>
 
         <button
@@ -153,7 +153,7 @@
             (click)="delete()"
         >
             <mat-icon>delete</mat-icon>
-            Delete
+            {{ 'COMMON.DELETE' | translate }}
         </button>
     </ng-template>
 </mat-dialog-actions>

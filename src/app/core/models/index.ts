@@ -1,3 +1,3 @@
-export * from './breakpoints';
+export * from './Breakpoints';
 export * from './customValidators';
-export * from './formMode';
+export * from './FormMode';

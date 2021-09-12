@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SidenavService } from 'app/core';
+import { EnvironmentService, SidenavService } from 'app/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -9,7 +10,11 @@ import { SidenavService } from 'app/core';
 export class AppComponent {
 
     constructor(
-        public sidenavService: SidenavService
+        public sidenavService: SidenavService,
+        private translateService: TranslateService,
+        private environmentService: EnvironmentService
     ) {
+        const locale = environmentService.getValue<string>('defaultLocale', 'ua');
+        this.translateService.use(locale);
     }
 }

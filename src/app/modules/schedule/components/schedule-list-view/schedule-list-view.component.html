@@ -1,25 +1,25 @@
-<h1 class="list__header">Schedule List</h1>
+<h1 class="list__header">{{ 'SCHEDULE_LIST.TITLE' | translate }}</h1>
 
 <div class="mat-elevation-z2">
     <mat-table class="schedule__list" [dataSource]="scheduleList"
     >
         <ng-container matColumnDef="semester">
-            <mat-header-cell *matHeaderCellDef>Semester</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{ 'COMMON.SEMESTER' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let element">{{ element.semester }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="year">
-            <mat-header-cell *matHeaderCellDef>Year</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{ 'COMMON.YEAR' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let element">{{ element.year }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="version">
-            <mat-header-cell *matHeaderCellDef>Version</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{ 'COMMON.VERSION' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let element">{{ element.version }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="isPublished">
-            <mat-header-cell *matHeaderCellDef>Active</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{ 'COMMON.ACTIVE' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let element">
                 <ng-template
                     [ngIf]="element.isPublished"

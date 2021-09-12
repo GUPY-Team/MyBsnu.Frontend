@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { getErrorMessages } from 'app/core/models/customValidators';
+import { getErrorMessages } from 'app/core';
 
 @Component({
     selector: 'app-login-view',

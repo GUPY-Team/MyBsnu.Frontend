@@ -5,9 +5,11 @@
     >
         <mat-icon>menu</mat-icon>
     </button>
-    <span>MyBSNU</span>
+    <span>{{ 'APP.TITLE' | translate }}</span>
 
     <span class="spacer"></span>
+
+    <app-settings-menu></app-settings-menu>
 
     <button
         *ngIf="userService.currentUser else login"
