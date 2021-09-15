@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { ClassType, EducationFormat, Group, ScheduleClasses, Teacher } from 'app/api/models';
 import { EnumService, GroupService, ScheduleService, TeacherService } from 'app/api/services';
 import { ScheduleFilter, ScheduleFiltersService } from 'app/modules/schedule/services';
-import { filter, map, share, switchMap, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, share, switchMap, tap } from 'rxjs/operators';
 import { distinctBy } from 'app/core';
 
 @Component({
@@ -28,15 +28,22 @@ export class TeacherScheduleViewComponent implements OnDestroy {
         private teacherService: TeacherService,
         private enumService: EnumService
     ) {
-        this.classes$ = this.filtersService.filter$
+        const classes = this.filtersService.filter$
             .pipe(
-                filter(filter => filter.teacher != null),
-                switchMap(filter => this.scheduleService.getLatestTeacherSchedule(filter.teacher!.id)),
+                map(filter => filter.teacher),
+                filter(teacher => teacher != null),
+                distinctUntilChanged((a, b) => a?.id === b?.id),
+                switchMap(teacher => this.scheduleService.getLatestTeacherSchedule(teacher!.id)),
                 map(schedule => schedule.classes),
                 share(),
             );
 
-        this.groups$ = this.classes$.pipe(
+        this.classes$ = combineLatest([classes, this.filtersService.filter$])
+            .pipe(
+                map(([classes, filter]) => this.filtersService.applyFilter(classes, filter))
+            );
+
+        this.groups$ = classes.pipe(
             map(TeacherScheduleViewComponent.getGroups)
         );
 

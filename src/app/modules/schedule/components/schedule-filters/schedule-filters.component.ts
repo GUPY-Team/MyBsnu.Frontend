@@ -34,6 +34,7 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
 
     @Input()
     public set filter(filter: ScheduleFilter | null) {
+        console.log(filter);
         if (filter) {
             this.filtersForm.patchValue(filter);
         }

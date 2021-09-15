@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
-import { filter, map, share, switchMap, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, share, switchMap, tap } from 'rxjs/operators';
 import { ScheduleFilter, ScheduleFiltersService } from 'app/modules/schedule/services';
 import { EnumService, GroupService, ScheduleService, TeacherService } from 'app/api/services';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { ClassType, EducationFormat, Group, ScheduleClasses, Teacher } from 'app/api/models';
 import { distinctBy } from 'app/core';
 
@@ -28,22 +28,29 @@ export class GroupScheduleViewComponent implements OnDestroy {
         private teacherService: TeacherService,
         private enumService: EnumService
     ) {
-        this.classes$ = this.filtersService.filter$
+        const classes = this.filtersService.filter$
             .pipe(
-                filter(filter => filter.group != null),
-                switchMap(filter => this.scheduleService.getLatestGroupSchedule(filter.group!.id)),
+                map(filter => filter.group),
+                filter(group => group != null),
+                distinctUntilChanged((a, b) => a?.id === b?.id),
+                switchMap(group => this.scheduleService.getLatestGroupSchedule(group!.id)),
                 map(schedule => schedule.classes),
                 share(),
             );
+
+        this.classes$ = combineLatest([classes, this.filtersService.filter$])
+            .pipe(
+                map(([classes, filter]) => this.filtersService.applyFilter(classes, filter))
+            );
+
+        this.teachers$ = classes.pipe(
+            map(GroupScheduleViewComponent.getTeachers),
+        );
 
         this.groups$ = this.groupService.getGroups()
             .pipe(
                 tap(groups => this.filter = { group: groups[0] })
             );
-
-        this.teachers$ = this.classes$.pipe(
-            map(GroupScheduleViewComponent.getTeachers),
-        );
 
         this.classTypes = this.enumService.getClassTypes();
         this.formats = this.enumService.getEducationFormats();

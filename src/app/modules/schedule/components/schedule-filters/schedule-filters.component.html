@@ -7,6 +7,9 @@
             formControlName="group"
             [compareWith]="compareEntities"
         >
+            <mat-option [value]="null">
+                None
+            </mat-option>
             <mat-option
                 *ngFor="let group of groups"
                 [value]="group"
@@ -22,6 +25,9 @@
             formControlName="teacher"
             [compareWith]="compareEntities"
         >
+            <mat-option [value]="null">
+                None
+            </mat-option>
             <mat-option
                 *ngFor="let teacher of teachers"
                 [value]="teacher"
