@@ -86,6 +86,8 @@ export class SelectListComponent implements ControlValueAccessor {
         this.markAsTouched();
         if (!this.disabled) {
             this.selectedItems = this.selectedItems.filter(i => i.id !== item.id);
+            this.autocompleteControl.enable(); // trigger value changes to display autocomplete list correctly
+
             this.onChange(this.selectedItems);
         }
     }
