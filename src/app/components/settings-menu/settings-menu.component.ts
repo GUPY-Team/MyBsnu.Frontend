@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { EnvironmentService, LocalizationService } from 'app/core';
 
 interface Language {
     name: string;
@@ -11,16 +12,25 @@ interface Language {
     templateUrl: './settings-menu.component.html',
     styleUrls: ['./settings-menu.component.scss']
 })
-export class SettingsMenuComponent {
+export class SettingsMenuComponent implements OnInit {
 
-    public languages: Language[] = [
-        { name: 'LANGUAGE.UKRAINIAN', code: 'ua' },
-        { name: 'LANGUAGE.ENGLISH', code: 'en' },
-        { name: 'LANGUAGE.RUSSIAN', code: 'ru' },
-    ];
+    public languages: Language[] = [];
 
     constructor(
-        public translateService: TranslateService
+        public translateService: TranslateService,
+        private localizationService: LocalizationService,
+        private environmentService: EnvironmentService
     ) {
+    }
+
+    public ngOnInit(): void {
+        this.languages =
+            this.environmentService.getValue<string[]>('locales', [])
+                .map(code => ({ name: 'LANGUAGE.' + code.toUpperCase(), code }));
+    }
+
+    public onLanguageSelect(code: string) {
+        this.translateService.use(code);
+        this.localizationService.setSavedLang(code);
     }
 }

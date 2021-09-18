@@ -12,7 +12,7 @@
     <button mat-menu-item
             *ngFor="let lang of languages"
             [disabled]="lang.code === translateService.currentLang"
-            (click)="translateService.use(lang.code)"
+            (click)="onLanguageSelect(lang.code)"
     >
         {{ lang.name | translate }}
     </button>

@@ -8,12 +8,14 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
     constructor(
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        private translateService: TranslateService
     ) {
     }
 
@@ -25,12 +27,12 @@ export class ErrorInterceptor implements HttpInterceptor {
 
                     const validationErrors = error?.errors;
                     if (validationErrors) {
-                        message = 'Validation error happened:\n';
-                        for (const key in validationErrors) {
+                        message = this.translateService.instant('ERRORS.VALIDATION_ERROR');
+                        for (const key in Object.keys(validationErrors)) {
                             message += `${validationErrors[key].join('\n')}\n`;
                         }
                     } else {
-                        message = error?.message ?? 'Unexpected error happened';
+                        message = error?.message ?? this.translateService.instant('ERRORS.UNEXPECTED_ERROR');
                     }
 
                     this.snackBar.open(message, '', {

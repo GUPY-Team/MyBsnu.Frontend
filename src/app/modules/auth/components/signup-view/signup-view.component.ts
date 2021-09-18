@@ -6,6 +6,7 @@ import { UserService } from 'app/modules/auth/services';
 import { Router } from '@angular/router';
 import { CustomValidators, getErrorMessages } from 'app/core/models/customValidators';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-signup-view',
@@ -48,7 +49,8 @@ export class SignupViewComponent implements OnDestroy {
         private formBuilder: FormBuilder,
         private snackBar: MatSnackBar,
         private userService: UserService,
-        private router: Router
+        private router: Router,
+        private translateService: TranslateService
     ) {
     }
 
@@ -72,7 +74,7 @@ export class SignupViewComponent implements OnDestroy {
             .subscribe(
                 _ => {
                     this.router.navigate(['/auth/signin']);
-                    this.snackBar.open('You have been successfully registered', '', {
+                    this.snackBar.open(this.translateService.instant('SUCCESSFUL_SIGNUP'), '', {
                         panelClass: 'snackbar'
                     });
                 },

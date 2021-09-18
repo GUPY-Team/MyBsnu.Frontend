@@ -16,7 +16,8 @@
         "SIGNUP": "Зареєструватись",
         "SIGNUP_TITLE": "Реєстрація",
         "USERNAME": "Нікнейм",
-        "USERNAME_PLACEHOLDER": "Ваш нікнейм"
+        "USERNAME_PLACEHOLDER": "Ваш нікнейм",
+        "SUCCESSFUL_SIGNUP": "Ви були успішно зареєстровані!"
     },
     "CLASS": {
         "FORM": {
@@ -61,6 +62,10 @@
         "OFFLINE": "Оффлайн",
         "ONLINE": "Онлайн"
     },
+    "ERRORS": {
+        "UNEXPECTED_ERROR": "Сталася несподівана помилка.\nПовідомте адміністратора або спробуйте пізніше.",
+        "VALIDATOR_ERROR": "Помилка валідації:\n"
+    },
     "FILTERS": {
         "CLASS_FORMAT": "Формат заняття",
         "CLASS_TYPE": "Тип заняття",
@@ -71,9 +76,9 @@
         "CAPTION": "Надпис футера"
     },
     "LANGUAGE": {
-        "ENGLISH": "Англійська",
-        "RUSSIAN": "Кацапська",
-        "UKRAINIAN": "Українська"
+        "EN": "Англійська",
+        "RU": "Кацапська",
+        "UA": "Українська"
     },
     "SCHEDULE_FORM": {
         "CONFIRM_COPY": "Скопіювати розклад?",
