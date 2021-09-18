@@ -1,0 +1,132 @@
+{
+    "APP": {
+        "TITLE": "Мой.ЧНУ"
+    },
+    "AUTH": {
+        "EMAIL": "E-mail",
+        "EMAIL_PLACEHOLDER": "Ваш e-mail",
+        "HAVE_ACCOUNT": "Уже есть учетная запись?",
+        "NO_ACCOUNT": "Нету учетной записи?",
+        "PASS": "Пароль",
+        "PASS_CONFIRM": "Подтвердите пароль",
+        "PASS_CONFIRM_PLACEHOLDER": "Введите пароь ещё раз",
+        "PASS_PLACEHOLDER": "Ваш пароль",
+        "SIGNIN": "Войти",
+        "SIGNIN_TITLE": "Логин",
+        "SIGNUP": "Зарегестрироваться",
+        "SIGNUP_TITLE": "Регистрация",
+        "USERNAME": "Никнейм",
+        "USERNAME_PLACEHOLDER": "Ваш никнейм",
+        "SUCCESSFUL_SIGNUP": "Вы были успешно зарегестрированы!"
+    },
+    "CLASS": {
+        "FORM": {
+            "AUDIENCE": "Аудитории",
+            "CLASS_TYPE": "Тип занятия",
+            "COURSE": "Предмет",
+            "CREATE_TITLE": "Добавить пару",
+            "EDIT_TITLE": "Редактировать пару",
+            "CREATE": "Создать пару",
+            "DELETE": "Удалить пару",
+            "EDUCATION_FORMAT": "Формат обучения",
+            "END_TIME": "Конец",
+            "GROUP": "Группы",
+            "START_TIME": "Начало",
+            "TEACHER": "Преподаватели",
+            "WEEKDAY": "День недели",
+            "WEEK_TYPE": "Тип недели"
+        }
+    },
+    "CLASS_TYPE": {
+        "LECTURE": "Лекция",
+        "PRACTICE": "Практика"
+    },
+    "COMMON": {
+        "ACTIVE": "Активное",
+        "COPY": "Копировать",
+        "CREATE": "Создать",
+        "DELETE": "Удалить",
+        "NONE": "Ничего",
+        "PUBLISH": "Опубликовать",
+        "SAVE": "Сохранить",
+        "SEMESTER": "Семестр",
+        "VERSION": "Версия",
+        "YEAR": "Год"
+    },
+    "CONFIRM_DIALOG": {
+        "DEFAULT_CANCEL": "Отменить",
+        "DEFAULT_MESSAGE": "Вы точно хотите это сделать? Результат операции может быть необратим",
+        "DEFAULT_OK": "Ок",
+        "DEFAULT_TITLE": "Подтвердите операцию"
+    },
+    "EDUCATION_FORMAT": {
+        "MIXED": "Смешанная",
+        "OFFLINE": "Оффалйн",
+        "ONLINE": "Онлайн"
+    },
+    "ERRORS": {
+        "UNEXPECTED_ERROR": "Случилась непредвиденная ошибка.\nСообщите администратору или попробуйте позже.",
+        "VALIDATOR_ERROR": "Ошибка валидации:\n"
+    },
+    "FILTERS": {
+        "CLASS_FORMAT": "Формат занятия",
+        "CLASS_TYPE": "Тип занятия",
+        "GROUP_NUMBER": "Номер группы",
+        "TEACHER": "Преподаватель"
+    },
+    "FOOTER": {
+        "CAPTION": "Надпись футера"
+    },
+    "LANGUAGE": {
+        "EN-US": "English",
+        "RU-RU": "Русский",
+        "UK-UA": "Українська"
+    },
+    "SCHEDULE_FORM": {
+        "CONFIRM_COPY": "Скопировать рассписание?",
+        "CONFIRM_COPY_MSG": "Вы точно хотите скопировать рассписание? Это займет некоторое время",
+        "CONFIRM_DELETE": "Удалить рассписание?",
+        "CONFIRM_DELETE_MSG": "Вы точно хотите удалить рассписание? Это действие необратимо",
+        "CONFIRM_PUBLISH": "Опубликовать рассписания?",
+        "CONFIRM_PUBLISH_MSG": "Вы точно хотите опубликовать рассписание? Это сделает это рассписание активным и оно будет отображатся на главной странице",
+        "DELETE_DISABLED": "Нельзя удалить активное рассписание",
+        "PUBLISHED": "Рассписание уже опубликовано",
+        "SAVE_DISABLED": "Нету изменений"
+    },
+    "SCHEDULE_LIST": {
+        "TITLE": "Список рассписаний"
+    },
+    "SCHEDULE_VIEW": {
+        "ADD_CLASS": "Добавить пару",
+        "COPY_SUCCESS": "Рассписание скопировано успешно"
+    },
+    "SEMESTER": {
+        "FIRST": "Первый",
+        "SECOND": "Второй"
+    },
+    "SETTINGS_MENU": {
+        "LOCALE": "Язык"
+    },
+    "SIDENAV": {
+        "LINKS": {
+            "ACCOUNT": "Аккаунт",
+            "GROUP_SCHEDULE": "Рассписание студентов",
+            "SCHEDULE_DESIGNER": "Редактор рассписания",
+            "TEACHER_SCHEDULE": "Рассписание преподавателей"
+        },
+        "TITLE": "Мой.ЧНУ"
+    },
+    "WEEKDAY": {
+        "FRIDAY": "Пятница",
+        "MONDAY": "Понедельник",
+        "SATURDAY": "Суббота",
+        "SUNDAY": "Воскресенье",
+        "THURSDAY": "Четверг",
+        "TUESDAY": "Вторник",
+        "WEDNESDAY": "Среда"
+    },
+    "WEEK_TYPE": {
+        "EVEN": "Неделя Б",
+        "ODD": "Неделя А"
+    }
+}

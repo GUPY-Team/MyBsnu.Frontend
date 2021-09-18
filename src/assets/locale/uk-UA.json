@@ -21,7 +21,7 @@
     },
     "CLASS": {
         "FORM": {
-            "AUDIENCE": "Аудиторія",
+            "AUDIENCE": "Аудиторії",
             "CLASS_TYPE": "Тип заняття",
             "COURSE": "Дисципліна",
             "CREATE_TITLE": "Додати заняття",
@@ -55,7 +55,7 @@
         "DEFAULT_CANCEL": "Відмінити",
         "DEFAULT_MESSAGE": "Ви точно хочете це зробити? Наслідки можуть бути невідворотними.",
         "DEFAULT_OK": "Ок",
-        "DEFAULT_TITLE": "Підтвердити операцію?"
+        "DEFAULT_TITLE": "Підтвердіть операцію"
     },
     "EDUCATION_FORMAT": {
         "MIXED": "Змішаний",
@@ -76,9 +76,9 @@
         "CAPTION": "Надпис футера"
     },
     "LANGUAGE": {
-        "EN": "Англійська",
-        "RU": "Кацапська",
-        "UA": "Українська"
+        "EN-US": "English",
+        "RU-RU": "Кацапська",
+        "UK-UA": "Українська"
     },
     "SCHEDULE_FORM": {
         "CONFIRM_COPY": "Скопіювати розклад?",

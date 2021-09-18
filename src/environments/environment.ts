@@ -5,8 +5,8 @@
 export const environment = {
     production: false,
     apiUrl: 'https://localhost:5001/api',
-    locales: ['ua', 'ru', 'en'],
-    defaultLocale: 'ua',
+    locales: ['uk-UA', 'ru-RU', 'en-US'],
+    defaultLocale: 'uk-UA',
 };
 
 /*

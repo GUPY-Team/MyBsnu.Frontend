@@ -26,14 +26,7 @@ export class AppComponent {
             return;
         }
 
-        const browserLocale = this.translateService.getBrowserLang();
-        const locales = this.environmentService.getValue<string[]>('locales', []);
-        if (locales.includes(browserLocale)) {
-            this.translateService.use(browserLocale);
-            return;
-        }
-
-        const locale = this.environmentService.getValue<string>('defaultLocale', 'ua');
+        const locale = this.environmentService.getValue<string>('defaultLocale', 'uk-UA');
         this.translateService.use(locale);
     }
 }
