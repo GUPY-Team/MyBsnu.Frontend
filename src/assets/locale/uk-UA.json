@@ -15,9 +15,9 @@
         "SIGNIN_TITLE": "Вхід",
         "SIGNUP": "Зареєструватись",
         "SIGNUP_TITLE": "Реєстрація",
+        "SUCCESSFUL_SIGNUP": "Ви були успішно зареєстровані!",
         "USERNAME": "Нікнейм",
-        "USERNAME_PLACEHOLDER": "Ваш нікнейм",
-        "SUCCESSFUL_SIGNUP": "Ви були успішно зареєстровані!"
+        "USERNAME_PLACEHOLDER": "Ваш нікнейм"
     },
     "CLASS": {
         "FORM": {
@@ -64,7 +64,7 @@
     },
     "ERRORS": {
         "UNEXPECTED_ERROR": "Сталася несподівана помилка.\nПовідомте адміністратора або спробуйте пізніше.",
-        "VALIDATOR_ERROR": "Помилка валідації:\n"
+        "VALIDATION_ERROR": "Помилка валідації:\n"
     },
     "FILTERS": {
         "CLASS_FORMAT": "Формат заняття",
@@ -96,6 +96,7 @@
     },
     "SCHEDULE_VIEW": {
         "ADD_CLASS": "Додати заняття",
+        "CHANGE_VIEW": "Переключити перегляд",
         "COPY_SUCCESS": "Розклад було скопійовано"
     },
     "SEMESTER": {

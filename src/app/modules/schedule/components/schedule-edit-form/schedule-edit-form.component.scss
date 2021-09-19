@@ -8,20 +8,13 @@
 .schedule-edit-form__actions {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
 
     margin-bottom: 1rem;
-
-    & > * {
-        margin-bottom: 0.5rem;
-    }
 
     @include breakpoints.sm {
         flex-direction: row;
         justify-content: flex-end;
-        & > * {
-            margin-bottom: 0;
-            margin-left: 1rem;
-        }
     }
 }
 

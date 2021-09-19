@@ -74,7 +74,7 @@ export class SignupViewComponent implements OnDestroy {
             .subscribe(
                 _ => {
                     this.router.navigate(['/auth/signin']);
-                    this.snackBar.open(this.translateService.instant('SUCCESSFUL_SIGNUP'), '', {
+                    this.snackBar.open(this.translateService.instant('AUTH.SUCCESSFUL_SIGNUP'), '', {
                         panelClass: 'snackbar'
                     });
                 },

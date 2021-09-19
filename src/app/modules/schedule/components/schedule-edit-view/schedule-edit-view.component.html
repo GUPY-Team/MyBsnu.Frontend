@@ -4,35 +4,5 @@
         [schedule]="schedule">
     </app-schedule-edit-form>
 
-    <div class="schedule-edit__designer">
-        <mat-form-field appearance="fill">
-            <mat-label>{{ 'FILTERS.GROUP_NUMBER' | translate }}</mat-label>
-            <mat-select [formControl]="groupControl">
-                <mat-option
-                    *ngFor="let group of groups$ | async"
-                    [value]="group"
-                >
-                    {{ group.number }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <div class="designer__actions">
-            <button
-                mat-raised-button
-                color="primary"
-                (click)="onClassCreate(schedule.id)"
-                [disabled]="createDisabled"
-            >
-                <mat-icon>add</mat-icon>
-                {{ 'SCHEDULE_VIEW.ADD_CLASS' | translate }}
-            </button>
-        </div>
-    </div>
-
-    <app-schedule-body
-        [classes]="classes$"
-        [editMode]="true"
-        (classEdit)="onClassEdit($event, schedule.id)"
-    ></app-schedule-body>
+    <app-schedule-designer [schedule]="schedule"></app-schedule-designer>
 </ng-container>

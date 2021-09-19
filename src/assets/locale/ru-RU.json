@@ -15,19 +15,19 @@
         "SIGNIN_TITLE": "Логин",
         "SIGNUP": "Зарегестрироваться",
         "SIGNUP_TITLE": "Регистрация",
+        "SUCCESSFUL_SIGNUP": "Вы были успешно зарегестрированы!",
         "USERNAME": "Никнейм",
-        "USERNAME_PLACEHOLDER": "Ваш никнейм",
-        "SUCCESSFUL_SIGNUP": "Вы были успешно зарегестрированы!"
+        "USERNAME_PLACEHOLDER": "Ваш никнейм"
     },
     "CLASS": {
         "FORM": {
             "AUDIENCE": "Аудитории",
             "CLASS_TYPE": "Тип занятия",
             "COURSE": "Предмет",
-            "CREATE_TITLE": "Добавить пару",
-            "EDIT_TITLE": "Редактировать пару",
             "CREATE": "Создать пару",
+            "CREATE_TITLE": "Добавить пару",
             "DELETE": "Удалить пару",
+            "EDIT_TITLE": "Редактировать пару",
             "EDUCATION_FORMAT": "Формат обучения",
             "END_TIME": "Конец",
             "GROUP": "Группы",
@@ -66,7 +66,7 @@
     },
     "ERRORS": {
         "UNEXPECTED_ERROR": "Случилась непредвиденная ошибка.\nСообщите администратору или попробуйте позже.",
-        "VALIDATOR_ERROR": "Ошибка валидации:\n"
+        "VALIDATION_ERROR": "Ошибка валидации:\n"
     },
     "FILTERS": {
         "CLASS_FORMAT": "Формат занятия",
@@ -98,6 +98,7 @@
     },
     "SCHEDULE_VIEW": {
         "ADD_CLASS": "Добавить пару",
+        "CHANGE_VIEW": "Переключить вид",
         "COPY_SUCCESS": "Рассписание скопировано успешно"
     },
     "SEMESTER": {

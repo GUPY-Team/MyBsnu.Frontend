@@ -15,19 +15,19 @@
         "SIGNIN_TITLE": "Login",
         "SIGNUP": "Signup",
         "SIGNUP_TITLE": "Register",
+        "SUCCESSFUL_SIGNUP": "You've been successfully registered!",
         "USERNAME": "Username",
-        "USERNAME_PLACEHOLDER": "Your username",
-        "SUCCESSFUL_SIGNUP": "You've been successfully registered!"
+        "USERNAME_PLACEHOLDER": "Your username"
     },
     "CLASS": {
         "FORM": {
             "AUDIENCE": "Audiences",
             "CLASS_TYPE": "Class type",
             "COURSE": "Course",
-            "CREATE_TITLE": "Create class",
-            "EDIT_TITLE": "Edit class",
             "CREATE": "Add class",
+            "CREATE_TITLE": "Create class",
             "DELETE": "Delete class",
+            "EDIT_TITLE": "Edit class",
             "EDUCATION_FORMAT": "Education format",
             "END_TIME": "End time",
             "GROUP": "Groups",
@@ -67,7 +67,7 @@
     },
     "ERRORS": {
         "UNEXPECTED_ERROR": "Unexpected error happened.\nNotify administrator or try again later.",
-        "VALIDATOR_ERROR": "Validator error:"
+        "VALIDATION_ERROR": "Validator error:"
     },
     "FILTERS": {
         "CLASS_FORMAT": "Class format",
@@ -99,6 +99,7 @@
     },
     "SCHEDULE_VIEW": {
         "ADD_CLASS": "Add class",
+        "CHANGE_VIEW": "Change view",
         "COPY_SUCCESS": "Schedule copied successfully"
     },
     "SEMESTER": {
