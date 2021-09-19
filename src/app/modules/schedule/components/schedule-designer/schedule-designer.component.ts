@@ -1,14 +1,20 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Class, Group, Schedule, ScheduleClasses } from 'app/api/models';
-import { GroupService, ScheduleService } from 'app/api/services';
+import { Class, Group, Schedule, ScheduleClasses, Teacher } from 'app/api/models';
+import { GroupService, ScheduleService, TeacherService } from 'app/api/services';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
-import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import {
     ClassDialogComponent,
     ClassDialogData
 } from 'app/modules/schedule/components/class-dialog/class-dialog.component';
 import { FormControl } from '@angular/forms';
+import { compareEntities } from 'app/core';
+
+enum ViewMode {
+    Group,
+    Teacher
+}
 
 @Component({
     selector: 'app-schedule-designer',
@@ -21,10 +27,17 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
 
     private refresh$ = new BehaviorSubject(null);
 
+    public viewMode = ViewMode;
+    public currentViewMode: ViewMode = ViewMode.Group;
+
+    public teachers$: Observable<Teacher[]> = of([]);
     public groups$: Observable<Group[]> = of([]);
-    public classes$!: Observable<ScheduleClasses>;
+
+    public teacherClasses$!: Observable<ScheduleClasses>;
+    public groupClasses$!: Observable<ScheduleClasses>;
 
     public groupControl = new FormControl();
+    public teacherControl = new FormControl();
 
     @Input()
     public schedule!: Schedule;
@@ -32,19 +45,31 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
     constructor(
         private scheduleService: ScheduleService,
         private groupService: GroupService,
+        private teacherService: TeacherService,
         private dialog: MatDialog
     ) {
     }
 
     public ngOnInit(): void {
-        this.groups$ = this.groupService.getGroups();
+        this.teachers$ = this.teacherService.getTeachers().pipe(shareReplay());
+        this.groups$ = this.groupService.getGroups().pipe(shareReplay());
 
-        this.classes$ = combineLatest([this.refresh$, this.groupControl.valueChanges])
+        this.groupClasses$ = combineLatest([this.refresh$, this.groupControl.valueChanges])
             .pipe(
                 map(([_, group]) => group.id),
                 switchMap(groupId => this.scheduleService.getGroupSchedule(this.schedule.id, groupId)),
                 map(s => s.classes),
-                startWith({})
+                startWith({}),
+                shareReplay()
+            );
+
+        this.teacherClasses$ = combineLatest([this.refresh$, this.teacherControl.valueChanges])
+            .pipe(
+                map(([_, teacher]) => teacher.id),
+                switchMap(teacherId => this.scheduleService.getTeacherSchedule(this.schedule.id, teacherId)),
+                map(s => s.classes),
+                startWith({}),
+                shareReplay()
             );
     }
 
@@ -53,9 +78,18 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
         this.unsubscribe.complete();
     }
 
-    public get createDisabled(): boolean {
+    public get createClassDisabled(): boolean {
         return this.groupControl.value === null;
     }
+
+    public changeViewMode(): void {
+        // this.groupControl.reset();
+        // this.teacherControl.reset();
+
+        this.currentViewMode = this.currentViewMode === ViewMode.Group ? ViewMode.Teacher : ViewMode.Group;
+    }
+
+    public compareEntities = compareEntities;
 
     public onClassEdit(class_: Class, scheduleId: number): void {
         this.openDialog({

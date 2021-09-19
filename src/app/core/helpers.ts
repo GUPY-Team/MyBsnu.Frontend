@@ -13,3 +13,11 @@ export function distinctBy<TElement, TKey>(elements: TElement[], selector: (elem
 
     return result;
 }
+
+interface Entity {
+    id: number | string;
+}
+
+export function compareEntities(t1: Entity, t2: Entity): boolean {
+    return t1?.id === t2?.id;
+}

@@ -1,5 +1,6 @@
 <div class="schedule-designer__toolbar">
     <mat-form-field
+        *ngIf="currentViewMode === viewMode.Group else teacherFilter"
         class="toolbar__filter"
         appearance="fill">
         <mat-label>{{ 'FILTERS.GROUP_NUMBER' | translate }}</mat-label>
@@ -13,21 +14,55 @@
         </mat-select>
     </mat-form-field>
 
+    <ng-template #teacherFilter>
+        <mat-form-field
+            class="toolbar__filter"
+            appearance="fill">
+            <mat-label>{{ 'FILTERS.TEACHER' | translate }}</mat-label>
+            <mat-select [formControl]="teacherControl">
+                <mat-option
+                    *ngFor="let teacher of teachers$ | async"
+                    [value]="teacher"
+                >
+                    {{ teacher.fullName }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </ng-template>
+
     <div class="toolbar__actions">
         <button
             mat-raised-button
             color="primary"
             (click)="onClassCreate(schedule.id)"
-            [disabled]="createDisabled"
+            [disabled]="createClassDisabled"
         >
             <mat-icon>add</mat-icon>
             {{ 'SCHEDULE_VIEW.ADD_CLASS' | translate }}
+        </button>
+
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="changeViewMode()"
+        >
+            <mat-icon>sync_alt</mat-icon>
+            {{ 'SCHEDULE_VIEW.CHANGE_VIEW' | translate }}
         </button>
     </div>
 </div>
 
 <app-schedule-body
-    [classes]="classes$"
+    *ngIf="currentViewMode === viewMode.Group; else teacherSchedule"
+    [classes]="groupClasses$"
     [editMode]="true"
     (classEdit)="onClassEdit($event, schedule.id)"
 ></app-schedule-body>
+
+<ng-template #teacherSchedule>
+    <app-schedule-body
+        [classes]="teacherClasses$"
+        [editMode]="true"
+        (classEdit)="onClassEdit($event, schedule.id)"
+    ></app-schedule-body>
+</ng-template>

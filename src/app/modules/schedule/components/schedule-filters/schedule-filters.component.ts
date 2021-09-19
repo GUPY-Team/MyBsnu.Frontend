@@ -7,6 +7,7 @@ import {
 import { ClassType, EducationFormat, Group, Teacher } from 'app/api/models';
 import { ScheduleFilter, ScheduleFiltersService } from '../../services';
 import { takeUntil } from 'rxjs/operators';
+import { compareEntities } from 'app/core';
 
 @Component({
     selector: 'app-schedule-filters',
@@ -66,7 +67,5 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
         this.unsubscribe.complete();
     }
 
-    public compareEntities(t1: { id: number }, t2: { id: number }): boolean {
-        return t1?.id === t2?.id;
-    }
+    public compareEntities = compareEntities;
 }
