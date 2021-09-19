@@ -9,7 +9,6 @@ import {
     ClassDialogData
 } from 'app/modules/schedule/components/class-dialog/class-dialog.component';
 import { FormControl } from '@angular/forms';
-import { compareEntities } from 'app/core';
 
 enum ViewMode {
     Group,
@@ -83,13 +82,8 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
     }
 
     public changeViewMode(): void {
-        // this.groupControl.reset();
-        // this.teacherControl.reset();
-
         this.currentViewMode = this.currentViewMode === ViewMode.Group ? ViewMode.Teacher : ViewMode.Group;
     }
-
-    public compareEntities = compareEntities;
 
     public onClassEdit(class_: Class, scheduleId: number): void {
         this.openDialog({
