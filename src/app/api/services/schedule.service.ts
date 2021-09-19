@@ -26,14 +26,20 @@ export class ScheduleService {
     }
 
     public getGroupSchedule(scheduleId: number, groupId: number): Observable<GroupSchedule> {
-        return this.client.get<GroupSchedule>(`${this.baseUrl}/groupSchedule/${scheduleId}`, {
-            params: new HttpParams().set('groupId', groupId)
+        return this.client.get<GroupSchedule>(`${this.baseUrl}/groupSchedule`, {
+            params: new HttpParams().set('groupId', groupId).set('scheduleId', scheduleId)
         });
     }
 
     public getLatestTeacherSchedule(teacherId: number): Observable<TeacherSchedule> {
         return this.client.get<TeacherSchedule>(`${this.baseUrl}/teacherSchedule/latest`, {
             params: new HttpParams().set('teacherId', teacherId)
+        });
+    }
+
+    public getTeacherSchedule(scheduleId: number, teacherId: number): Observable<TeacherSchedule> {
+        return this.client.get<TeacherSchedule>(`${this.baseUrl}/teacherSchedule`, {
+            params: new HttpParams().set('teacherId', teacherId).set('scheduleId', scheduleId)
         });
     }
 
