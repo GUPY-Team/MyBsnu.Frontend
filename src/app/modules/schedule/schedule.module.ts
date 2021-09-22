@@ -11,13 +11,14 @@ import {
     ScheduleEditViewComponent,
     ScheduleEditFormComponent,
     ClassDialogComponent,
-    TeacherScheduleViewComponent
+    TeacherScheduleViewComponent,
+    ScheduleCreateViewComponent,
+    ScheduleDesignerComponent
 } from './components';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { MaterialModule } from 'app/modules/material/material.module';
 import { SharedModule } from 'app/modules/shared/shared.module';
 import { SelectListComponent } from './shared';
-import { ScheduleDesignerComponent } from './components/schedule-designer/schedule-designer.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { ScheduleDesignerComponent } from './components/schedule-designer/schedu
         SelectListComponent,
         TeacherScheduleViewComponent,
         ScheduleDesignerComponent,
+        ScheduleCreateViewComponent,
     ],
     imports: [
         CommonModule,

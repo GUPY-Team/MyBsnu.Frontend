@@ -14,7 +14,7 @@ export class UserService {
 
     private _user = new BehaviorSubject<AppUser | null>(null);
 
-    public userChange$ = this._user.asObservable();
+    public user$ = this._user.asObservable();
 
     public get currentUser(): AppUser | null {
         return this._user.value;

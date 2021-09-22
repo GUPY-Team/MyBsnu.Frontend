@@ -1,3 +1,4 @@
 export * from './Breakpoints';
-export * from './customValidators';
+export * from './CustomValidators';
 export * from './FormMode';
+export * from './PagedList';

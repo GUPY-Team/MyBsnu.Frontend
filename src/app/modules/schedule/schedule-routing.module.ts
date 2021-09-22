@@ -4,7 +4,8 @@ import {
     ScheduleEditViewComponent,
     ScheduleListViewComponent,
     GroupScheduleViewComponent,
-    TeacherScheduleViewComponent
+    TeacherScheduleViewComponent,
+    ScheduleCreateViewComponent
 } from './components';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'teacher-schedule', component: TeacherScheduleViewComponent },
     { path: 'list', component: ScheduleListViewComponent },
     { path: 'edit/:id', component: ScheduleEditViewComponent },
+    { path: 'create', component: ScheduleCreateViewComponent },
     { path: '**', redirectTo: 'group-schedule' }
 ];
 

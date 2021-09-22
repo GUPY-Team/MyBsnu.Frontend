@@ -1,0 +1,34 @@
+<h3 class="schedule-create-form__header">{{ 'SCHEDULE_FORM.CREATE_SCHEDULE' | translate }}</h3>
+
+<form
+    class="schedule-create-form__form"
+    [formGroup]="scheduleForm"
+    (ngSubmit)="onSubmit()"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'COMMON.YEAR' | translate }}</mat-label>
+        <input matInput formControlName="year">
+        <mat-error>{{ errors['year'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'COMMON.SEMESTER' | translate }}</mat-label>
+        <mat-select formControlName="semester">
+            <mat-option
+                *ngFor="let semester of semesters"
+                [value]="semester"
+            >
+                {{ 'SEMESTER.' + semester | uppercase | translate }}
+            </mat-option>
+        </mat-select>
+        <mat-error>{{ errors['semester'] }}</mat-error>
+    </mat-form-field>
+
+    <button
+        mat-raised-button
+        color="primary"
+        [disabled]="submitDisabled"
+    >
+        {{ 'COMMON.CREATE' | translate }}
+    </button>
+</form>

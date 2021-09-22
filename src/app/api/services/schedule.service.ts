@@ -3,7 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { EnvironmentService } from 'app/core/services/environment.service';
 import { GroupSchedule, Schedule, TeacherSchedule } from '../models';
 import { Observable } from 'rxjs';
-import { UpdateScheduleCommand } from 'app/api/commands';
+import { CreateScheduleCommand, UpdateScheduleCommand } from 'app/api/commands';
+import { PagedList } from 'app/core';
 
 @Injectable({
     providedIn: 'root'
@@ -43,12 +44,18 @@ export class ScheduleService {
         });
     }
 
-    public getScheduleList(): Observable<Schedule[]> {
-        return this.client.get<Schedule[]>(`${this.baseUrl}/schedule`);
+    public getScheduleList(page: number = 1, pageSize: number = 10): Observable<PagedList<Schedule>> {
+        return this.client.get<PagedList<Schedule>>(`${this.baseUrl}/schedule`, {
+            params: new HttpParams().set('page', page).set('pageSize', pageSize)
+        });
     }
 
     public getScheduleById(scheduleId: number): Observable<Schedule> {
         return this.client.get<Schedule>(`${this.baseUrl}/schedule/${scheduleId}`);
+    }
+
+    public createSchedule(command: CreateScheduleCommand): Observable<Schedule> {
+        return this.client.post<Schedule>(`${this.baseUrl}/schedule`, command);
     }
 
     public updateSchedule(command: UpdateScheduleCommand): Observable<Schedule> {
@@ -60,9 +67,7 @@ export class ScheduleService {
     }
 
     public copySchedule(scheduleId: number): Observable<void> {
-        return this.client.post<void>(`${this.baseUrl}/schedule`, {}, {
-            params: new HttpParams().set('sourceId', scheduleId)
-        });
+        return this.client.post<void>(`${this.baseUrl}/schedule/${scheduleId}/copy`, {});
     }
 
     public publishSchedule(scheduleId: number): Observable<Schedule> {

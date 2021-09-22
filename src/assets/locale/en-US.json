@@ -83,6 +83,14 @@
         "RU-RU": "Русский",
         "UK-UA": "Українська"
     },
+    "PAGINATOR": {
+        "FIRST_PAGE": "First page",
+        "ITEMS_PER_PAGE": "Items per page",
+        "LAST_PAGE": "Last page",
+        "NEXT_PAGE": "Next page",
+        "PAGE_X_OF_Y": "Page {{x}} of {{y}}",
+        "PREVIOUS_PAGE": "Previous page"
+    },
     "SCHEDULE_FORM": {
         "CONFIRM_COPY": "Copy schedule?",
         "CONFIRM_COPY_MSG": "Are you sure you want to copy? This may take several minutes.",
@@ -90,11 +98,13 @@
         "CONFIRM_DELETE_MSG": "Are you sure you want to delete schedule? This action can't be undone.",
         "CONFIRM_PUBLISH": "Publish schedule?",
         "CONFIRM_PUBLISH_MSG": "Are you sure you want to publish schedule? This will make this schedule active and it will be shown on the main page",
+        "CREATE_SCHEDULE": "Create new schedule",
         "DELETE_DISABLED": "Can't delete an published schedule",
         "PUBLISHED": "Schedule is already published",
         "SAVE_DISABLED": "Nothing to save"
     },
     "SCHEDULE_LIST": {
+        "CREATE_SCHEDULE": "Create schedule",
         "TITLE": "Schedule list"
     },
     "SCHEDULE_VIEW": {

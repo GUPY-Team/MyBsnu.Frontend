@@ -4,11 +4,13 @@ import { MaterialModule } from 'app/modules/material/material.module';
 import { ConfirmDialogComponent } from './components';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LocalizedPaginator } from 'app/modules/shared/models';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 
 
 @NgModule({
     declarations: [
-        ConfirmDialogComponent
+        ConfirmDialogComponent,
     ],
     exports: [
         TranslateModule,
@@ -21,6 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
         TranslateModule,
         MaterialModule,
         ReactiveFormsModule,
+    ],
+    providers: [
+        { provide: MatPaginatorIntl, useClass: LocalizedPaginator }
     ]
 })
 export class SharedModule {

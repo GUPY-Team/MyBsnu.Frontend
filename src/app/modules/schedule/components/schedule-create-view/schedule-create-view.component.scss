@@ -1,0 +1,10 @@
+@use '~styles/breakpoints';
+@use '~styles/mixins';
+
+.schedule-create-form__header {
+    @include mixins.form-header;
+}
+
+.schedule-create-form__form {
+    @include mixins.form-vertical;
+}

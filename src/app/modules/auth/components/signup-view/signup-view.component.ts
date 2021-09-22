@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'app/modules/auth/services';
 import { Router } from '@angular/router';
-import { CustomValidators, getErrorMessages } from 'app/core/models/customValidators';
+import { CustomValidators, getErrorMessages } from 'app/core/models/CustomValidators';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 

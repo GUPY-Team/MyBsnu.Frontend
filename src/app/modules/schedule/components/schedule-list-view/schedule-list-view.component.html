@@ -1,8 +1,21 @@
 <h1 class="list__header">{{ 'SCHEDULE_LIST.TITLE' | translate }}</h1>
 
-<div class="mat-elevation-z2">
-    <mat-table class="schedule__list" [dataSource]="scheduleList"
+<div class="list__actions">
+    <button
+        mat-flat-button
+        color="primary"
+        routerLink="/schedule/create"
     >
+        <mat-icon>add</mat-icon>
+        {{ 'SCHEDULE_LIST.CREATE_SCHEDULE' | translate }}
+    </button>
+</div>
+
+<div
+    *ngIf="scheduleList | async as list"
+    class="mat-elevation-z2"
+>
+    <mat-table class="schedule__list" [dataSource]="list.items">
         <ng-container matColumnDef="semester">
             <mat-header-cell *matHeaderCellDef>{{ 'COMMON.SEMESTER' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let element">{{ element.semester }} </mat-cell>
@@ -47,4 +60,10 @@
             *matRowDef="let row; columns: displayColumns"
         ></mat-row>
     </mat-table>
+    <mat-paginator
+        [pageSizeOptions]="pageSizes"
+        [pageSize]="list.pageSize"
+        [length]="list.totalCount"
+        (page)="onPaginationChange($event)"
+    ></mat-paginator>
 </div>
