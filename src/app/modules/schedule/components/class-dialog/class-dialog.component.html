@@ -130,6 +130,7 @@
             mat-raised-button
             color="primary"
             (click)="submit()"
+            [disabled]="actionsDisabled"
         >
             <mat-icon>add</mat-icon>
             {{ 'COMMON.CREATE' | translate }}
@@ -140,7 +141,7 @@
         <button
             mat-raised-button
             color="primary"
-            [disabled]="saveDisabled"
+            [disabled]="saveDisabled || actionsDisabled"
             (click)="submit()"
         >
             <mat-icon>save</mat-icon>
@@ -151,6 +152,7 @@
             mat-raised-button
             color="warn"
             (click)="delete()"
+            [disabled]="actionsDisabled"
         >
             <mat-icon>delete</mat-icon>
             {{ 'COMMON.DELETE' | translate }}

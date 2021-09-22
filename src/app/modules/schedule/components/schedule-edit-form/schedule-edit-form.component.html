@@ -4,7 +4,7 @@
             mat-raised-button
             color="primary"
             class="w-full"
-            [disabled]="saveDisabled"
+            [disabled]="saveDisabled || actionsDisabled"
             (click)="onSave()"
         >
             <mat-icon>save</mat-icon>
@@ -16,7 +16,7 @@
         <button
             mat-raised-button
             class="btn--green w-full"
-            [disabled]="publishDisabled"
+            [disabled]="publishDisabled || actionsDisabled"
             (click)="onPublish()"
         >
             <mat-icon>publish</mat-icon>
@@ -27,7 +27,7 @@
     <button
         mat-raised-button
         class="btn--yellow"
-        [disabled]="copyDisabled"
+        [disabled]="copyDisabled || actionsDisabled"
         (click)="onCopy()"
     >
         <mat-icon>content_copy</mat-icon>
@@ -39,7 +39,7 @@
             mat-raised-button
             color="warn"
             class="w-full"
-            [disabled]="deleteDisabled"
+            [disabled]="deleteDisabled || actionsDisabled"
             (click)="onDelete()"
         >
             <mat-icon>delete</mat-icon>

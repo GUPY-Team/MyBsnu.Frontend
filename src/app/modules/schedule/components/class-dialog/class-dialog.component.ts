@@ -58,6 +58,7 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
     public groups$: Observable<Group[]>;
 
     public formMode: FormMode = FormMode.Create;
+    public actionsDisabled = false;
 
     public get errors() {
         return getErrorMessages(this.classForm);
@@ -109,19 +110,27 @@ export class ClassDialogComponent implements OnInit, OnDestroy {
             ? this.classService.createClass(this.getCommand() as CreateClassCommand)
             : this.classService.updateClass(this.getCommand() as UpdateClassCommand);
 
+        this.actionsDisabled = true;
         response.pipe(
             takeUntil(this.unsubscribe)
-        ).subscribe(_ => this.dialogRef.close(true));
+        ).subscribe(
+            _ => this.dialogRef.close(true),
+            _ => this.actionsDisabled = false
+        );
     }
 
     public delete(): void {
         const { class: class_ } = this.data;
 
+        this.actionsDisabled = true;
         this.classService
             .deleteClass(class_!.id)
             .pipe(
                 takeUntil(this.unsubscribe)
-            ).subscribe(_ => this.dialogRef.close(true));
+            ).subscribe(
+            _ => this.dialogRef.close(true),
+            _ => this.actionsDisabled = false
+        );
     }
 
     public get isCreateMode() {

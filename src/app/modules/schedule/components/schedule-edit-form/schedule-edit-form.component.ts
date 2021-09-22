@@ -28,6 +28,8 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
 
     public semesters: Semester[] = [];
 
+    public actionsDisabled = false;
+
     public get errors() {
         return getErrorMessages(this.scheduleForm);
     }
@@ -80,9 +82,14 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             return;
         }
 
+        this.actionsDisabled = true;
+
         const command = this.scheduleForm.value;
         this.scheduleService.updateSchedule(command)
-            .pipe(takeUntil(this.unsubscribe))
+            .pipe(
+                takeUntil(this.unsubscribe),
+                finalize(() => this.actionsDisabled = false)
+            )
             .subscribe(r => {
                 this.scheduleForm.patchValue(r);
                 this.scheduleForm.markAsPristine();
@@ -95,8 +102,12 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             message: 'SCHEDULE_FORM.CONFIRM_PUBLISH_MSG'
         }).afterClosed().pipe(
             filter(result => result === true),
+            tap(_ => this.actionsDisabled = true),
             switchMap(_ => this.scheduleService.publishSchedule(this.schedule.id)),
-            finalize(() => this.copyDisabled = false),
+            finalize(() => {
+                this.copyDisabled = false;
+                this.actionsDisabled = false;
+            }),
             takeUntil(this.unsubscribe)
         ).subscribe(r => {
             this.publishDisabled = r.isPublished;
@@ -110,9 +121,9 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             message: 'SCHEDULE_FORM.CONFIRM_COPY_MSG'
         }).afterClosed().pipe(
             filter(result => result === true),
-            tap(_ => this.copyDisabled = true),
+            tap(_ => this.actionsDisabled = true),
             switchMap(_ => this.scheduleService.copySchedule(this.schedule.id)),
-            finalize(() => this.copyDisabled = false),
+            finalize(() => this.actionsDisabled = false),
             takeUntil(this.unsubscribe)
         ).subscribe(() => {
             const message = this.translateService.instant('SCHEDULE_VIEW.COPY_SUCCESS');
@@ -129,7 +140,9 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             message: 'SCHEDULE_FORM.CONFIRM_DELETE_MSG'
         }).afterClosed().pipe(
             filter(result => result === true),
+            tap(_ => this.actionsDisabled = true),
             switchMap(_ => this.scheduleService.deleteSchedule(this.schedule.id)),
+            finalize(() => this.actionsDisabled = false),
             tap(_ => this.router.navigate(['/schedule/list'])),
             takeUntil(this.unsubscribe)
         ).subscribe();
