@@ -26,7 +26,8 @@ import {
     TranslateModule
 } from '@ngx-translate/core';
 import { SharedModule } from 'app/modules/shared/shared.module';
-import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
+import { LocalesMenuComponent } from 'app/components/locales-menu/locales-menu.component';
+import { AccountMenuComponent } from './components/account-menu/account-menu.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { SettingsMenuComponent } from './components/settings-menu/settings-menu.
         SidenavComponent,
         NavbarComponent,
         FooterComponent,
-        SettingsMenuComponent,
+        LocalesMenuComponent,
+        AccountMenuComponent,
     ],
     imports: [
         BrowserModule,

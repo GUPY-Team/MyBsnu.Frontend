@@ -1,9 +1,13 @@
 {
+    "ACCOUNT_MENU": {
+        "GREETING": "Привет",
+        "LOGOUT": "Выход"
+    },
     "APP": {
         "TITLE": "Мой.ЧНУ"
     },
     "AUTH": {
-        "EMAIL": "E-mail",
+        "EMAIL": "Email",
         "EMAIL_PLACEHOLDER": "Ваш e-mail",
         "HAVE_ACCOUNT": "Уже есть учетная запись?",
         "NO_ACCOUNT": "Нету учетной записи?",

@@ -11,6 +11,7 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('app/modules/auth/auth.module').then(m => m.AuthModule),
         canLoad: [GuestOnlyGuard],
+        canActivate: [GuestOnlyGuard],
         canActivateChild: [GuestOnlyGuard]
     },
     {

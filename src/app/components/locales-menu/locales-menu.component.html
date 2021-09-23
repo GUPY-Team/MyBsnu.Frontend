@@ -1,0 +1,13 @@
+<button mat-icon-button [matMenuTriggerFor]="locales">
+    <mat-icon>language</mat-icon>
+</button>
+
+<mat-menu #locales="matMenu" xPosition="before" yPosition="below">
+    <button mat-menu-item
+            *ngFor="let lang of languages"
+            [disabled]="lang.code === translateService.currentLang"
+            (click)="onLanguageSelect(lang.code)"
+    >
+        {{ lang.name | translate }}
+    </button>
+</mat-menu>

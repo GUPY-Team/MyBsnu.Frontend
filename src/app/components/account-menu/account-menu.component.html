@@ -1,0 +1,19 @@
+<button mat-icon-button [matMenuTriggerFor]="options">
+    <mat-icon>account_circle</mat-icon>
+</button>
+
+<mat-menu #options="matMenu" xPosition="before" yPosition="below">
+    <p class="account-menu-item">
+        {{ 'ACCOUNT_MENU.GREETING' | translate }},
+        <span class="username">
+            {{ userService.currentUser?.userName || '' }}
+        </span>
+    </p>
+    <button
+        mat-menu-item
+        (click)="userService.logout()"
+    >
+        <mat-icon>logout</mat-icon>
+        {{ 'ACCOUNT_MENU.LOGOUT' | translate }}
+    </button>
+</mat-menu>

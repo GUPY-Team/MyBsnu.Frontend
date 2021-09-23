@@ -11,11 +11,17 @@ import { UserService } from '../services';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private userService: UserService) {
+    constructor(
+        private userService: UserService
+    ) {
     }
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        const token = this.userService.currentUser?.token;
+        const token = this.userService.authToken;
+
+        if (token?.hasExpired()) {
+            this.userService.logout();
+        }
 
         if (token) {
             const requestWithJwt = request.clone({

@@ -9,14 +9,11 @@
 
     <span class="spacer"></span>
 
-    <app-settings-menu></app-settings-menu>
+    <app-locales-menu></app-locales-menu>
 
-    <button
+    <app-account-menu
         *ngIf="userService.currentUser else login"
-        mat-icon-button
-    >
-        <mat-icon>account_circle</mat-icon>
-    </button>
+    ></app-account-menu>
 
     <ng-template #login>
         <button

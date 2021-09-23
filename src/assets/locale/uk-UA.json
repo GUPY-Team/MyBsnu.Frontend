@@ -1,10 +1,14 @@
 {
+    "ACCOUNT_MENU": {
+        "GREETING": "Вітаю",
+        "LOGOUT": "Вихід"
+    },
     "APP": {
         "TITLE": "Мій.ЧНУ"
     },
     "AUTH": {
-        "EMAIL": "Емейл",
-        "EMAIL_PLACEHOLDER": "Ваш емейл",
+        "EMAIL": "Email",
+        "EMAIL_PLACEHOLDER": "Ваш email",
         "HAVE_ACCOUNT": "Вже зареєстровані?",
         "NO_ACCOUNT": "Відсутній аккаунт?",
         "PASS": "Пароль",

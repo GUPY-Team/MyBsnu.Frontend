@@ -8,11 +8,11 @@ interface Language {
 }
 
 @Component({
-    selector: 'app-settings-menu',
-    templateUrl: './settings-menu.component.html',
-    styleUrls: ['./settings-menu.component.scss']
+    selector: 'app-locales-menu',
+    templateUrl: './locales-menu.component.html',
+    styleUrls: ['./locales-menu.component.scss']
 })
-export class SettingsMenuComponent implements OnInit {
+export class LocalesMenuComponent implements OnInit {
 
     public languages: Language[] = [];
 

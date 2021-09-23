@@ -7,13 +7,32 @@ import {
     TeacherScheduleViewComponent,
     ScheduleCreateViewComponent
 } from './components';
+import { AuthorizedOnlyGuard } from 'app/modules/auth/guards/authorized-only.guard';
 
 const routes: Routes = [
-    { path: 'group-schedule', component: GroupScheduleViewComponent },
-    { path: 'teacher-schedule', component: TeacherScheduleViewComponent },
-    { path: 'list', component: ScheduleListViewComponent },
-    { path: 'edit/:id', component: ScheduleEditViewComponent },
-    { path: 'create', component: ScheduleCreateViewComponent },
+    {
+        path: 'group-schedule',
+        component: GroupScheduleViewComponent
+    },
+    {
+        path: 'teacher-schedule',
+        component: TeacherScheduleViewComponent
+    },
+    {
+        path: 'list',
+        component: ScheduleListViewComponent,
+        canActivate: [AuthorizedOnlyGuard],
+    },
+    {
+        path: 'edit/:id',
+        component: ScheduleEditViewComponent,
+        canActivate: [AuthorizedOnlyGuard],
+    },
+    {
+        path: 'create',
+        component: ScheduleCreateViewComponent,
+        canActivate: [AuthorizedOnlyGuard]
+    },
     { path: '**', redirectTo: 'group-schedule' }
 ];
 

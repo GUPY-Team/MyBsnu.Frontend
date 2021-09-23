@@ -28,16 +28,12 @@ export class SidenavService {
             text: 'TEACHER_SCHEDULE'
         },
         {
-            path: '/auth/signin',
-            icon: 'account_circle',
-            text: 'ACCOUNT'
-        },
-        {
             path: '/schedule/list',
             icon: 'edit_calendar',
             text: 'SCHEDULE_DESIGNER'
         }
     ];
+
 
     public openSidenav(): void {
         this._sidenavState.next(true);
