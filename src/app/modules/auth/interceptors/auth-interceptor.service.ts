@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         const token = this.userService.authToken;
 
-        if (token?.hasExpired()) {
+        if (token?.hasExpired) {
             this.userService.logout();
         }
 
@@ -29,8 +29,8 @@ export class AuthInterceptor implements HttpInterceptor {
             });
 
             return next.handle(requestWithJwt);
-        } else {
-            return next.handle(request);
         }
+
+        return next.handle(request);
     }
 }

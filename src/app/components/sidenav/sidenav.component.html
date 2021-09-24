@@ -9,10 +9,10 @@
 </div>
 <mat-nav-list>
     <mat-list-item
-        *ngFor="let link of sidenavService.menuLinks"
+        *ngFor="let link of sidenavService.menuLinks$ | async"
         [routerLink]="link.path"
         routerLinkActive="sidenav-link--active"
-        [routerLinkActiveOptions]="{exact: true}"
+        [routerLinkActiveOptions]="{ exact: true }"
     >
         <div class="sidenav-link__content">
             <mat-icon>{{ link.icon }}</mat-icon>

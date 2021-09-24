@@ -6,7 +6,8 @@ interface Header {
 interface Payload {
     exp: number;
 
-    [key: string]: boolean | number | string;
+    email: string;
+    userName: string;
 }
 
 export class JwtToken {
@@ -26,7 +27,7 @@ export class JwtToken {
         this.expirationDate = new Date(payload.exp * 1000);
     }
 
-    public hasExpired(): boolean {
+    public get hasExpired(): boolean {
         return new Date() > this.expirationDate;
     }
 
