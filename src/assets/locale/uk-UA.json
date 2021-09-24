@@ -32,7 +32,7 @@
             "EDIT_TITLE": "Редагувати заняття",
             "EDUCATION_FORMAT": "Формат проведення",
             "END_TIME": "Кінець",
-            "GROUP": "Группи",
+            "GROUP": "Групи",
             "START_TIME": "Початок",
             "TEACHER": "Викладачі",
             "WEEKDAY": "День тижня",
@@ -78,6 +78,9 @@
     },
     "FOOTER": {
         "CAPTION": "Надпис футера"
+    },
+    "GROUP_SCHEDULE": {
+        "TITLE": "Розклад груп"
     },
     "LANGUAGE": {
         "EN-US": "English",
@@ -128,6 +131,9 @@
             "TEACHER_SCHEDULE": "Розклад викладачів"
         },
         "TITLE": "Мій.ЧНУ"
+    },
+    "TEACHER_SCHEDULE": {
+        "TITLE": "Розклад викладачів"
     },
     "WEEKDAY": {
         "FRIDAY": "П'ятниця",

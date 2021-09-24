@@ -81,6 +81,9 @@
     "FOOTER": {
         "CAPTION": "Надпись футера"
     },
+    "GROUP_SCHEDULE": {
+        "TITLE": "Рассписание групп"
+    },
     "LANGUAGE": {
         "EN-US": "English",
         "RU-RU": "Русский",
@@ -130,6 +133,9 @@
             "TEACHER_SCHEDULE": "Рассписание преподавателей"
         },
         "TITLE": "Мой.ЧНУ"
+    },
+    "TEACHER_SCHEDULE": {
+        "TITLE": "Рассписание преподавателей"
     },
     "WEEKDAY": {
         "FRIDAY": "Пятница",
