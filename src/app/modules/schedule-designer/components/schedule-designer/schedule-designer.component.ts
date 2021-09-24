@@ -78,7 +78,11 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
     }
 
     public get createClassDisabled(): boolean {
-        return this.groupControl.value === null;
+        if (this.currentViewMode === ViewMode.Group) {
+            return this.groupControl.value === null;
+        }
+
+        return this.teacherControl.value === null;
     }
 
     public changeViewMode(): void {
