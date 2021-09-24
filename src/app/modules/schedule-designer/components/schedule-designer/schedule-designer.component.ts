@@ -4,11 +4,11 @@ import { GroupService, ScheduleService, TeacherService } from 'app/api/services'
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
 import { map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 import {
     ClassDialogComponent,
     ClassDialogData
-} from 'app/modules/schedule/components/class-dialog/class-dialog.component';
-import { FormControl } from '@angular/forms';
+} from 'app/modules/schedule-designer/components/class-dialog/class-dialog.component';
 
 enum ViewMode {
     Group,

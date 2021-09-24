@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuestOnlyGuard } from 'app/modules/auth/guards';
+import { AuthorizedOnlyGuard, GuestOnlyGuard } from 'app/modules/auth/guards';
 
 const routes: Routes = [
     {
         path: 'schedule',
         loadChildren: () => import('app/modules/schedule/schedule.module').then(m => m.ScheduleModule)
+    },
+    {
+        path: 'designer',
+        loadChildren: () => import('app/modules/schedule-designer/schedule-designer.module').then(m => m.ScheduleDesignerModule),
+        canLoad: [AuthorizedOnlyGuard],
+        canActivate: [AuthorizedOnlyGuard],
+        canActivateChild: [AuthorizedOnlyGuard]
     },
     {
         path: 'auth',

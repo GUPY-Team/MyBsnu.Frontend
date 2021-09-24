@@ -6,10 +6,10 @@ import {
 } from 'app/api/models';
 import { EnumService, ScheduleService } from 'app/api/services';
 import { combineLatest, Observable, of } from 'rxjs';
-import { ScheduleFiltersService } from 'app/modules/schedule/services';
 import { map } from 'rxjs/operators';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AppBreakpoints } from 'app/core';
+import { ScheduleFiltersService } from 'app/modules/schedule-shared/services';
 
 interface ScheduleColumn {
     day: WeekDay;

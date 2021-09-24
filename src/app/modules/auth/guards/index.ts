@@ -1,1 +1,2 @@
-export * from 'app/modules/auth/guards/guest-only-guard.guard';
+export * from './guest-only-guard.guard';
+export * from './authorized-only.guard';

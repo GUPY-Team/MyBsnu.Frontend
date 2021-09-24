@@ -4,7 +4,7 @@
     <button
         mat-flat-button
         color="primary"
-        routerLink="/schedule/create"
+        routerLink="/designer/schedule-create"
     >
         <mat-icon>add</mat-icon>
         {{ 'SCHEDULE_LIST.CREATE_SCHEDULE' | translate }}
@@ -56,7 +56,7 @@
         <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
         <mat-row
             matRipple
-            [routerLink]="['/schedule', 'edit', row.id]"
+            [routerLink]="['/designer/schedule-edit', row.id]"
             *matRowDef="let row; columns: displayColumns"
         ></mat-row>
     </mat-table>

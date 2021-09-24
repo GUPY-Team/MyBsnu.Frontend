@@ -33,7 +33,7 @@ export class SidenavService {
             requiresAuth: false
         },
         {
-            path: '/schedule/list',
+            path: '/designer',
             icon: 'edit_calendar',
             text: 'SCHEDULE_DESIGNER',
             requiresAuth: true

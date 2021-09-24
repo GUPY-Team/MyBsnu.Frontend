@@ -1,10 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { distinctUntilChanged, filter, map, share, switchMap, tap } from 'rxjs/operators';
-import { ScheduleFilter, ScheduleFiltersService } from 'app/modules/schedule/services';
 import { EnumService, GroupService, ScheduleService, TeacherService } from 'app/api/services';
 import { combineLatest, Observable } from 'rxjs';
 import { ClassType, EducationFormat, Group, ScheduleClasses, Teacher } from 'app/api/models';
 import { distinctBy } from 'app/core';
+import { ScheduleFilter, ScheduleFiltersService } from 'app/modules/schedule-shared/services';
 
 @Component({
     selector: 'app-group-schedule-view',

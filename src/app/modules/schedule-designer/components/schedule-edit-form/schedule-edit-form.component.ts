@@ -143,7 +143,7 @@ export class ScheduleEditFormComponent implements OnInit, OnDestroy {
             tap(_ => this.actionsDisabled = true),
             switchMap(_ => this.scheduleService.deleteSchedule(this.schedule.id)),
             finalize(() => this.actionsDisabled = false),
-            tap(_ => this.router.navigate(['/schedule/list'])),
+            tap(_ => this.router.navigate(['/designer/schedule-list'])),
             takeUntil(this.unsubscribe)
         ).subscribe();
     }

@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
-    ScheduleEditViewComponent,
-    ScheduleListViewComponent,
     GroupScheduleViewComponent,
     TeacherScheduleViewComponent,
-    ScheduleCreateViewComponent
 } from './components';
-import { AuthorizedOnlyGuard } from 'app/modules/auth/guards/authorized-only.guard';
 
 const routes: Routes = [
     {
@@ -17,21 +13,6 @@ const routes: Routes = [
     {
         path: 'teacher-schedule',
         component: TeacherScheduleViewComponent
-    },
-    {
-        path: 'list',
-        component: ScheduleListViewComponent,
-        canActivate: [AuthorizedOnlyGuard],
-    },
-    {
-        path: 'edit/:id',
-        component: ScheduleEditViewComponent,
-        canActivate: [AuthorizedOnlyGuard],
-    },
-    {
-        path: 'create',
-        component: ScheduleCreateViewComponent,
-        canActivate: [AuthorizedOnlyGuard]
     },
     { path: '**', redirectTo: 'group-schedule' }
 ];

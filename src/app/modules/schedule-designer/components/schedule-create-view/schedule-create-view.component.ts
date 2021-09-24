@@ -62,7 +62,7 @@ export class ScheduleCreateViewComponent implements OnInit, OnDestroy {
         this.scheduleService.createSchedule(command).pipe(
             takeUntil(this.unsubscribe)
         ).subscribe(
-            schedule => this.router.navigate(['/schedule/edit', schedule.id]),
+            schedule => this.router.navigate(['/designer/schedule-edit', schedule.id]),
             _ => this.submitDisabled = false
         );
     }

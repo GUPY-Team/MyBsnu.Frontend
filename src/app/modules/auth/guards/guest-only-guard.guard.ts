@@ -43,6 +43,6 @@ export class GuestOnlyGuard implements CanActivate, CanActivateChild, CanLoad {
             return true;
         }
 
-        return this.router.parseUrl('/schedule');
+        return this.router.parseUrl('/');
     }
 }
