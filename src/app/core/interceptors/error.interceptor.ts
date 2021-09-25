@@ -22,25 +22,34 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         return next.handle(request)
             .pipe(
-                catchError(({ error }) => {
-                    let message;
+                catchError(({ error, status }) => {
+                    if (status === 403) {
+                        const message = this.translateService.instant('ERRORS.FORBIDDEN_ERROR');
+                        return this.showMessageAndThrow(message, error);
+                    }
 
                     const validationErrors = error?.errors;
                     if (validationErrors) {
-                        message = this.translateService.instant('ERRORS.VALIDATION_ERROR');
+                        let message = this.translateService.instant('ERRORS.VALIDATION_ERROR');
+
                         for (const key in Object.keys(validationErrors)) {
                             message += `${validationErrors[key].join('\n')}\n`;
                         }
-                    } else {
-                        message = error?.message ?? this.translateService.instant('ERRORS.UNEXPECTED_ERROR');
+
+                        return this.showMessageAndThrow(message, error);
                     }
 
-                    this.snackBar.open(message, '', {
-                        panelClass: 'snackbar-warn'
-                    });
-
-                    return throwError(error);
+                    const message = error?.message ?? this.translateService.instant('ERRORS.UNEXPECTED_ERROR');
+                    return this.showMessageAndThrow(message, error);
                 })
             );
+    }
+
+    private showMessageAndThrow(message: string, error: any): Observable<never> {
+        this.snackBar.open(message, '', {
+            panelClass: 'snackbar-warn'
+        });
+
+        return throwError(error);
     }
 }

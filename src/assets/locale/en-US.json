@@ -70,6 +70,7 @@
         "ONLINE": "Online"
     },
     "ERRORS": {
+        "FORBIDDEN_ERROR": "Access denied. Not enough permissions.",
         "UNEXPECTED_ERROR": "Unexpected error happened.\nNotify administrator or try again later.",
         "VALIDATION_ERROR": "Validator error:"
     },
