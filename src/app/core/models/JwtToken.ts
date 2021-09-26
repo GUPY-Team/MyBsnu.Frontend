@@ -8,6 +8,7 @@ interface Payload {
 
     email: string;
     userName: string;
+    permission: string[] | string
 }
 
 export class JwtToken {

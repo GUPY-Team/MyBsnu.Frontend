@@ -12,7 +12,7 @@
     <app-locales-menu></app-locales-menu>
 
     <app-account-menu
-        *ngIf="userService.currentUser else login"
+        *ngIf="userService.user else login"
     ></app-account-menu>
 
     <ng-template #login>

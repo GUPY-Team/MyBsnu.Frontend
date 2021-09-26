@@ -6,7 +6,7 @@
     <p class="account-menu-item">
         {{ 'ACCOUNT_MENU.GREETING' | translate }},
         <span class="username">
-            {{ userService.currentUser?.userName || '' }}
+            {{ userService.user?.userName || '' }}
         </span>
     </p>
     <button

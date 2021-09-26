@@ -11,6 +11,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from 'app/modules/auth/services';
+import { Permission } from 'app/api/models/Permission';
 
 @Injectable({
     providedIn: 'root'
@@ -26,26 +27,27 @@ export class AuthorizedOnlyGuard implements CanActivate, CanActivateChild, CanLo
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        return this.allowAccess();
+        return this.allowAccess(route.data.permissions as Permission[]);
     }
 
     canActivateChild(
         childRoute: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        return this.allowAccess();
+        return this.allowAccess(childRoute.data.permissions as Permission[]);
     }
 
     canLoad(
         route: Route,
         segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        return this.allowAccess();
+        return this.allowAccess(route.data?.permissions as Permission[]);
     }
 
-    private allowAccess() {
-        if (this.userService.authToken !== null) {
-            return true;
+    private allowAccess(routePermissions: Permission[]) {
+        const user = this.userService.user;
+        if (user === null) {
+            return this.router.parseUrl('/auth/signin');
         }
 
-        return this.router.parseUrl('/auth/signin');
+        return routePermissions.every(p => user.satisfiesPermission(p));
     }
 }

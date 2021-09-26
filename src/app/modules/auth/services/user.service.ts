@@ -6,6 +6,7 @@ import { AppUser, UserSignedInResponse } from '../models';
 import { tap } from 'rxjs/operators';
 import { JwtToken } from 'app/core/models/JwtToken';
 import { Router } from '@angular/router';
+import { Permission } from 'app/api/models/Permission';
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +21,7 @@ export class UserService {
 
     public user$ = this._user.asObservable();
 
-    public get currentUser(): AppUser | null {
+    public get user(): AppUser | null {
         return this._user.value;
     }
 
@@ -35,13 +36,13 @@ export class UserService {
     ) {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
 
-        this.initialize();
+        this.initFromSavedState();
     }
 
     public signin(email: string, password: string): Observable<UserSignedInResponse> {
         return this.client.post<UserSignedInResponse>(`${this.baseUrl}/auth/signin`, { email, password })
             .pipe(
-                tap(response => this.setUserFromSignInResponse(response))
+                tap(response => this.setAndSaveState(JwtToken.parse(response.token)))
             );
     }
 
@@ -58,33 +59,23 @@ export class UserService {
         this.router.navigate(['/']);
     }
 
-    private initialize() {
+    private initFromSavedState() {
         const savedToken = localStorage.getItem(this.savedTokenKey);
         if (savedToken !== null) {
-            this.setUserFromToken(savedToken);
+            this.setAndSaveState(JwtToken.parse(savedToken));
         }
     }
 
-    private setUserFromSignInResponse(response: UserSignedInResponse) {
-        const token = JwtToken.parse(response.token);
+    private setAndSaveState(token: JwtToken) {
+        const user = new AppUser(
+            token.payload.userName,
+            token.payload.email,
+            (Array.isArray(token.payload.permission)
+                ? token.payload.permission
+                : [token.payload.permission]) as Permission[]);
+
+        this._user.next(user);
         this._userToken.next(token);
-
-        this._user.next({
-            email: response.email,
-            userName: response.userName,
-        });
-
-        localStorage.setItem(this.savedTokenKey, token.toString());
-    }
-
-    private setUserFromToken(tokenString: string): void {
-        const token = JwtToken.parse(tokenString);
-        this._userToken.next(token);
-
-        this._user.next({
-            email: token.payload['email'] as string,
-            userName: token.payload['userName'] as string
-        });
 
         localStorage.setItem(this.savedTokenKey, token.toString());
     }

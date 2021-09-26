@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserService } from 'app/modules/auth/services';
 import { map } from 'rxjs/operators';
+import { Permission } from 'app/api/models/Permission';
 
 interface MenuLink {
     path: string;
     icon: string;
     text: string;
-    requiresAuth: boolean;
+    requiredPermissions: Permission[];
 }
 
 @Injectable({
@@ -24,19 +25,25 @@ export class SidenavService {
             path: '/schedule/group-schedule',
             icon: 'groups',
             text: 'GROUP_SCHEDULE',
-            requiresAuth: false
+            requiredPermissions: []
         },
         {
             path: '/schedule/teacher-schedule',
             icon: 'school',
             text: 'TEACHER_SCHEDULE',
-            requiresAuth: false
+            requiredPermissions: []
         },
         {
             path: '/designer',
             icon: 'edit_calendar',
             text: 'SCHEDULE_DESIGNER',
-            requiresAuth: true
+            requiredPermissions: [Permission.canManageSchedule, Permission.canManageClasses]
+        },
+        {
+            path: '/admin',
+            icon: 'admin_panel_settings',
+            text: 'ADMIN_PANEL',
+            requiredPermissions: [Permission.superAdmin]
         }
     ];
 
@@ -46,7 +53,11 @@ export class SidenavService {
         private userService: UserService
     ) {
         this.menuLinks$ = this.userService.user$.pipe(
-            map(user => this._menuLinks.filter(l => l.requiresAuth ? user : true))
+            map(user =>
+                this._menuLinks.filter(
+                    l => l.requiredPermissions.every(p => user?.satisfiesPermission(p))
+                )
+            )
         );
     }
 

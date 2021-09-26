@@ -39,7 +39,7 @@ export class GuestOnlyGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     private allowAccess() {
-        if (this.userService.authToken === null) {
+        if (this.userService.user === null) {
             return true;
         }
 

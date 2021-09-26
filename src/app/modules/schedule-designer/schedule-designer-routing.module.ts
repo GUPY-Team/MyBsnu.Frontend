@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthorizedOnlyGuard } from 'app/modules/auth/guards';
 import {
     ScheduleCreateViewComponent,
     ScheduleEditViewComponent,
@@ -11,17 +10,14 @@ const routes: Routes = [
     {
         path: 'schedule-list',
         component: ScheduleListViewComponent,
-        canActivate: [AuthorizedOnlyGuard],
     },
     {
         path: 'schedule-edit/:id',
         component: ScheduleEditViewComponent,
-        canActivate: [AuthorizedOnlyGuard],
     },
     {
         path: 'schedule-create',
         component: ScheduleCreateViewComponent,
-        canActivate: [AuthorizedOnlyGuard]
     },
     {
         path: '**',

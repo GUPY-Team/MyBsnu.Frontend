@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorizedOnlyGuard, GuestOnlyGuard } from 'app/modules/auth/guards';
+import { Permission } from 'app/api/models/Permission';
 
 const routes: Routes = [
     {
@@ -11,8 +12,8 @@ const routes: Routes = [
         path: 'designer',
         loadChildren: () => import('app/modules/schedule-designer/schedule-designer.module').then(m => m.ScheduleDesignerModule),
         canLoad: [AuthorizedOnlyGuard],
-        canActivate: [AuthorizedOnlyGuard],
-        canActivateChild: [AuthorizedOnlyGuard]
+        canActivateChild: [AuthorizedOnlyGuard],
+        data: { permissions: [Permission.canManageSchedule, Permission.canManageClasses] }
     },
     {
         path: 'auth',
