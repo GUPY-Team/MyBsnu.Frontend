@@ -34,6 +34,7 @@
         <button
             mat-raised-button
             color="primary"
+            class="btn--green"
             (click)="onClassCreate(schedule.id)"
             [disabled]="createClassDisabled"
         >
@@ -53,16 +54,7 @@
 </div>
 
 <app-schedule-body
-    *ngIf="currentViewMode === viewMode.Group; else teacherSchedule"
-    [classes]="groupClasses$"
+    [classes]="currentViewMode === viewMode.Group ? groupClasses$ : teacherClasses$"
     [editMode]="true"
     (classEdit)="onClassEdit($event, schedule.id)"
 ></app-schedule-body>
-
-<ng-template #teacherSchedule>
-    <app-schedule-body
-        [classes]="teacherClasses$"
-        [editMode]="true"
-        (classEdit)="onClassEdit($event, schedule.id)"
-    ></app-schedule-body>
-</ng-template>

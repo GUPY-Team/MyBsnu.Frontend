@@ -1,9 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {
-    WeekDay,
-    Class,
-    ScheduleClasses
-} from 'app/api/models';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Class, ScheduleClasses, WeekDay } from 'app/api/models';
 import { EnumService, ScheduleService } from 'app/api/services';
 import { combineLatest, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -27,6 +23,13 @@ export class ScheduleBodyComponent implements OnInit {
     private resize$: Observable<BreakpointState>;
 
     public columns: Observable<ScheduleColumn[]> = of([]);
+    private emptyColumns: ScheduleColumn[] = [
+        { day: WeekDay.Monday, classes: [] },
+        { day: WeekDay.Tuesday, classes: [] },
+        { day: WeekDay.Wednesday, classes: [] },
+        { day: WeekDay.Thursday, classes: [] },
+        { day: WeekDay.Friday, classes: [] },
+    ];
 
     @Input()
     public set classes(classes$: Observable<ScheduleClasses>) {
@@ -69,6 +72,6 @@ export class ScheduleBodyComponent implements OnInit {
             columns.push({ day: weekday, classes: classes[weekday] ?? [] });
         }
 
-        return columns;
+        return columns.length === 0 ? this.emptyColumns : columns;
     }
 }
