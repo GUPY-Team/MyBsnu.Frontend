@@ -10,7 +10,7 @@ import {
     UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserService } from 'app/modules/auth/services';
+import { AppUserService } from 'app/modules/auth/services';
 import { Permission } from 'app/api/models/Permission';
 
 @Injectable({
@@ -19,7 +19,7 @@ import { Permission } from 'app/api/models/Permission';
 export class AuthorizedOnlyGuard implements CanActivate, CanActivateChild, CanLoad {
 
     constructor(
-        private userService: UserService,
+        private userService: AppUserService,
         private router: Router
     ) {
     }

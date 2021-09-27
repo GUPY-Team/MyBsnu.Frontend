@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { UserService } from 'app/modules/auth/services';
+import { AppUserService } from 'app/modules/auth/services';
 import { map } from 'rxjs/operators';
 import { Permission } from 'app/api/models/Permission';
 
@@ -50,7 +50,7 @@ export class SidenavService {
     public menuLinks$: Observable<MenuLink[]>;
 
     constructor(
-        private userService: UserService
+        private userService: AppUserService
     ) {
         this.menuLinks$ = this.userService.user$.pipe(
             map(user =>

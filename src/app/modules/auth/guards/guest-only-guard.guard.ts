@@ -7,7 +7,7 @@ import {
     UrlTree, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserService } from '../services';
+import { AppUserService } from '../services';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,7 @@ import { UserService } from '../services';
 export class GuestOnlyGuard implements CanActivate, CanActivateChild, CanLoad {
 
     constructor(
-        private userService: UserService,
+        private userService: AppUserService,
         private router: Router
     ) {
     }

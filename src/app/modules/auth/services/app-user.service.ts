@@ -11,7 +11,7 @@ import { Permission } from 'app/api/models/Permission';
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class AppUserService {
 
     private readonly savedTokenKey = 'Token';
     private readonly baseUrl: string;

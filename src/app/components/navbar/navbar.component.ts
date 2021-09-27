@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from 'app/modules/auth/services';
+import { AppUserService } from 'app/modules/auth/services';
 import { SidenavService, GlobalLoaderService } from 'app/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { SidenavService, GlobalLoaderService } from 'app/core';
 export class NavbarComponent {
 
     constructor(
-        public userService: UserService,
+        public userService: AppUserService,
         public sidenavService: SidenavService,
         public loaderService: GlobalLoaderService
     ) {

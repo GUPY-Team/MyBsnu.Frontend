@@ -1,0 +1,47 @@
+<h1 class="list__header">{{ 'USER_LIST.TITLE' | translate }}</h1>
+
+<div class="list__actions">
+    <button
+        mat-flat-button
+        color="primary"
+        routerLink="/admin/user-create"
+    >
+        <mat-icon>add</mat-icon>
+        {{ 'USER_LIST.CREATE_USER' | translate }}
+    </button>
+</div>
+
+<div
+    *ngIf="itemList$ | async as list"
+    class="mat-elevation-z3"
+>
+    <mat-table class="list" [dataSource]="list.items">
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>{{ 'USER_LIST.ID' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.id }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>{{ 'USER_LIST.EMAIL' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.email }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="userName">
+            <mat-header-cell *matHeaderCellDef>{{ 'USER_LIST.USERNAME' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.userName }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+        <mat-row
+            matRipple
+            [routerLink]="['/admin/user-edit', row.id]"
+            *matRowDef="let row; columns: displayColumns"
+        ></mat-row>
+    </mat-table>
+    <mat-paginator
+        [pageSizeOptions]="pageSizes"
+        [pageSize]="list.pageSize"
+        [length]="list.totalCount"
+        (page)="onPaginationChange($event)"
+    ></mat-paginator>
+</div>

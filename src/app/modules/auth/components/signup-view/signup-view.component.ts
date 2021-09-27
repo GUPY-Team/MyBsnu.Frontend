@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserService } from 'app/modules/auth/services';
+import { AppUserService } from 'app/modules/auth/services';
 import { Router } from '@angular/router';
 import { CustomValidators, getErrorMessages } from 'app/core';
 import { takeUntil } from 'rxjs/operators';
@@ -48,7 +48,7 @@ export class SignupViewComponent implements OnDestroy {
     constructor(
         private formBuilder: FormBuilder,
         private snackBar: MatSnackBar,
-        private userService: UserService,
+        private userService: AppUserService,
         private router: Router,
         private translateService: TranslateService
     ) {

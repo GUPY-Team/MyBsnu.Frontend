@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from 'app/modules/auth/services';
+import { AppUserService } from 'app/modules/auth/services';
 
 @Component({
     selector: 'app-account-menu',
@@ -9,7 +9,7 @@ import { UserService } from 'app/modules/auth/services';
 export class AccountMenuComponent {
 
     constructor(
-        public userService: UserService
+        public userService: AppUserService
     ) {
     }
 }

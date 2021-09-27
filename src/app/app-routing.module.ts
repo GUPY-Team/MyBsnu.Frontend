@@ -16,6 +16,13 @@ const routes: Routes = [
         data: { permissions: [Permission.canManageSchedule, Permission.canManageClasses] }
     },
     {
+        path: 'admin',
+        loadChildren: () => import('app/modules/admin/admin.module').then(m => m.AdminModule),
+        canLoad: [AuthorizedOnlyGuard],
+        canActivateChild: [AuthorizedOnlyGuard],
+        data: { permissions: [Permission.superAdmin] }
+    },
+    {
         path: 'auth',
         loadChildren: () => import('app/modules/auth/auth.module').then(m => m.AuthModule),
         canLoad: [GuestOnlyGuard],

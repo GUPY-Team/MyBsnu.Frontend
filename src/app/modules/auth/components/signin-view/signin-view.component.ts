@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserService } from 'app/modules/auth/services';
+import { AppUserService } from 'app/modules/auth/services';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -30,7 +30,7 @@ export class SigninViewComponent implements OnDestroy {
     constructor(
         private formBuilder: FormBuilder,
         private snackBar: MatSnackBar,
-        private userService: UserService,
+        private userService: AppUserService,
         private router: Router,
     ) {
     }

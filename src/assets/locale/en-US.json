@@ -130,6 +130,7 @@
     "SIDENAV": {
         "LINKS": {
             "ACCOUNT": "Account",
+            "ADMIN_PANEL": "Admin panel",
             "GROUP_SCHEDULE": "Group schedule",
             "SCHEDULE_DESIGNER": "Schedule designer",
             "TEACHER_SCHEDULE": "Teacher schedule"
@@ -138,6 +139,13 @@
     },
     "TEACHER_SCHEDULE": {
         "TITLE": "Teacher schedule"
+    },
+    "USER_LIST": {
+        "CREATE_USER": "Create user",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "TITLE": "User list",
+        "USERNAME": "Username"
     },
     "WEEKDAY": {
         "FRIDAY": "Friday",

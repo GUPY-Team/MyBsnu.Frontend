@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
       "ng": "ng",
-      "start": "ng serve --host 192.168.0.84",
+      "start": "ng serve",
       "update-locale": "ngx-translate-extract -i ./src -o src/assets/locale/uk-UA.json src/assets/locale/en-US.json src/assets/locale/ru-RU.json -k --sort --format namespaced-json",
       "build": "ng build",
       "watch": "ng build --watch --configuration development",

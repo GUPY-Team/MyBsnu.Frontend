@@ -6,13 +6,13 @@ import {
     HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserService } from '../services';
+import { AppUserService } from '../services';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
     constructor(
-        private userService: UserService
+        private userService: AppUserService
     ) {
     }
 

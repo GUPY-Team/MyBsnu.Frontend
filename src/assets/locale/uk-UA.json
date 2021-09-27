@@ -127,6 +127,7 @@
     "SIDENAV": {
         "LINKS": {
             "ACCOUNT": "Профіль",
+            "ADMIN_PANEL": "Адмін панель",
             "GROUP_SCHEDULE": "Розклад студентів",
             "SCHEDULE_DESIGNER": "Редактор розкладу",
             "TEACHER_SCHEDULE": "Розклад викладачів"
@@ -135,6 +136,13 @@
     },
     "TEACHER_SCHEDULE": {
         "TITLE": "Розклад викладачів"
+    },
+    "USER_LIST": {
+        "CREATE_USER": "Створити користувача",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "TITLE": "Список користувачів",
+        "USERNAME": "Нікнейм"
     },
     "WEEKDAY": {
         "FRIDAY": "П'ятниця",

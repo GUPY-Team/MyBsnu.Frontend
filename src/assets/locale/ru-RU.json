@@ -129,6 +129,7 @@
     "SIDENAV": {
         "LINKS": {
             "ACCOUNT": "Аккаунт",
+            "ADMIN_PANEL": "Админ панель",
             "GROUP_SCHEDULE": "Рассписание студентов",
             "SCHEDULE_DESIGNER": "Редактор рассписания",
             "TEACHER_SCHEDULE": "Рассписание преподавателей"
@@ -137,6 +138,13 @@
     },
     "TEACHER_SCHEDULE": {
         "TITLE": "Рассписание преподавателей"
+    },
+    "USER_LIST": {
+        "CREATE_USER": "Создать пользователя",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "TITLE": "Список пользователей",
+        "USERNAME": "Никнейм"
     },
     "WEEKDAY": {
         "FRIDAY": "Пятница",

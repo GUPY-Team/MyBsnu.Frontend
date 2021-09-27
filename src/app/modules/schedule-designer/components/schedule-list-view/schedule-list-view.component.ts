@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { ScheduleService } from 'app/api/services';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Schedule } from 'app/api/models';
-import { startWith, switchMap } from 'rxjs/operators';
-import { EmptyPagedList, PagedList, Pagination } from 'app/core';
-import { PageEvent } from '@angular/material/paginator';
+import { PagedList, Pagination } from 'app/core';
+import { ListViewBase } from 'app/modules/shared/models';
 
 @Component({
     selector: 'app-schedule-list-view',
     templateUrl: './schedule-list-view.component.html',
     styleUrls: ['./schedule-list-view.component.scss']
 })
-export class ScheduleListViewComponent {
-
-    private pagination$ = new BehaviorSubject<Pagination>({ page: 1, pageSize: 10 });
+export class ScheduleListViewComponent extends ListViewBase<Schedule> {
 
     public displayColumns: ReadonlyArray<string> = [
         'semester',
@@ -22,21 +19,13 @@ export class ScheduleListViewComponent {
         'isPublished',
     ];
 
-    public pageSizes = [5, 10, 25, 100];
-
-    public scheduleList: Observable<PagedList<Schedule>>;
-
     constructor(
         private scheduleService: ScheduleService
     ) {
-        this.scheduleList = this.pagination$
-            .pipe(
-                switchMap(p => this.scheduleService.getScheduleList(p.page, p.pageSize)),
-                startWith(new EmptyPagedList())
-            );
+        super();
     }
 
-    public onPaginationChange(e: PageEvent): void {
-        this.pagination$.next({ page: e.pageIndex + 1, pageSize: e.pageSize });
+    protected getList(pagination: Pagination): Observable<PagedList<Schedule>> {
+        return this.scheduleService.getScheduleList(pagination.page, pagination.pageSize);
     }
 }
