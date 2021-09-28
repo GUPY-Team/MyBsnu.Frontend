@@ -18,7 +18,7 @@
     <mat-table class="list" [dataSource]="list.items">
         <ng-container matColumnDef="semester">
             <mat-header-cell *matHeaderCellDef>{{ 'COMMON.SEMESTER' | translate }}</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element.semester }} </mat-cell>
+            <mat-cell *matCellDef="let element">{{ 'SEMESTER.' + element.semester | uppercase | translate }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="year">
