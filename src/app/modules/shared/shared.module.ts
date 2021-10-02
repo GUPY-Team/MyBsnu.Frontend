@@ -6,19 +6,22 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalizedPaginator } from 'app/modules/shared/models';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { FormErrorDirective } from './directives';
 
 
 @NgModule({
     declarations: [
         ConfirmDialogComponent,
-        SelectListComponent
+        SelectListComponent,
+        FormErrorDirective
     ],
     exports: [
+        ConfirmDialogComponent,
+        SelectListComponent,
+        FormErrorDirective,
         TranslateModule,
         MaterialModule,
         ReactiveFormsModule,
-        ConfirmDialogComponent,
-        SelectListComponent,
         FormsModule,
         CommonModule,
     ],

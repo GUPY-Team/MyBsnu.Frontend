@@ -4,11 +4,11 @@ import { Audience, Group, Teacher } from 'app/api/models';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'app-class-info-form',
-    templateUrl: './class-info-form.component.html',
-    styleUrls: ['./class-info-form.component.scss'],
+    selector: 'app-class-info',
+    templateUrl: './class-info.component.html',
+    styleUrls: ['./class-info.component.scss'],
 })
-export class ClassInfoFormComponent {
+export class ClassInfoComponent {
 
     @Input()
     public group!: FormGroup;
@@ -23,7 +23,7 @@ export class ClassInfoFormComponent {
     public groups!: Observable<Group[]>;
 
     public filterTeachers(teachers: Teacher[], value: string): Teacher[] {
-        return teachers.filter(t => t.fullName.toLowerCase().includes(value));
+        return teachers.filter(t => t.fullName.toLowerCase().includes(value.toLowerCase()));
     }
 
     public displayTeacher(teacher: Teacher): string {

@@ -159,5 +159,14 @@
     "WEEK_TYPE": {
         "EVEN": "Week B",
         "ODD": "Week A"
+    },
+    "FORM_ERRORS": {
+        "REQUIRED": "Field is required",
+        "MIN": "Min value is {{min}}",
+        "MAX": "Max value is {{max}}",
+        "MINLENGTH": "Min length is {{requiredLength}}",
+        "MAXLENGTH": "Max length is {{requiredLength}}",
+        "EMAIL": "Email should be valid",
+        "PATTERN": "Field doesn't match pattern {{requiredPattern}}"
     }
 }

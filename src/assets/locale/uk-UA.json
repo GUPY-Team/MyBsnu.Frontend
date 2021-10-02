@@ -156,5 +156,14 @@
     "WEEK_TYPE": {
         "EVEN": "Тиждень Б",
         "ODD": "Тиждень А"
+    },
+    "FORM_ERRORS": {
+        "REQUIRED": "Поле обов'язкове",
+        "MIN": "Мінімальне значення {{min}}",
+        "MAX": "Максимальне значення {{max}}",
+        "MINLENGTH": "Мінімальна довжина {{requiredLength}}",
+        "MAXLENGTH": "Максимальна довжина {{requiredLength}}",
+        "EMAIL": "Email повинен бути валідним",
+        "PATTERN": "Поле задовольняє патерн {{requiredPattern}}"
     }
 }

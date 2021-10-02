@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { getErrorMessages } from 'app/core';
 
 @Component({
     selector: 'app-login-view',
@@ -20,10 +19,6 @@ export class SigninViewComponent implements OnDestroy {
         email: ['', [Validators.email, Validators.required]],
         password: ['', [Validators.required]]
     });
-
-    public get errors() {
-        return getErrorMessages(this.signinForm);
-    }
 
     public submitDisabled = false;
 

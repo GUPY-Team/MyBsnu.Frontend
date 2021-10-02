@@ -15,7 +15,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassService, EnumService, } from 'app/api/services';
 import { Observable, Subject } from 'rxjs';
-import { FormMode, getErrorMessages } from 'app/core';
+import { FormMode } from 'app/core';
 import { CourseService } from 'app/api/services/course.service';
 import { CreateClassCommand, UpdateClassCommand } from 'app/api/commands';
 import { debounceTime, distinctUntilChanged, filter, map, share, switchMap, takeUntil, } from 'rxjs/operators';
@@ -52,10 +52,6 @@ export class ClassFormComponent implements OnInit, OnDestroy {
 
     public formMode: FormMode = FormMode.Create;
     public actionsDisabled = false;
-
-    public get errors() {
-        return getErrorMessages(this.classForm);
-    }
 
     public get formTitle() {
         return this.formMode === FormMode.Create ? `CLASS.FORM.CREATE_TITLE` : `CLASS.FORM.EDIT_TITLE`;

@@ -8,7 +8,7 @@
     },
     "AUTH": {
         "EMAIL": "Email",
-        "EMAIL_PLACEHOLDER": "Ваш e-mail",
+        "EMAIL_PLACEHOLDER": "Ваш email",
         "HAVE_ACCOUNT": "Уже есть учетная запись?",
         "NO_ACCOUNT": "Нету учетной записи?",
         "PASS": "Пароль",
@@ -158,5 +158,14 @@
     "WEEK_TYPE": {
         "EVEN": "Неделя Б",
         "ODD": "Неделя А"
+    },
+    "FORM_ERRORS": {
+        "REQUIRED": "Поле обьязательное",
+        "MIN": "Минимальное значение {{min}}",
+        "MAX": "Максимальное значение {{max}}",
+        "MINLENGTH": "Минимальная длина {{requiredLength}}",
+        "MAXLENGTH": "Максимальная длина {{requiredLength}}",
+        "EMAIL": "Email не валидный",
+        "PATTERN": "Поле не соответсвует патерну {{requiredPattern}}"
     }
 }

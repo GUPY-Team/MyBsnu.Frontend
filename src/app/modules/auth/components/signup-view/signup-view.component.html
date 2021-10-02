@@ -11,7 +11,7 @@
                formControlName="email"
                [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
         >
-        <mat-error>{{ errors['email'] }}</mat-error>
+        <mat-error appFormError controlName="email"></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -20,7 +20,7 @@
                formControlName="username"
                [placeholder]="'AUTH.USERNAME_PLACEHOLDER' | translate"
         >
-        <mat-error>{{ errors['username'] }}</mat-error>
+        <mat-error appFormError controlName="username"></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -30,7 +30,7 @@
                type="password"
                [placeholder]="'AUTH.PASS_PLACEHOLDER' | translate"
         >
-        <mat-error>{{ errors['password'] }}</mat-error>
+        <mat-error appFormError controlName="password"></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -40,7 +40,7 @@
                type="password"
                [placeholder]="'AUTH.PASS_CONFIRM_PLACEHOLDER' | translate"
         >
-        <mat-error>{{ errors['passwordConfirm'] }}</mat-error>
+        <mat-error appFormError controlName="passwordConfirm"></mat-error>
     </mat-form-field>
 
     <button

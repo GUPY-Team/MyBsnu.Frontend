@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppUserService } from 'app/modules/auth/services';
 import { Router } from '@angular/router';
-import { CustomValidators, getErrorMessages } from 'app/core';
+import { CustomValidators } from 'app/core';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -38,10 +38,6 @@ export class SignupViewComponent implements OnDestroy {
             Validators.maxLength(256)
         ]],
     }, { validators: CustomValidators.mustMatchValidator('password', 'passwordConfirm') });
-
-    public get errors() {
-        return getErrorMessages(this.signupForm);
-    }
 
     public submitDisabled = false;
 

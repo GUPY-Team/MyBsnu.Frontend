@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomValidators, getErrorMessages } from 'app/core';
+import { CustomValidators } from 'app/core';
 import { Semester } from 'app/api/models';
 import { EnumService, ScheduleService } from 'app/api/services';
 import { Subject } from 'rxjs';
@@ -21,10 +21,6 @@ export class ScheduleCreateViewComponent implements OnInit, OnDestroy {
     public semesters: Semester[] = [];
 
     public submitDisabled = false;
-
-    public get errors() {
-        return getErrorMessages(this.scheduleForm);
-    }
 
     constructor(
         private scheduleService: ScheduleService,

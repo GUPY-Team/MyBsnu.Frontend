@@ -21,7 +21,7 @@
                         {{ 'EDUCATION_FORMAT.' + format | uppercase | translate }}
                     </mat-option>
                 </mat-select>
-                <mat-error>{{ errors['format'] }}</mat-error>
+                <mat-error appFormError controlName="format"></mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
@@ -34,7 +34,7 @@
                         {{ 'CLASS_TYPE.' + type | uppercase | translate }}
                     </mat-option>
                 </mat-select>
-                <mat-error>{{ errors['type'] }}</mat-error>
+                <mat-error appFormError controlName="type"></mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
@@ -47,7 +47,7 @@
                         {{ course.name }}
                     </mat-option>
                 </mat-select>
-                <mat-error>{{ errors['courseId'] }}</mat-error>
+                <mat-error appFormError controlName="courseId"></mat-error>
             </mat-form-field>
         </div>
 
@@ -59,12 +59,12 @@
             [weekTypes]="weekTypes"
         ></app-class-period>
 
-        <app-class-info-form
+        <app-class-info
             [group]="classInfo"
             [teachers]="teachers$"
             [groups]="groups$"
             [audiences]="audiences$"
-        ></app-class-info-form>
+        ></app-class-info>
 
     </form>
 </mat-dialog-content>

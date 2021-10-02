@@ -8,7 +8,7 @@
     <mat-form-field appearance="fill">
         <mat-label>{{ 'COMMON.YEAR' | translate }}</mat-label>
         <input matInput formControlName="year">
-        <mat-error>{{ errors['year'] }}</mat-error>
+        <mat-error appFormError controlName="year"></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -21,7 +21,7 @@
                 {{ 'SEMESTER.' + semester | uppercase | translate }}
             </mat-option>
         </mat-select>
-        <mat-error>{{ errors['semester'] }}</mat-error>
+        <mat-error appFormError controlName="semester"></mat-error>
     </mat-form-field>
 
     <button

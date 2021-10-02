@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Self, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, Self, ViewChild } from '@angular/core';
 import {
     FormControl,
     NgControl,
@@ -17,7 +17,7 @@ export interface Item {
     templateUrl: './select-list.component.html',
     styleUrls: ['./select-list.component.scss'],
 })
-export class SelectListComponent extends FormControlValueAccessorAdapter implements OnInit {
+export class SelectListComponent extends FormControlValueAccessorAdapter {
 
     public control: FormControl = new FormControl([]);
 
@@ -35,7 +35,7 @@ export class SelectListComponent extends FormControlValueAccessorAdapter impleme
         this.filteredItems$ = this.autocompleteControl.valueChanges.pipe(
             startWith(''),
             switchMap(val => val
-                ? items.pipe(map(i => this.filter(i, val)))
+                ? items.pipe(map(i => this.filter(i, val.toString())))
                 : items
             )
         );
@@ -57,20 +57,21 @@ export class SelectListComponent extends FormControlValueAccessorAdapter impleme
         this.controlDir.valueAccessor = this;
     }
 
-    public ngOnInit(): void {
-        const validators = this.controlDir?.control?.validator;
-        if (validators) {
-            this.control.setValidators(validators);
+    public writeValue(val: any) {
+        if (val === null) {
+            this.control.setValue([], { emitEvent: false });
+        } else {
+            this.control.setValue(val, { emitEvent: false });
         }
     }
 
     public itemRemoved(item: Item) {
         this.control.setValue(this.control.value.filter((i: Item) => i.id !== item.id));
-        this.autocompleteControl.updateValueAndValidity(); // trigger value changes to display autocomplete list correctly
+        this.autocompleteControl.updateValueAndValidity();
     }
 
     public itemSelected(event: MatAutocompleteSelectedEvent) {
-        this.control.setValue([...this.control.value ?? [], event.option.value]);
+        this.control.setValue([...this.control.value, event.option.value]);
         this.autocompleteControl.setValue('');
         this.autocompleteInput.nativeElement.value = '';
     }
@@ -82,8 +83,7 @@ export class SelectListComponent extends FormControlValueAccessorAdapter impleme
     }
 
     private filterSelectedItems(items: Item[]): Item[] {
-        const value = this.control.value ?? [];
-        const selectedEntities = new Set<number>(value.map((e: Item) => e.id));
+        const selectedEntities = new Set<number>(this.control.value.map((e: Item) => e.id));
         return items.filter(e => !selectedEntities.has(e.id));
     }
 }

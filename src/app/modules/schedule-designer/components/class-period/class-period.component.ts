@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { getErrorMessages } from 'app/core';
 import { FormGroup } from '@angular/forms';
 import { ClassType, EducationFormat, WeekDay, WeekType } from 'app/api/models';
 
@@ -24,8 +23,4 @@ export class ClassPeriodComponent {
 
     @Input()
     public weekTypes: WeekType[] = [];
-
-    public get errors() {
-        return getErrorMessages(this.group);
-    }
 }
