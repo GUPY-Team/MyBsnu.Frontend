@@ -1,8 +1,12 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { map, startWith, switchMap } from 'rxjs/operators';
+import { Component, ElementRef, Input, OnInit, Self, ViewChild } from '@angular/core';
+import {
+    FormControl,
+    NgControl,
+} from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, shareReplay, startWith, switchMap } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { FormControlValueAccessorAdapter } from 'app/modules/shared/models';
 
 export interface Item {
     id: number
@@ -12,34 +16,19 @@ export interface Item {
     selector: 'app-select-list',
     templateUrl: './select-list.component.html',
     styleUrls: ['./select-list.component.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: SelectListComponent
-        }
-    ]
 })
-export class SelectListComponent implements ControlValueAccessor {
+export class SelectListComponent extends FormControlValueAccessorAdapter implements OnInit {
 
-    public onChange = (items: Item[]) => {
-    };
-
-    public onTouched = () => {
-    };
-
-    public touched = false;
-
-    public disabled = false;
+    public control: FormControl = new FormControl([]);
 
     public autocompleteControl: FormControl = new FormControl();
 
-    public selectedItems: Item[] = [];
-    public filteredItems$: Observable<Item[]> = of([]);
+    public filteredItems$!: Observable<Item[]>;
 
     @Input()
     public set items(items$: Observable<Item[]>) {
         const items = items$.pipe(
+            shareReplay(),
             map(i => this.filterSelectedItems(i))
         );
 
@@ -61,46 +50,29 @@ export class SelectListComponent implements ControlValueAccessor {
     @Input()
     public title: string = '';
 
-    @Input()
-    public error?: string;
-
     @ViewChild('autocompleteInput') autocompleteInput!: ElementRef<HTMLInputElement>;
 
-    public registerOnChange(fn: any): void {
-        this.onChange = fn;
+    constructor(@Self() public controlDir: NgControl) {
+        super();
+        this.controlDir.valueAccessor = this;
     }
 
-    public registerOnTouched(fn: any): void {
-        this.onTouched = fn;
-    }
-
-    public setDisabledState(isDisabled: boolean): void {
-        this.disabled = isDisabled;
-    }
-
-    public writeValue(selectedItems: Item[]): void {
-        this.selectedItems = selectedItems ?? [];
+    public ngOnInit(): void {
+        const validators = this.controlDir?.control?.validator;
+        if (validators) {
+            this.control.setValidators(validators);
+        }
     }
 
     public itemRemoved(item: Item) {
-        this.markAsTouched();
-        if (!this.disabled) {
-            this.selectedItems = this.selectedItems.filter(i => i.id !== item.id);
-            this.autocompleteControl.enable(); // trigger value changes to display autocomplete list correctly
-
-            this.onChange(this.selectedItems);
-        }
+        this.control.setValue(this.control.value.filter((i: Item) => i.id !== item.id));
+        this.autocompleteControl.updateValueAndValidity(); // trigger value changes to display autocomplete list correctly
     }
 
     public itemSelected(event: MatAutocompleteSelectedEvent) {
-        this.markAsTouched();
-        if (!this.disabled) {
-            this.selectedItems.push(event.option.value);
-            this.onChange(this.selectedItems);
-
-            this.autocompleteControl.setValue('');
-            this.autocompleteInput.nativeElement.value = '';
-        }
+        this.control.setValue([...this.control.value ?? [], event.option.value]);
+        this.autocompleteControl.setValue('');
+        this.autocompleteInput.nativeElement.value = '';
     }
 
     public displayItem(item: any): string {
@@ -110,14 +82,8 @@ export class SelectListComponent implements ControlValueAccessor {
     }
 
     private filterSelectedItems(items: Item[]): Item[] {
-        const selectedEntities = new Set<number>(this.selectedItems.map(e => e.id));
+        const value = this.control.value ?? [];
+        const selectedEntities = new Set<number>(value.map((e: Item) => e.id));
         return items.filter(e => !selectedEntities.has(e.id));
-    }
-
-    private markAsTouched() {
-        if (!this.touched) {
-            this.onTouched();
-            this.touched = true;
-        }
     }
 }

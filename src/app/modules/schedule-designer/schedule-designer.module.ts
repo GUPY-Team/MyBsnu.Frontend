@@ -6,7 +6,9 @@ import {
     ScheduleListViewComponent,
     ScheduleDesignerComponent,
     ScheduleEditFormComponent,
-    ClassDialogComponent,
+    ClassFormComponent,
+    ClassPeriodComponent,
+    ClassInfoFormComponent,
 } from 'app/modules/schedule-designer/components';
 import { SharedModule } from 'app/modules/shared/shared.module';
 import { ScheduleSharedModule } from 'app/modules/schedule-shared/schedule-shared.module';
@@ -19,7 +21,9 @@ import { ScheduleSharedModule } from 'app/modules/schedule-shared/schedule-share
         ScheduleEditViewComponent,
         ScheduleDesignerComponent,
         ScheduleEditFormComponent,
-        ClassDialogComponent,
+        ClassFormComponent,
+        ClassPeriodComponent,
+        ClassInfoFormComponent,
     ],
     imports: [
         ScheduleDesignerRoutingModule,

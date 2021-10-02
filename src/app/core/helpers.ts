@@ -1,3 +1,5 @@
+import { Entity } from 'app/core/models';
+
 export function distinctBy<TElement, TKey>(elements: TElement[], selector: (element: TElement) => TKey): TElement[] {
     const ids = new Set<TKey>();
 
@@ -12,10 +14,6 @@ export function distinctBy<TElement, TKey>(elements: TElement[], selector: (elem
     }
 
     return result;
-}
-
-interface Entity {
-    id: number | string;
 }
 
 export function compareEntities(t1: Entity, t2: Entity): boolean {

@@ -2,13 +2,13 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Class, Group, Schedule, ScheduleClasses, Teacher } from 'app/api/models';
 import { GroupService, ScheduleService, TeacherService } from 'app/api/services';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import {
-    ClassDialogComponent,
+    ClassFormComponent,
     ClassDialogData
-} from 'app/modules/schedule-designer/components/class-dialog/class-dialog.component';
+} from 'app/modules/schedule-designer/components/class-form/class-form.component';
 
 enum ViewMode {
     Group,
@@ -29,8 +29,8 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
     public viewMode = ViewMode;
     public currentViewMode: ViewMode = ViewMode.Group;
 
-    public teachers$: Observable<Teacher[]> = of([]);
-    public groups$: Observable<Group[]> = of([]);
+    public teachers$!: Observable<Teacher[]>;
+    public groups$!: Observable<Group[]>;
 
     public teacherClasses$!: Observable<ScheduleClasses>;
     public groupClasses$!: Observable<ScheduleClasses>;
@@ -105,7 +105,7 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
     }
 
     private openDialog(data: ClassDialogData): void {
-        const ref = this.dialog.open(ClassDialogComponent, {
+        const ref = this.dialog.open(ClassFormComponent, {
             width: '1000px',
             data
         });

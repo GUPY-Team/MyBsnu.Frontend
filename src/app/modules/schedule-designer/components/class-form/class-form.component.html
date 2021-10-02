@@ -1,0 +1,106 @@
+<h3
+    class="class-form-header"
+    mat-dialog-title
+>
+    {{ formTitle | translate }}
+</h3>
+<mat-dialog-content>
+    <form
+        class="class-form"
+        [formGroup]="classForm"
+    >
+
+        <div class="input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'CLASS.FORM.EDUCATION_FORMAT' | translate }}</mat-label>
+                <mat-select formControlName="format">
+                    <mat-option
+                        *ngFor="let format of educationFormats"
+                        [value]="format"
+                    >
+                        {{ 'EDUCATION_FORMAT.' + format | uppercase | translate }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['format'] }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'CLASS.FORM.CLASS_TYPE' | translate }}</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option
+                        *ngFor="let type of classTypes"
+                        [value]="type"
+                    >
+                        {{ 'CLASS_TYPE.' + type | uppercase | translate }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['type'] }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'CLASS.FORM.COURSE' | translate }}</mat-label>
+                <mat-select formControlName="courseId">
+                    <mat-option
+                        *ngFor="let course of courses$ | async"
+                        [value]="course.id"
+                    >
+                        {{ course.name }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>{{ errors['courseId'] }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <app-class-period
+            [group]="classPeriod"
+            [educationFormats]="educationFormats"
+            [classTypes]="classTypes"
+            [weekdays]="weekdays"
+            [weekTypes]="weekTypes"
+        ></app-class-period>
+
+        <app-class-info-form
+            [group]="classInfo"
+            [teachers]="teachers$"
+            [groups]="groups$"
+            [audiences]="audiences$"
+        ></app-class-info-form>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="class-form-buttons">
+    <ng-template [ngIf]="isCreateMode" [ngIfElse]="editButtons">
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="submit()"
+            [disabled]="actionsDisabled"
+        >
+            <mat-icon>add</mat-icon>
+            {{ 'COMMON.CREATE' | translate }}
+        </button>
+    </ng-template>
+
+    <ng-template #editButtons>
+        <button
+            mat-raised-button
+            color="primary"
+            [disabled]="saveDisabled || actionsDisabled"
+            (click)="submit()"
+        >
+            <mat-icon>save</mat-icon>
+            {{ 'COMMON.SAVE' | translate }}
+        </button>
+
+        <button
+            mat-raised-button
+            color="warn"
+            (click)="delete()"
+            [disabled]="actionsDisabled"
+        >
+            <mat-icon>delete</mat-icon>
+            {{ 'COMMON.DELETE' | translate }}
+        </button>
+    </ng-template>
+</mat-dialog-actions>

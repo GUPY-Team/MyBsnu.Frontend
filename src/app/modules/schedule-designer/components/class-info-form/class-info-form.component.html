@@ -1,0 +1,25 @@
+<ng-container [formGroup]="group">
+    <app-select-list
+        formControlName="teachers"
+        [title]="'CLASS.FORM.TEACHER' | translate"
+        [items]="teachers"
+        [filter]="filterTeachers"
+        [displayWith]="displayTeacher"
+    ></app-select-list>
+
+    <app-select-list
+        formControlName="audiences"
+        [title]="'CLASS.FORM.AUDIENCE' | translate"
+        [items]="audiences"
+        [filter]="filterAudiences"
+        [displayWith]="displayAudience"
+    ></app-select-list>
+
+    <app-select-list
+        formControlName="groups"
+        [title]="'CLASS.FORM.GROUP' | translate"
+        [items]="groups"
+        [filter]="filterGroups"
+        [displayWith]="displayGroup"
+    ></app-select-list>
+</ng-container>

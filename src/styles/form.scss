@@ -1,0 +1,15 @@
+@use '~styles/breakpoints';
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        flex-grow: 1;
+    }
+
+    @include breakpoints.sm {
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+}

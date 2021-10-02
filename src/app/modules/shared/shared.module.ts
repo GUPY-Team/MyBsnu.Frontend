@@ -27,7 +27,6 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
         TranslateModule,
         MaterialModule,
         ReactiveFormsModule,
-        FormsModule,
     ],
     providers: [
         { provide: MatPaginatorIntl, useClass: LocalizedPaginator }
