@@ -27,12 +27,12 @@ export class ConfirmDialogComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        const { title, message, okButtonText, cancelButtonText } = this.data;
+        const data = this.data;
 
-        this.title = title ?? this.title;
-        this.message = message ?? this.message;
-        this.okButtonText = okButtonText ?? this.okButtonText;
-        this.cancelButtonText = cancelButtonText ?? this.cancelButtonText;
+        this.title = data?.title ?? this.title;
+        this.message = data?.message ?? this.message;
+        this.okButtonText = data?.okButtonText ?? this.okButtonText;
+        this.cancelButtonText = data?.cancelButtonText ?? this.cancelButtonText;
     }
 
 }
