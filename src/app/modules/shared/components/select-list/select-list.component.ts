@@ -7,10 +7,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay, startWith, switchMap } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FormControlValueAccessorAdapter } from 'app/modules/shared/models';
-
-export interface Item {
-    id: number
-}
+import { compareEntities } from 'app/core';
 
 @Component({
     selector: 'app-select-list',
@@ -23,10 +20,10 @@ export class SelectListComponent extends FormControlValueAccessorAdapter {
 
     public autocompleteControl: FormControl = new FormControl();
 
-    public filteredItems$!: Observable<Item[]>;
+    public filteredItems$!: Observable<any[]>;
 
     @Input()
-    public set items(items$: Observable<Item[]>) {
+    public set items(items$: Observable<any[]>) {
         const items = items$.pipe(
             shareReplay(),
             map(i => this.filterSelectedItems(i))
@@ -48,6 +45,9 @@ export class SelectListComponent extends FormControlValueAccessorAdapter {
     public displayWith?: ((value: any) => string);
 
     @Input()
+    public compareWith: (o1: any, o2: any) => boolean = compareEntities;
+
+    @Input()
     public title: string = '';
 
     @ViewChild('autocompleteInput') autocompleteInput!: ElementRef<HTMLInputElement>;
@@ -65,8 +65,8 @@ export class SelectListComponent extends FormControlValueAccessorAdapter {
         }
     }
 
-    public itemRemoved(item: Item) {
-        this.control.setValue(this.control.value.filter((i: Item) => i.id !== item.id));
+    public itemRemoved(item: any) {
+        this.control.setValue(this.control.value.filter((i: any) => !this.compareWith(i, item)));
         this.autocompleteControl.updateValueAndValidity();
     }
 
@@ -82,8 +82,11 @@ export class SelectListComponent extends FormControlValueAccessorAdapter {
             : item.toString();
     }
 
-    private filterSelectedItems(items: Item[]): Item[] {
-        const selectedEntities = new Set<number>(this.control.value.map((e: Item) => e.id));
-        return items.filter(e => !selectedEntities.has(e.id));
+    private filterSelectedItems(items: any[]): any[] {
+        const selectedItems = this.control.value;
+        return items.reduce(
+            (prev, curr) => selectedItems.some((i: any) => this.compareWith(i, curr)) ? prev : [...prev, curr]
+            , []
+        );
     }
 }

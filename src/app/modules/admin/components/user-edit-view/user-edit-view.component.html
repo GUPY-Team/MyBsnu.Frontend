@@ -1,0 +1,56 @@
+<ng-container *ngIf="user$ | async as user">
+    <h3 class="form-header">{{ 'USER_FORM.EDIT_TITLE' | translate }}</h3>
+
+    <form
+        class="form"
+        [formGroup]="form"
+    >
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'USER_FORM.ID' | translate }}</mat-label>
+            <input matInput formControlName="id">
+            <mat-error appFormError controlName="id"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'USER_FORM.EMAIL' | translate }}</mat-label>
+            <input matInput formControlName="email">
+            <mat-error appFormError controlName="email"></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'USER_FORM.USERNAME' | translate }}</mat-label>
+            <input matInput formControlName="userName">
+            <mat-error appFormError controlName="userName"></mat-error>
+        </mat-form-field>
+
+        <app-select-list
+            formControlName="claims"
+            [title]="'USER_FORM.CLAIMS' | translate"
+            [items]="claims$"
+            [filter]="filterClaims"
+            [displayWith]="displayClaim"
+            [compareWith]="compareClaims"
+        ></app-select-list>
+
+        <div class="form-group">
+            <button
+                mat-raised-button
+                color="primary"
+                [disabled]="saveDisabled$ | async"
+                (click)="onUpdate()"
+            >
+                {{ 'COMMON.SAVE' | translate }}
+            </button>
+
+            <button
+                mat-raised-button
+                color="warn"
+                [disabled]="deleteDisabled$ | async"
+                (click)="onDelete()"
+            >
+                {{ 'COMMON.DELETE' | translate }}
+            </button>
+        </div>
+
+    </form>
+</ng-container>

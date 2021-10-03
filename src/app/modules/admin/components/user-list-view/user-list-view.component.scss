@@ -1,2 +1,21 @@
 @use '~styles/icons';
 @use '~styles/list-view';
+@use '~styles/breakpoints';
+
+@include breakpoints.md {
+    .mat-column-id {
+        flex-basis: 40%;
+    }
+
+    .mat-column-email {
+        flex-basis: 25%;
+    }
+
+    .mat-column-userName {
+        flex-basis: 25%;
+    }
+
+    .mat-column-actions {
+        flex-basis: 10%;
+    }
+}

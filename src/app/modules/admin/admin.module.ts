@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from 'app/modules/shared/shared.module';
-import { UserListViewComponent } from './components';
+import {
+    UserListViewComponent,
+    UserEditViewComponent,
+    UserCreateViewComponent
+} from './components';
 
 
 @NgModule({
     declarations: [
-        UserListViewComponent
+        UserListViewComponent,
+        UserEditViewComponent,
+        UserCreateViewComponent
     ],
     imports: [
         SharedModule,

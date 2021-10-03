@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { EnvironmentService, PagedList } from 'app/core';
 import { Observable } from 'rxjs';
 import { User, UserListModel } from '../models';
+import { CreateUserCommand, UpdateUserClaimsCommand } from 'app/api/commands';
 
 @Injectable({
     providedIn: 'root'
@@ -26,5 +27,17 @@ export class UserService {
 
     public getUser(id: string): Observable<User> {
         return this.client.get<User>(`${this.baseUrl}/users/${id}`);
+    }
+
+    public createUser(command: CreateUserCommand): Observable<User> {
+        return this.client.post<User>(`${this.baseUrl}/users`, command);
+    }
+
+    public deleteUser(id: string): Observable<void> {
+        return this.client.delete<void>(`${this.baseUrl}/users/${id}`);
+    }
+
+    public updateUserClaims(command: UpdateUserClaimsCommand): Observable<void> {
+        return this.client.put<void>(`${this.baseUrl}/userClaims`, command);
     }
 }

@@ -13,10 +13,9 @@ import {
     WeekType
 } from 'app/api/models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClassService, EnumService, } from 'app/api/services';
+import { ClassService, CourseService, EnumService } from 'app/api/services';
 import { Observable, Subject } from 'rxjs';
 import { FormMode } from 'app/core';
-import { CourseService } from 'app/api/services/course.service';
 import { CreateClassCommand, UpdateClassCommand } from 'app/api/commands';
 import { debounceTime, distinctUntilChanged, filter, map, share, switchMap, takeUntil, } from 'rxjs/operators';
 import { DesignerAutocompleteService } from 'app/modules/schedule-designer/services';
@@ -155,6 +154,11 @@ export class ClassFormComponent implements OnInit, OnDestroy {
             ? this.classInfo.enable()
             : this.classInfo.disable()
         );
+
+        if (this.formMode === FormMode.Edit) {
+            Promise.resolve(null)
+                .then(_ => this.classPeriod.updateValueAndValidity());
+        }
     }
 
     public submit(): void {

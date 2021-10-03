@@ -82,6 +82,17 @@
     "FOOTER": {
         "CAPTION": "Надпись футера"
     },
+    "FORM_ERRORS": {
+        "EMAIL": "Email не валидный",
+        "ISINENUM": "Значения поля должны быть в перечислении",
+        "MAX": "Максимальное значение {{max}}",
+        "MAXLENGTH": "Максимальная длина {{requiredLength}}",
+        "MIN": "Минимальное значение {{min}}",
+        "MINLENGTH": "Минимальная длина {{requiredLength}}",
+        "MUSTMATCH": "Поле должно соответствовать {{control}}",
+        "PATTERN": "Поле не соответсвует патерну {{requiredPattern}}",
+        "REQUIRED": "Поле обязательное"
+    },
     "GROUP_SCHEDULE": {
         "TITLE": "Рассписание групп"
     },
@@ -139,6 +150,15 @@
     "TEACHER_SCHEDULE": {
         "TITLE": "Рассписание преподавателей"
     },
+    "USER_FORM": {
+        "CLAIMS": "Claims",
+        "CREATE_TITLE": "Создать пользователя",
+        "EDIT_TITLE": "Редактирование разрешений",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "PASS": "Пароль",
+        "USERNAME": "Никнейм"
+    },
     "USER_LIST": {
         "CREATE_USER": "Создать пользователя",
         "EMAIL": "Email",
@@ -158,14 +178,5 @@
     "WEEK_TYPE": {
         "EVEN": "Неделя Б",
         "ODD": "Неделя А"
-    },
-    "FORM_ERRORS": {
-        "REQUIRED": "Поле обьязательное",
-        "MIN": "Минимальное значение {{min}}",
-        "MAX": "Максимальное значение {{max}}",
-        "MINLENGTH": "Минимальная длина {{requiredLength}}",
-        "MAXLENGTH": "Максимальная длина {{requiredLength}}",
-        "EMAIL": "Email не валидный",
-        "PATTERN": "Поле не соответсвует патерну {{requiredPattern}}"
     }
 }

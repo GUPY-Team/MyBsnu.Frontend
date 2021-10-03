@@ -1,19 +1,22 @@
-@use "~styles/mixins";
+@use "~styles/form";
 @use "~styles/colors";
 
-.auth-form__header {
-    @include mixins.form-header;
+.auth-form {
+    &__header {
+        @extend .form-header;
+    }
+
+    &__form {
+        @extend .form;
+    }
+
+    &__footer {
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+    &__link {
+        color: colors.$mat-primary;
+    }
 }
 
-.auth-form__form {
-    @include mixins.form-vertical;
-}
-
-.auth-form__footer {
-    margin-top: 0.5rem;
-    text-align: center;
-}
-
-.auth-form__link {
-    color: colors.$mat-primary;
-}

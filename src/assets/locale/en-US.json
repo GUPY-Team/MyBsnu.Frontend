@@ -83,6 +83,17 @@
     "FOOTER": {
         "CAPTION": "Footer caption"
     },
+    "FORM_ERRORS": {
+        "EMAIL": "Email should be valid",
+        "ISINENUM": "Field must be in enum",
+        "MAX": "Max value is {{max}}",
+        "MAXLENGTH": "Max length is {{requiredLength}}",
+        "MIN": "Min value is {{min}}",
+        "MINLENGTH": "Min length is {{requiredLength}}",
+        "MUSTMATCH": "Field must match {{control}}",
+        "PATTERN": "Field doesn't match pattern {{requiredPattern}}",
+        "REQUIRED": "Field is required"
+    },
     "GROUP_SCHEDULE": {
         "TITLE": "Group schedule"
     },
@@ -140,6 +151,15 @@
     "TEACHER_SCHEDULE": {
         "TITLE": "Teacher schedule"
     },
+    "USER_FORM": {
+        "CLAIMS": "Claims",
+        "CREATE_TITLE": "Create user",
+        "EDIT_TITLE": "Edit claims",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "PASS": "Password",
+        "USERNAME": "Username"
+    },
     "USER_LIST": {
         "CREATE_USER": "Create user",
         "EMAIL": "Email",
@@ -159,14 +179,5 @@
     "WEEK_TYPE": {
         "EVEN": "Week B",
         "ODD": "Week A"
-    },
-    "FORM_ERRORS": {
-        "REQUIRED": "Field is required",
-        "MIN": "Min value is {{min}}",
-        "MAX": "Max value is {{max}}",
-        "MINLENGTH": "Min length is {{requiredLength}}",
-        "MAXLENGTH": "Max length is {{requiredLength}}",
-        "EMAIL": "Email should be valid",
-        "PATTERN": "Field doesn't match pattern {{requiredPattern}}"
     }
 }

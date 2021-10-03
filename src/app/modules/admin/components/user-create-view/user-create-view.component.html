@@ -1,0 +1,33 @@
+<h3 class="form-header">{{ 'USER_FORM.CREATE_TITLE' | translate }}</h3>
+
+<form
+    class="form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'USER_FORM.EMAIL' | translate }}</mat-label>
+        <input matInput formControlName="email">
+        <mat-error appFormError controlName="email"></mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'USER_FORM.USERNAME' | translate }}</mat-label>
+        <input matInput formControlName="username">
+        <mat-error appFormError controlName="username"></mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'USER_FORM.PASS' | translate }}</mat-label>
+        <input matInput formControlName="password" type="password">
+        <mat-error appFormError controlName="password"></mat-error>
+    </mat-form-field>
+
+    <button
+        mat-raised-button
+        color="primary"
+        [disabled]="submitDisabled$ | async"
+    >
+        {{ 'COMMON.CREATE' | translate }}
+    </button>
+</form>

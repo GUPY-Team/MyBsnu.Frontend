@@ -1,9 +1,9 @@
-@use "~styles/mixins";
+@use "~styles/form";
 
 :host {
     display: block;
 }
 
 .schedule__filters {
-    @include mixins.form-horizontal;
+    @extend .form-horizontal;
 }

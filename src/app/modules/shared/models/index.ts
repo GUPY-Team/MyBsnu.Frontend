@@ -1,3 +1,4 @@
 export * from './LocalizedPaginator';
-export * from './ListViewBase';
 export * from './FormControlValueAccessorAdapter';
+export * from './ListViewBase';
+export * from './CreateViewBase';
