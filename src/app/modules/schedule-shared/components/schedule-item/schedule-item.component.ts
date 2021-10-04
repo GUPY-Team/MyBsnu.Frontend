@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Class, ClassType, EducationFormat, WeekDay, WeekType } from 'app/api/models';
-import { EnumService } from 'app/api/services';
+import {Component, Input} from '@angular/core';
+import {Class, ClassType, EducationFormat, WeekDay, WeekType} from 'app/api/models';
+import {EnumService} from 'app/api/services';
 
 interface ScheduleItem {
     format: EducationFormat;
@@ -27,6 +27,7 @@ export class ScheduleItemComponent {
     public set class(class_: Class) {
         this.item = {
             ...class_,
+            courseName: class_.course.shortName,
             teachers: class_.teachers.map(t => t.shortName).join(', '),
             audiences: class_.audiences.map(a => a.fullNumber).join(', ')
         };

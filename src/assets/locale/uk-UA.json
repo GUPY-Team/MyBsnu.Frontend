@@ -1,180 +1,192 @@
 {
-    "ACCOUNT_MENU": {
-        "GREETING": "Вітаю",
-        "LOGOUT": "Вихід"
-    },
-    "APP": {
-        "TITLE": "Мій.ЧНУ"
-    },
-    "AUTH": {
-        "EMAIL": "Email",
-        "EMAIL_PLACEHOLDER": "Ваш email",
-        "HAVE_ACCOUNT": "Вже зареєстровані?",
-        "NO_ACCOUNT": "Відсутній аккаунт?",
-        "PASS": "Пароль",
-        "PASS_CONFIRM": "Підтвердження паролю",
-        "PASS_CONFIRM_PLACEHOLDER": "Підтвердіть пароль",
-        "PASS_PLACEHOLDER": "Ваш пароль",
-        "SIGNIN": "Логін",
-        "SIGNIN_TITLE": "Вхід",
-        "SIGNUP": "Зареєструватись",
-        "SIGNUP_TITLE": "Реєстрація",
-        "SUCCESSFUL_SIGNUP": "Ви були успішно зареєстровані!",
-        "USERNAME": "Нікнейм",
-        "USERNAME_PLACEHOLDER": "Ваш нікнейм"
-    },
-    "CLASS": {
-        "FORM": {
-            "AUDIENCE": "Аудиторії",
-            "CLASS_TYPE": "Тип заняття",
-            "COURSE": "Дисципліна",
-            "CREATE_TITLE": "Додати заняття",
-            "EDIT_TITLE": "Редагувати заняття",
-            "EDUCATION_FORMAT": "Формат проведення",
-            "END_TIME": "Кінець",
-            "GROUP": "Групи",
-            "START_TIME": "Початок",
-            "TEACHER": "Викладачі",
-            "WEEKDAY": "День тижня",
-            "WEEK_TYPE": "Тип тижня"
-        }
-    },
-    "CLASS_TYPE": {
-        "LECTURE": "Лекція",
-        "PRACTICE": "Практика"
-    },
-    "COMMON": {
-        "ACTIVE": "Активний",
-        "COPY": "Копіювати",
-        "CREATE": "Створити",
-        "DELETE": "Видалити",
-        "NONE": "Нічого",
-        "PUBLISH": "Опублікувати",
-        "SAVE": "Зберегти",
-        "SEMESTER": "Семестр",
-        "VERSION": "Версія",
-        "YEAR": "Рік"
-    },
-    "CONFIRM_DIALOG": {
-        "DEFAULT_CANCEL": "Відмінити",
-        "DEFAULT_MESSAGE": "Ви точно хочете це зробити? Наслідки можуть бути невідворотними.",
-        "DEFAULT_OK": "Ок",
-        "DEFAULT_TITLE": "Підтвердіть операцію"
-    },
-    "EDUCATION_FORMAT": {
-        "MIXED": "Змішаний",
-        "OFFLINE": "Оффлайн",
-        "ONLINE": "Онлайн"
-    },
-    "ERRORS": {
-        "FORBIDDEN_ERROR": "Доступ заборонено. Недостатньо прав.",
-        "UNEXPECTED_ERROR": "Сталася несподівана помилка.\nПовідомте адміністратора або спробуйте пізніше.",
-        "VALIDATION_ERROR": "Помилка валідації:\n"
-    },
-    "FILTERS": {
-        "CLASS_FORMAT": "Формат заняття",
-        "CLASS_TYPE": "Тип заняття",
-        "GROUP_NUMBER": "Номер групи",
-        "TEACHER": "Викладач"
-    },
-    "FOOTER": {
-        "CAPTION": "Надпис футера"
-    },
-    "FORM_ERRORS": {
-        "EMAIL": "Email повинен бути валідним",
-        "ISINENUM": "Значення має бути в перерахуванні",
-        "MAX": "Максимальне значення {{max}}",
-        "MAXLENGTH": "Максимальна довжина {{requiredLength}}",
-        "MIN": "Мінімальне значення {{min}}",
-        "MINLENGTH": "Мінімальна довжина {{requiredLength}}",
-        "MUSTMATCH": "Поле має співпадати з {{control}}",
-        "PATTERN": "Поле задовольняє патерн {{requiredPattern}}",
-        "REQUIRED": "Поле обов'язкове"
-    },
-    "GROUP_SCHEDULE": {
-        "TITLE": "Розклад груп"
-    },
-    "LANGUAGE": {
-        "EN-US": "English",
-        "RU-RU": "Кацапська",
-        "UK-UA": "Українська"
-    },
-    "PAGINATOR": {
-        "FIRST_PAGE": "Перша сторінка",
-        "ITEMS_PER_PAGE": "Відображати рядків:",
-        "LAST_PAGE": "Остання сторінка",
-        "NEXT_PAGE": "Наступна сторінка",
-        "PAGE_X_OF_Y": "Сторінка {{x}} з {{y}}",
-        "PREVIOUS_PAGE": "Попередня сторінка"
-    },
-    "SCHEDULE_FORM": {
-        "CONFIRM_COPY": "Скопіювати розклад?",
-        "CONFIRM_COPY_MSG": "Ви точно хочете скопіювати даний розклад? Дана операція может зайняти деякий час.",
-        "CONFIRM_DELETE": "Видалити розклад?",
-        "CONFIRM_DELETE_MSG": "Ви точно хочете видалити даний розклад? Дана операція є невідворотною.",
-        "CONFIRM_PUBLISH": "Опублікувати розклад?",
-        "CONFIRM_PUBLISH_MSG": "Ви точно хочете опублікувати даний розклад? Дана операція зробить цей розклад поточним, та він буде відображатись на головній сторінці",
-        "CREATE_SCHEDULE": "Створити новий розклад",
-        "DELETE_DISABLED": "Неможливо видалити поточний розклад",
-        "PUBLISHED": "Розклад вже опубліковано",
-        "SAVE_DISABLED": "Нічого зберігати"
-    },
-    "SCHEDULE_LIST": {
-        "CREATE_SCHEDULE": "Створити розклад",
-        "TITLE": "Список розкладів"
-    },
-    "SCHEDULE_VIEW": {
-        "ADD_CLASS": "Додати заняття",
-        "CHANGE_VIEW": "Переключити перегляд",
-        "COPY_SUCCESS": "Розклад було скопійовано"
-    },
-    "SEMESTER": {
-        "FIRST": "Перший",
-        "SECOND": "Другий"
-    },
-    "SETTINGS_MENU": {
-        "LOCALE": "Мова"
-    },
-    "SIDENAV": {
-        "LINKS": {
-            "ACCOUNT": "Профіль",
-            "ADMIN_PANEL": "Адмін панель",
-            "GROUP_SCHEDULE": "Розклад студентів",
-            "SCHEDULE_DESIGNER": "Редактор розкладу",
-            "TEACHER_SCHEDULE": "Розклад викладачів"
-        },
-        "TITLE": "Мій.ЧНУ"
-    },
-    "TEACHER_SCHEDULE": {
-        "TITLE": "Розклад викладачів"
-    },
-    "USER_FORM": {
-        "CLAIMS": "Claims",
-        "CREATE_TITLE": "Створити користувача",
-        "EDIT_TITLE": "Редагування дозволів",
-        "EMAIL": "Email",
-        "ID": "Id",
-        "PASS": "Пароль",
-        "USERNAME": "Нікнейм"
-    },
-    "USER_LIST": {
-        "CREATE_USER": "Створити користувача",
-        "EMAIL": "Email",
-        "ID": "Id",
-        "TITLE": "Список користувачів",
-        "USERNAME": "Нікнейм"
-    },
-    "WEEKDAY": {
-        "FRIDAY": "П'ятниця",
-        "MONDAY": "Понеділок",
-        "SATURDAY": "Субота",
-        "SUNDAY": "Неділя",
-        "THURSDAY": "Четвер",
-        "TUESDAY": "Вівторок",
-        "WEDNESDAY": "Середа"
-    },
-    "WEEK_TYPE": {
-        "EVEN": "Тиждень Б",
-        "ODD": "Тиждень А"
+  "ACCOUNT_MENU": {
+    "GREETING": "Вітаю",
+    "LOGOUT": "Вихід"
+  },
+  "APP": {
+    "TITLE": "Мій.ЧНУ"
+  },
+  "AUTH": {
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Ваш email",
+    "HAVE_ACCOUNT": "Вже зареєстровані?",
+    "NO_ACCOUNT": "Відсутній аккаунт?",
+    "PASS": "Пароль",
+    "PASS_CONFIRM": "Підтвердження паролю",
+    "PASS_CONFIRM_PLACEHOLDER": "Підтвердіть пароль",
+    "PASS_PLACEHOLDER": "Ваш пароль",
+    "SIGNIN": "Логін",
+    "SIGNIN_TITLE": "Вхід",
+    "SIGNUP": "Зареєструватись",
+    "SIGNUP_TITLE": "Реєстрація",
+    "SUCCESSFUL_SIGNUP": "Ви були успішно зареєстровані!",
+    "USERNAME": "Нікнейм",
+    "USERNAME_PLACEHOLDER": "Ваш нікнейм"
+  },
+  "CLASS": {
+    "FORM": {
+      "AUDIENCE": "Аудиторії",
+      "CLASS_TYPE": "Тип заняття",
+      "COURSE": "Дисципліна",
+      "CREATE_TITLE": "Додати заняття",
+      "EDIT_TITLE": "Редагувати заняття",
+      "EDUCATION_FORMAT": "Формат проведення",
+      "END_TIME": "Кінець",
+      "GROUP": "Групи",
+      "START_TIME": "Початок",
+      "TEACHER": "Викладачі",
+      "WEEKDAY": "День тижня",
+      "WEEK_TYPE": "Тип тижня"
     }
+  },
+  "CLASS_TYPE": {
+    "LECTURE": "Лекція",
+    "PRACTICE": "Практика"
+  },
+  "COMMON": {
+    "ACTIVE": "Активний",
+    "COPY": "Копіювати",
+    "CREATE": "Створити",
+    "DELETE": "Видалити",
+    "NONE": "Нічого",
+    "PUBLISH": "Опублікувати",
+    "SAVE": "Зберегти",
+    "SEMESTER": "Семестр",
+    "VERSION": "Версія",
+    "YEAR": "Рік"
+  },
+  "CONFIRM_DIALOG": {
+    "DEFAULT_CANCEL": "Відмінити",
+    "DEFAULT_MESSAGE": "Ви точно хочете це зробити? Наслідки можуть бути невідворотними.",
+    "DEFAULT_OK": "Ок",
+    "DEFAULT_TITLE": "Підтвердіть операцію"
+  },
+  "COURSE_FORM": {
+    "CREATE_TITLE": "Створити дисципліну",
+    "EDIT_TITLE": "Редагування дисципліни",
+    "NAME": "Назва",
+    "SHORT_NAME": "Скорочена назва"
+  },
+  "COURSE_LIST": {
+    "ID": "Id",
+    "NAME": "Назва",
+    "SHORT_NAME": "Скорочена назва",
+    "TITLE": "Список дисциплін"
+  },
+  "EDUCATION_FORMAT": {
+    "MIXED": "Змішаний",
+    "OFFLINE": "Оффлайн",
+    "ONLINE": "Онлайн"
+  },
+  "ERRORS": {
+    "FORBIDDEN_ERROR": "Доступ заборонено. Недостатньо прав.",
+    "UNEXPECTED_ERROR": "Сталася несподівана помилка.\nПовідомте адміністратора або спробуйте пізніше.",
+    "VALIDATION_ERROR": "Помилка валідації:\n"
+  },
+  "FILTERS": {
+    "CLASS_FORMAT": "Формат заняття",
+    "CLASS_TYPE": "Тип заняття",
+    "GROUP_NUMBER": "Номер групи",
+    "TEACHER": "Викладач"
+  },
+  "FOOTER": {
+    "CAPTION": "Надпис футера"
+  },
+  "FORM_ERRORS": {
+    "EMAIL": "Email повинен бути валідним",
+    "ISINENUM": "Значення має бути в перерахуванні",
+    "MAX": "Максимальне значення {{max}}",
+    "MAXLENGTH": "Максимальна довжина {{requiredLength}}",
+    "MIN": "Мінімальне значення {{min}}",
+    "MINLENGTH": "Мінімальна довжина {{requiredLength}}",
+    "MUSTMATCH": "Поле має співпадати з {{control}}",
+    "PATTERN": "Поле задовольняє патерн {{requiredPattern}}",
+    "REQUIRED": "Поле обов'язкове"
+  },
+  "GROUP_SCHEDULE": {
+    "TITLE": "Розклад груп"
+  },
+  "LANGUAGE": {
+    "EN-US": "English",
+    "RU-RU": "Кацапська",
+    "UK-UA": "Українська"
+  },
+  "PAGINATOR": {
+    "FIRST_PAGE": "Перша сторінка",
+    "ITEMS_PER_PAGE": "Відображати рядків:",
+    "LAST_PAGE": "Остання сторінка",
+    "NEXT_PAGE": "Наступна сторінка",
+    "PAGE_X_OF_Y": "Сторінка {{x}} з {{y}}",
+    "PREVIOUS_PAGE": "Попередня сторінка"
+  },
+  "SCHEDULE_FORM": {
+    "CONFIRM_COPY": "Скопіювати розклад?",
+    "CONFIRM_COPY_MSG": "Ви точно хочете скопіювати даний розклад? Дана операція может зайняти деякий час.",
+    "CONFIRM_DELETE": "Видалити розклад?",
+    "CONFIRM_DELETE_MSG": "Ви точно хочете видалити даний розклад? Дана операція є невідворотною.",
+    "CONFIRM_PUBLISH": "Опублікувати розклад?",
+    "CONFIRM_PUBLISH_MSG": "Ви точно хочете опублікувати даний розклад? Дана операція зробить цей розклад поточним, та він буде відображатись на головній сторінці",
+    "CREATE_SCHEDULE": "Створити новий розклад",
+    "DELETE_DISABLED": "Неможливо видалити поточний розклад",
+    "PUBLISHED": "Розклад вже опубліковано",
+    "SAVE_DISABLED": "Нічого зберігати"
+  },
+  "SCHEDULE_LIST": {
+    "CREATE_SCHEDULE": "Створити розклад",
+    "TITLE": "Список розкладів"
+  },
+  "SCHEDULE_VIEW": {
+    "ADD_CLASS": "Додати заняття",
+    "CHANGE_VIEW": "Переключити перегляд",
+    "COPY_SUCCESS": "Розклад було скопійовано"
+  },
+  "SEMESTER": {
+    "FIRST": "Перший",
+    "SECOND": "Другий"
+  },
+  "SETTINGS_MENU": {
+    "LOCALE": "Мова"
+  },
+  "SIDENAV": {
+    "LINKS": {
+      "ACCOUNT": "Профіль",
+      "ADMIN_PANEL": "Адмін панель",
+      "GROUP_SCHEDULE": "Розклад студентів",
+      "SCHEDULE_DESIGNER": "Редактор розкладу",
+      "TEACHER_SCHEDULE": "Розклад викладачів"
+    },
+    "TITLE": "Мій.ЧНУ"
+  },
+  "TEACHER_SCHEDULE": {
+    "TITLE": "Розклад викладачів"
+  },
+  "USER_FORM": {
+    "CLAIMS": "Claims",
+    "CREATE_TITLE": "Створити користувача",
+    "EDIT_TITLE": "Редагування дозволів",
+    "EMAIL": "Email",
+    "ID": "Id",
+    "PASS": "Пароль",
+    "USERNAME": "Нікнейм"
+  },
+  "USER_LIST": {
+    "CREATE_USER": "Створити користувача",
+    "EMAIL": "Email",
+    "ID": "Id",
+    "TITLE": "Список користувачів",
+    "USERNAME": "Нікнейм"
+  },
+  "WEEKDAY": {
+    "FRIDAY": "П'ятниця",
+    "MONDAY": "Понеділок",
+    "SATURDAY": "Субота",
+    "SUNDAY": "Неділя",
+    "THURSDAY": "Четвер",
+    "TUESDAY": "Вівторок",
+    "WEDNESDAY": "Середа"
+  },
+  "WEEK_TYPE": {
+    "EVEN": "Тиждень Б",
+    "ODD": "Тиждень А"
+  }
 }

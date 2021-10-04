@@ -1,0 +1,14 @@
+@use '~styles/list-view';
+@use '~styles/breakpoints';
+
+.mat-column-id {
+  flex-basis: 10%;
+}
+
+.mat-column-name {
+  flex-basis: 60%;
+}
+
+.mat-column-shortName {
+  flex-basis: 30%;
+}

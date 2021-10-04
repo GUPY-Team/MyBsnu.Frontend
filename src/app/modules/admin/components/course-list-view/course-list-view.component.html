@@ -1,0 +1,48 @@
+<h1 class="list__header">{{ 'COURSE_LIST.TITLE' | translate }}</h1>
+
+<div class="list__actions">
+    <button
+            mat-flat-button
+            color="primary"
+            routerLink="/admin/courses/create"
+    >
+        <mat-icon>add</mat-icon>
+        {{ 'COMMON.CREATE' | translate }}
+    </button>
+</div>
+
+<div
+        *ngIf="itemList$ | async as list"
+        class="mat-elevation-z3"
+>
+    <mat-table class="list" [dataSource]="list.items">
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>{{ 'COURSE_LIST.ID' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.id }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>{{ 'COURSE_LIST.NAME' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.name }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="shortName">
+            <mat-header-cell *matHeaderCellDef>{{ 'COURSE_LIST.SHORT_NAME' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.shortName }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+        <mat-row
+                mat-ripple
+                [routerLink]="['/admin/courses', row.id]"
+                *matRowDef="let row; columns: displayColumns"
+        ></mat-row>
+    </mat-table>
+    <mat-paginator
+            [hidePageSize]="true"
+            [pageSizeOptions]="pageSizes"
+            [pageSize]="list.pageSize"
+            [length]="list.totalCount"
+            (page)="onPaginationChange($event)"
+    ></mat-paginator>
+</div>

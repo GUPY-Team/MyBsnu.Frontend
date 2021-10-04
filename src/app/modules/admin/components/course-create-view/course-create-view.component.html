@@ -1,0 +1,27 @@
+<h3 class="form-header">{{ 'COURSE_FORM.CREATE_TITLE' | translate }}</h3>
+
+<form
+        class="form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'COURSE_FORM.NAME' | translate }}</mat-label>
+        <input matInput formControlName="name">
+        <mat-error appFormError controlName="name"></mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'COURSE_FORM.SHORT_NAME' | translate }}</mat-label>
+        <input matInput formControlName="shortName">
+        <mat-error appFormError controlName="shortName"></mat-error>
+    </mat-form-field>
+
+    <button
+            mat-raised-button
+            color="primary"
+            [disabled]="submitDisabled$ | async"
+    >
+        {{ 'COMMON.CREATE' | translate }}
+    </button>
+</form>

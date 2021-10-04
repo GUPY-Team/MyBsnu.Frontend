@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { UpdateViewBase } from 'app/modules/shared/models/UpdateViewBase';
-import { Observable } from 'rxjs';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ClaimService, UserService } from 'app/modules/admin/services';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { tap } from 'rxjs/operators';
-import { Claim, User } from 'app/modules/admin/models';
-import { UpdateUserClaimsCommand } from 'app/api/commands';
+import {Component} from '@angular/core';
+import {UpdateViewBase} from 'app/modules/shared/models';
+import {Observable} from 'rxjs';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {ClaimService, UserService} from 'app/modules/admin/services';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {tap} from 'rxjs/operators';
+import {Claim, User} from 'app/modules/admin/models';
+import {UpdateUserClaimsCommand} from 'app/api/commands';
 
 @Component({
     selector: 'app-user-edit-view',
