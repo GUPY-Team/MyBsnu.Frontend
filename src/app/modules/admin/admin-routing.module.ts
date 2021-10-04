@@ -1,6 +1,7 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import {
+    AdminViewComponent,
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
@@ -10,6 +11,10 @@ import {
 } from './components';
 
 const routes: Routes = [
+    {
+        path: '',
+        component: AdminViewComponent
+    },
     {
         path: 'users',
         component: UserListViewComponent
@@ -36,7 +41,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'users'
+        redirectTo: ''
     }
 ];
 

@@ -4,7 +4,8 @@ import {
     CanActivate,
     CanActivateChild,
     CanLoad,
-    Route, Router,
+    Route,
+    Router,
     RouterStateSnapshot,
     UrlSegment,
     UrlTree
@@ -48,6 +49,11 @@ export class AuthorizedOnlyGuard implements CanActivate, CanActivateChild, CanLo
             return this.router.parseUrl('/auth/signin');
         }
 
-        return routePermissions.every(p => user.satisfiesPermission(p));
+        const hasAccess = routePermissions.every(p => user.satisfiesPermission(p));
+        if (!hasAccess) {
+            return this.router.parseUrl('/');
+        }
+
+        return true;
     }
 }

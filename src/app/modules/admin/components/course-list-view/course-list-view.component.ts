@@ -33,7 +33,7 @@ export class CourseListViewComponent extends ListViewBase<Course> {
                 currentPage: 0,
                 pageSize: courses.length,
                 totalCount: courses.length,
-                totalPages: 1.,
+                totalPages: 1,
                 hasPreviousPage: false,
                 hasNextPage: false
             }))

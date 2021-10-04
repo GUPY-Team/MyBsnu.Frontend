@@ -1,0 +1,14 @@
+<h1 class="admin-panel__title">{{ 'ADMIN_PANEL.TITLE' | translate }}</h1>
+
+<div class="admin-panel__cards">
+
+    <mat-card
+        *ngFor="let card of panelCards"
+        [routerLink]="card.link"
+    >
+        <mat-card-title>
+            <mat-icon class="icon--gray">{{ card.icon }}</mat-icon>
+            {{ card.title | translate }}
+        </mat-card-title>
+    </mat-card>
+</div>

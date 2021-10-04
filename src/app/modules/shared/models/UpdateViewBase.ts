@@ -7,12 +7,14 @@ import { ConfirmDialogComponent } from 'app/modules/shared/components';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({ template: '' })
-export abstract class UpdateViewBase<T> implements OnInit, OnDestroy {
+export abstract class UpdateViewBase<TEntity> implements OnInit, OnDestroy {
 
     protected unsubscribe = new Subject();
 
     private _requestPending = new BehaviorSubject(false);
     private _formPristine = new BehaviorSubject(false);
+
+    public entity$!: Observable<TEntity>;
 
     public abstract form: FormGroup;
     public abstract onDeleteRedirect: any[];
@@ -33,6 +35,10 @@ export abstract class UpdateViewBase<T> implements OnInit, OnDestroy {
     }
 
     public ngOnInit(): void {
+        this.entity$ = this.getEntity().pipe(
+            tap(val => this.form.patchValue(val))
+        );
+
         this.form.valueChanges
             .pipe(takeUntil(this.unsubscribe))
             .subscribe(_ => this._formPristine.next(false));
@@ -76,7 +82,9 @@ export abstract class UpdateViewBase<T> implements OnInit, OnDestroy {
         ).subscribe();
     }
 
-    public abstract updateEntity(): Observable<T>;
+    public abstract getEntity(): Observable<TEntity>;
+
+    public abstract updateEntity(): Observable<TEntity>;
 
     public abstract deleteEntity(): Observable<void>;
 }

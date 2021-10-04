@@ -1,8 +1,9 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import {AdminRoutingModule} from './admin-routing.module';
-import {SharedModule} from 'app/modules/shared/shared.module';
+import { AdminRoutingModule } from './admin-routing.module';
+import { SharedModule } from 'app/modules/shared/shared.module';
 import {
+    AdminViewComponent,
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
@@ -18,7 +19,8 @@ import {
         UserCreateViewComponent,
         CourseCreateViewComponent,
         CourseListViewComponent,
-        CourseEditViewComponent
+        CourseEditViewComponent,
+        AdminViewComponent
     ],
     imports: [
         SharedModule,

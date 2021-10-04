@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { CourseService } from 'app/api/services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-course-edit-view',
@@ -15,9 +14,7 @@ import { tap } from 'rxjs/operators';
 })
 export class CourseEditViewComponent extends UpdateViewBase<Course> {
 
-    private courseId: number;
-
-    public course$: Observable<Course>;
+    private readonly courseId: number;
 
     public form: FormGroup = this.formBuilder.group({
         id: ['', [Validators.required]],
@@ -37,9 +34,10 @@ export class CourseEditViewComponent extends UpdateViewBase<Course> {
         super(formBuilder, router, activatedRoute, dialog);
 
         this.courseId = Number(this.activatedRoute.snapshot.paramMap.get('id'))!;
-        this.course$ = this.courseService.getCourse(this.courseId).pipe(
-            tap(course => this.form.patchValue(course))
-        );
+    }
+
+    public getEntity(): Observable<Course> {
+        return this.courseService.getCourse(this.courseId);
     }
 
     public updateEntity(): Observable<Course> {

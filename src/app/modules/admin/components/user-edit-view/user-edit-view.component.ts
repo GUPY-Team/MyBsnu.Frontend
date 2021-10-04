@@ -1,24 +1,23 @@
 import { Component } from '@angular/core';
 import { UpdateViewBase } from 'app/modules/shared/models';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClaimService, UserService } from 'app/modules/admin/services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { tap } from 'rxjs/operators';
 import { Claim, User } from 'app/modules/admin/models';
 import { UpdateUserClaimsCommand } from 'app/api/commands';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-user-edit-view',
     templateUrl: './user-edit-view.component.html',
     styleUrls: ['./user-edit-view.component.scss']
 })
-export class UserEditViewComponent extends UpdateViewBase<void> {
+export class UserEditViewComponent extends UpdateViewBase<User | void> {
 
-    private userId: string;
+    private readonly userId: string;
 
-    public user$: Observable<User>;
     public claims$: Observable<Claim[]>;
 
     public form: FormGroup = this.formBuilder.group({
@@ -41,11 +40,11 @@ export class UserEditViewComponent extends UpdateViewBase<void> {
         super(formBuilder, router, activatedRoute, dialog);
 
         this.userId = this.activatedRoute.snapshot.paramMap.get('id')!;
-
-        this.user$ = this.userService.getUser(this.userId).pipe(
-            tap(val => this.form.patchValue(val))
-        );
         this.claims$ = this.claimService.getClaims();
+    }
+
+    public getEntity(): Observable<User> {
+        return this.userService.getUser(this.userId);
     }
 
     public deleteEntity(): Observable<void> {
@@ -58,7 +57,9 @@ export class UserEditViewComponent extends UpdateViewBase<void> {
             claims: this.form.value.claims
         };
 
-        return this.userService.updateUserClaims(command);
+        return this.userService.updateUserClaims(command).pipe(
+            switchMap(_ => of<void>())
+        );
     }
 
     public filterClaims(claims: Claim[], value: string): Claim[] {

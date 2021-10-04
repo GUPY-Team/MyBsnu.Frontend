@@ -1,9 +1,9 @@
-<ng-container *ngIf="course$ | async as course">
+<ng-container *ngIf="entity$ | async as course">
     <h3 class="form-header">{{ 'COURSE_FORM.EDIT_TITLE' | translate }}</h3>
 
     <form
-            class="form"
-            [formGroup]="form"
+        class="form"
+        [formGroup]="form"
     >
 
         <mat-form-field appearance="fill">
