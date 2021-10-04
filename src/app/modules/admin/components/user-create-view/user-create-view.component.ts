@@ -30,7 +30,7 @@ export class UserCreateViewComponent extends CreateViewBase<User> {
         ]
     });
 
-    public onSubmitRedirect: any[] = ['/admin/user-list'];
+    public onSubmitRedirect: any[] = ['/admin/users'];
 
     constructor(
         private userService: UserService,

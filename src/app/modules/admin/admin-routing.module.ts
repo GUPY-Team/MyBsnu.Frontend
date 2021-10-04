@@ -7,20 +7,20 @@ import {
 
 const routes: Routes = [
     {
-        path: 'user-list',
+        path: 'users',
         component: UserListViewComponent
     },
     {
-        path: 'user-create',
+        path: 'users/create',
         component: UserCreateViewComponent
     },
     {
-        path: 'user-edit/:id',
+        path: 'users/:id',
         component: UserEditViewComponent
     },
     {
         path: '**',
-        redirectTo: 'user-list'
+        redirectTo: 'users'
     }
 ];
 

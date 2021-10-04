@@ -7,13 +7,15 @@ import {
     UserEditViewComponent,
     UserCreateViewComponent
 } from './components';
+import { CourseCreateViewComponent } from './components/course-create-view/course-create-view.component';
 
 
 @NgModule({
     declarations: [
         UserListViewComponent,
         UserEditViewComponent,
-        UserCreateViewComponent
+        UserCreateViewComponent,
+        CourseCreateViewComponent
     ],
     imports: [
         SharedModule,

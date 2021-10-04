@@ -28,7 +28,7 @@ export class UserEditViewComponent extends UpdateViewBase<void> {
         claims: [[]]
     });
 
-    public onDeleteRedirect: any[] = ['admin/user-list'];
+    public onDeleteRedirect: any[] = ['admin/users'];
 
     constructor(
         private userService: UserService,
