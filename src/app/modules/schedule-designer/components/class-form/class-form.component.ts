@@ -1,5 +1,5 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
     Audience,
     Class,
@@ -12,13 +12,13 @@ import {
     WeekDay,
     WeekType
 } from 'app/api/models';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ClassService, CourseService, EnumService} from 'app/api/services';
-import {Observable, Subject} from 'rxjs';
-import {FormMode} from 'app/core';
-import {CreateClassCommand, UpdateClassCommand} from 'app/api/commands';
-import {debounceTime, distinctUntilChanged, filter, map, share, switchMap, takeUntil,} from 'rxjs/operators';
-import {DesignerAutocompleteService} from 'app/modules/schedule-designer/services';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClassService, CourseService, EnumService } from 'app/api/services';
+import { Observable, Subject } from 'rxjs';
+import { FormMode } from 'app/core';
+import { CreateClassCommand, UpdateClassCommand } from 'app/api/commands';
+import { debounceTime, distinctUntilChanged, filter, map, share, switchMap, takeUntil, } from 'rxjs/operators';
+import { DesignerAutocompleteService } from 'app/modules/schedule-designer/services';
 
 export interface ClassDialogData {
     class?: Class,

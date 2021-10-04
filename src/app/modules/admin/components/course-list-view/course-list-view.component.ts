@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {ListViewBase} from "app/modules/shared/models";
-import {Course} from "app/api/models";
-import {Observable} from "rxjs";
-import {PagedList, Pagination} from 'app/core';
-import {CourseService} from "app/api/services";
-import {map} from "rxjs/operators";
+import { Component } from '@angular/core';
+import { ListViewBase } from 'app/modules/shared/models';
+import { Course } from 'app/api/models';
+import { Observable } from 'rxjs';
+import { PagedList, Pagination } from 'app/core';
+import { CourseService } from 'app/api/services';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-course-list-view',

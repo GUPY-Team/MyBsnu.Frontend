@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {Course} from 'app/api/models';
-import {UpdateViewBase} from "app/modules/shared/models";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Observable} from "rxjs";
-import {CourseService} from "app/api/services";
-import {ActivatedRoute, Router} from "@angular/router";
-import {MatDialog} from "@angular/material/dialog";
-import {tap} from "rxjs/operators";
+import { Component } from '@angular/core';
+import { Course } from 'app/api/models';
+import { UpdateViewBase } from 'app/modules/shared/models';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { CourseService } from 'app/api/services';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-course-edit-view',

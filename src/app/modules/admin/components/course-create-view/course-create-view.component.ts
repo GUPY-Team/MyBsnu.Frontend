@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {Course} from "app/api/models";
-import {CreateViewBase} from 'app/modules/shared/models';
-import {Observable} from "rxjs";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {CourseService} from "app/api/services";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { Course } from 'app/api/models';
+import { CreateViewBase } from 'app/modules/shared/models';
+import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CourseService } from 'app/api/services';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-course-create-view',
