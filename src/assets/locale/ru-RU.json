@@ -1,202 +1,214 @@
 {
-    "ACCOUNT_MENU": {
-        "GREETING": "Привет",
-        "LOGOUT": "Выход"
-    },
-    "ADMIN_PANEL": {
-        "AUDIENCES": "Аудитории",
-        "COURSES": "Дисциплины",
-        "GROUPS": "Группы",
-        "TEACHERS": "Преподаватели",
-        "TITLE": "Админ панель",
-        "USERS": "Пользователи"
-    },
-    "APP": {
-        "TITLE": "Мой.ЧНУ"
-    },
-    "AUTH": {
-        "EMAIL": "Email",
-        "EMAIL_PLACEHOLDER": "Ваш email",
-        "HAVE_ACCOUNT": "Уже есть учетная запись?",
-        "NO_ACCOUNT": "Нету учетной записи?",
-        "PASS": "Пароль",
-        "PASS_CONFIRM": "Подтвердите пароль",
-        "PASS_CONFIRM_PLACEHOLDER": "Введите пароь ещё раз",
-        "PASS_PLACEHOLDER": "Ваш пароль",
-        "SIGNIN": "Войти",
-        "SIGNIN_TITLE": "Логин",
-        "SIGNUP": "Зарегестрироваться",
-        "SIGNUP_TITLE": "Регистрация",
-        "SUCCESSFUL_SIGNUP": "Вы были успешно зарегестрированы!",
-        "USERNAME": "Никнейм",
-        "USERNAME_PLACEHOLDER": "Ваш никнейм"
-    },
-    "CLASS": {
-        "FORM": {
-            "AUDIENCE": "Аудитории",
-            "CLASS_TYPE": "Тип занятия",
-            "COURSE": "Дисциплина",
-            "CREATE": "Создать пару",
-            "CREATE_TITLE": "Добавить пару",
-            "DELETE": "Удалить пару",
-            "EDIT_TITLE": "Редактировать пару",
-            "EDUCATION_FORMAT": "Формат обучения",
-            "END_TIME": "Конец",
-            "GROUP": "Группы",
-            "START_TIME": "Начало",
-            "TEACHER": "Преподаватели",
-            "WEEKDAY": "День недели",
-            "WEEK_TYPE": "Тип недели"
-        }
-    },
-    "CLASS_TYPE": {
-        "LECTURE": "Лекция",
-        "PRACTICE": "Практика"
-    },
-    "COMMON": {
-        "ACTIVE": "Активное",
-        "COPY": "Копировать",
-        "CREATE": "Создать",
-        "DELETE": "Удалить",
-        "NONE": "Ничего",
-        "PUBLISH": "Опубликовать",
-        "SAVE": "Сохранить",
-        "SEMESTER": "Семестр",
-        "VERSION": "Версия",
-        "YEAR": "Год"
-    },
-    "CONFIRM_DIALOG": {
-        "DEFAULT_CANCEL": "Отменить",
-        "DEFAULT_MESSAGE": "Вы точно хотите это сделать? Результат операции может быть необратим",
-        "DEFAULT_OK": "Ок",
-        "DEFAULT_TITLE": "Подтвердите операцию"
-    },
-    "COURSE_FORM": {
-        "CREATE_TITLE": "Создать дисциплину",
-        "EDIT_TITLE": "Редактирование дисциплины",
-        "NAME": "Название",
-        "SHORT_NAME": "Сокращенное название"
-    },
-    "COURSE_LIST": {
-        "ID": "Id",
-        "NAME": "Название",
-        "SHORT_NAME": "Сокращенное название",
-        "TITLE": "Список дисциплин"
-    },
-    "EDUCATION_FORMAT": {
-        "MIXED": "Смешанная",
-        "OFFLINE": "Оффлайн",
-        "ONLINE": "Онлайн"
-    },
-    "ERRORS": {
-        "FORBIDDEN_ERROR": "Доступ запрещен. Недостаточно прав.",
-        "UNEXPECTED_ERROR": "Произошла непредвиденная ошибка.\nСообщите администратору или попробуйте позже.",
-        "VALIDATION_ERROR": "Ошибка валидации:\n"
-    },
-    "FILTERS": {
-        "CLASS_FORMAT": "Формат занятия",
-        "CLASS_TYPE": "Тип занятия",
-        "GROUP_NUMBER": "Номер группы",
-        "TEACHER": "Преподаватель"
-    },
-    "FOOTER": {
-        "CAPTION": "Надпись футера"
-    },
-    "FORM_ERRORS": {
-        "EMAIL": "Email не валидный",
-        "ISINENUM": "Значения поля должны быть в перечислении",
-        "MAX": "Максимальное значение {{max}}",
-        "MAXLENGTH": "Максимальная длина {{requiredLength}}",
-        "MIN": "Минимальное значение {{min}}",
-        "MINLENGTH": "Минимальная длина {{requiredLength}}",
-        "MUSTMATCH": "Поле должно соответствовать {{control}}",
-        "PATTERN": "Поле не соответсвует патерну {{requiredPattern}}",
-        "REQUIRED": "Поле обязательное"
-    },
-    "GROUP_SCHEDULE": {
-        "TITLE": "Рассписание групп"
-    },
-    "LANGUAGE": {
-        "EN-US": "English",
-        "RU-RU": "Русский",
-        "UK-UA": "Українська"
-    },
-    "PAGINATOR": {
-        "FIRST_PAGE": "Первая страница",
-        "ITEMS_PER_PAGE": "Отображать строк:",
-        "LAST_PAGE": "Последняя страница",
-        "NEXT_PAGE": "Следующая страница",
-        "PAGE_X_OF_Y": "Страница {{x}} из {{y}}",
-        "PREVIOUS_PAGE": "Предыдущая страница"
-    },
-    "SCHEDULE_FORM": {
-        "CONFIRM_COPY": "Скопировать рассписание?",
-        "CONFIRM_COPY_MSG": "Вы точно хотите скопировать рассписание? Это займет некоторое время",
-        "CONFIRM_DELETE": "Удалить рассписание?",
-        "CONFIRM_DELETE_MSG": "Вы точно хотите удалить рассписание? Это действие необратимо",
-        "CONFIRM_PUBLISH": "Опубликовать рассписания?",
-        "CONFIRM_PUBLISH_MSG": "Вы точно хотите опубликовать рассписание? Это сделает это рассписание активным и оно будет отображатся на главной странице",
-        "CREATE_SCHEDULE": "Создать новое рассписание",
-        "DELETE_DISABLED": "Нельзя удалить активное рассписание",
-        "PUBLISHED": "Рассписание уже опубликовано",
-        "SAVE_DISABLED": "Нету изменений"
-    },
-    "SCHEDULE_LIST": {
-        "CREATE_SCHEDULE": "Создать рассписание",
-        "TITLE": "Список рассписаний"
-    },
-    "SCHEDULE_VIEW": {
-        "ADD_CLASS": "Добавить пару",
-        "CHANGE_VIEW": "Переключить вид",
-        "COPY_SUCCESS": "Рассписание скопировано успешно"
-    },
-    "SEMESTER": {
-        "FIRST": "Первый",
-        "SECOND": "Второй"
-    },
-    "SETTINGS_MENU": {
-        "LOCALE": "Язык"
-    },
-    "SIDENAV": {
-        "LINKS": {
-            "ACCOUNT": "Аккаунт",
-            "ADMIN_PANEL": "Админ панель",
-            "GROUP_SCHEDULE": "Рассписание студентов",
-            "SCHEDULE_DESIGNER": "Редактор рассписания",
-            "TEACHER_SCHEDULE": "Рассписание преподавателей"
-        },
-        "TITLE": "Мой.ЧНУ"
-    },
-    "TEACHER_SCHEDULE": {
-        "TITLE": "Рассписание преподавателей"
-    },
-    "USER_FORM": {
-        "CLAIMS": "Claims",
-        "CREATE_TITLE": "Создать пользователя",
-        "EDIT_TITLE": "Редактирование разрешений",
-        "EMAIL": "Email",
-        "ID": "Id",
-        "PASS": "Пароль",
-        "USERNAME": "Никнейм"
-    },
-    "USER_LIST": {
-        "CREATE_USER": "Создать пользователя",
-        "EMAIL": "Email",
-        "ID": "Id",
-        "TITLE": "Список пользователей",
-        "USERNAME": "Никнейм"
-    },
-    "WEEKDAY": {
-        "FRIDAY": "Пятница",
-        "MONDAY": "Понедельник",
-        "SATURDAY": "Суббота",
-        "SUNDAY": "Воскресенье",
-        "THURSDAY": "Четверг",
-        "TUESDAY": "Вторник",
-        "WEDNESDAY": "Среда"
-    },
-    "WEEK_TYPE": {
-        "EVEN": "Неделя Б",
-        "ODD": "Неделя А"
+  "ACCOUNT_MENU": {
+    "GREETING": "Привет",
+    "LOGOUT": "Выход"
+  },
+  "ADMIN_PANEL": {
+    "AUDIENCES": "Аудитории",
+    "COURSES": "Дисциплины",
+    "GROUPS": "Группы",
+    "TEACHERS": "Преподаватели",
+    "TITLE": "Админ панель",
+    "USERS": "Пользователи"
+  },
+  "APP": {
+    "TITLE": "Мой.ЧНУ"
+  },
+  "AUTH": {
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Ваш email",
+    "HAVE_ACCOUNT": "Уже есть учетная запись?",
+    "NO_ACCOUNT": "Нету учетной записи?",
+    "PASS": "Пароль",
+    "PASS_CONFIRM": "Подтвердите пароль",
+    "PASS_CONFIRM_PLACEHOLDER": "Введите пароь ещё раз",
+    "PASS_PLACEHOLDER": "Ваш пароль",
+    "SIGNIN": "Войти",
+    "SIGNIN_TITLE": "Логин",
+    "SIGNUP": "Зарегестрироваться",
+    "SIGNUP_TITLE": "Регистрация",
+    "SUCCESSFUL_SIGNUP": "Вы были успешно зарегестрированы!",
+    "USERNAME": "Никнейм",
+    "USERNAME_PLACEHOLDER": "Ваш никнейм"
+  },
+  "CLASS": {
+    "FORM": {
+      "AUDIENCE": "Аудитории",
+      "CLASS_TYPE": "Тип занятия",
+      "COURSE": "Дисциплина",
+      "CREATE": "Создать пару",
+      "CREATE_TITLE": "Добавить пару",
+      "DELETE": "Удалить пару",
+      "EDIT_TITLE": "Редактировать пару",
+      "EDUCATION_FORMAT": "Формат обучения",
+      "END_TIME": "Конец",
+      "GROUP": "Группы",
+      "START_TIME": "Начало",
+      "TEACHER": "Преподаватели",
+      "WEEKDAY": "День недели",
+      "WEEK_TYPE": "Тип недели"
     }
+  },
+  "CLASS_TYPE": {
+    "LECTURE": "Лекция",
+    "PRACTICE": "Практика"
+  },
+  "COMMON": {
+    "ACTIVE": "Активное",
+    "COPY": "Копировать",
+    "CREATE": "Создать",
+    "DELETE": "Удалить",
+    "NONE": "Ничего",
+    "PUBLISH": "Опубликовать",
+    "SAVE": "Сохранить",
+    "SEMESTER": "Семестр",
+    "VERSION": "Версия",
+    "YEAR": "Год"
+  },
+  "CONFIRM_DIALOG": {
+    "DEFAULT_CANCEL": "Отменить",
+    "DEFAULT_MESSAGE": "Вы точно хотите это сделать? Результат операции может быть необратим",
+    "DEFAULT_OK": "Ок",
+    "DEFAULT_TITLE": "Подтвердите операцию"
+  },
+  "COURSE_FORM": {
+    "CREATE_TITLE": "Создать дисциплину",
+    "EDIT_TITLE": "Редактирование дисциплины",
+    "NAME": "Название",
+    "SHORT_NAME": "Сокращенное название"
+  },
+  "COURSE_LIST": {
+    "ID": "Id",
+    "NAME": "Название",
+    "SHORT_NAME": "Сокращенное название",
+    "TITLE": "Список дисциплин"
+  },
+  "EDUCATION_FORMAT": {
+    "MIXED": "Смешанная",
+    "OFFLINE": "Оффлайн",
+    "ONLINE": "Онлайн"
+  },
+  "ERRORS": {
+    "FORBIDDEN_ERROR": "Доступ запрещен. Недостаточно прав.",
+    "UNEXPECTED_ERROR": "Произошла непредвиденная ошибка.\nСообщите администратору или попробуйте позже.",
+    "VALIDATION_ERROR": "Ошибка валидации:\n"
+  },
+  "FILTERS": {
+    "CLASS_FORMAT": "Формат занятия",
+    "CLASS_TYPE": "Тип занятия",
+    "GROUP_NUMBER": "Номер группы",
+    "TEACHER": "Преподаватель"
+  },
+  "FOOTER": {
+    "CAPTION": "Надпись футера"
+  },
+  "FORM_ERRORS": {
+    "EMAIL": "Email не валидный",
+    "ISINENUM": "Значения поля должны быть в перечислении",
+    "MAX": "Максимальное значение {{max}}",
+    "MAXLENGTH": "Максимальная длина {{requiredLength}}",
+    "MIN": "Минимальное значение {{min}}",
+    "MINLENGTH": "Минимальная длина {{requiredLength}}",
+    "MUSTMATCH": "Поле должно соответствовать {{control}}",
+    "PATTERN": "Поле не соответсвует патерну {{requiredPattern}}",
+    "REQUIRED": "Поле обязательное"
+  },
+  "GROUP_SCHEDULE": {
+    "TITLE": "Рассписание групп"
+  },
+  "LANGUAGE": {
+    "EN-US": "English",
+    "RU-RU": "Русский",
+    "UK-UA": "Українська"
+  },
+  "PAGINATOR": {
+    "FIRST_PAGE": "Первая страница",
+    "ITEMS_PER_PAGE": "Отображать строк:",
+    "LAST_PAGE": "Последняя страница",
+    "NEXT_PAGE": "Следующая страница",
+    "PAGE_X_OF_Y": "Страница {{x}} из {{y}}",
+    "PREVIOUS_PAGE": "Предыдущая страница"
+  },
+  "SCHEDULE_FORM": {
+    "CONFIRM_COPY": "Скопировать рассписание?",
+    "CONFIRM_COPY_MSG": "Вы точно хотите скопировать рассписание? Это займет некоторое время",
+    "CONFIRM_DELETE": "Удалить рассписание?",
+    "CONFIRM_DELETE_MSG": "Вы точно хотите удалить рассписание? Это действие необратимо",
+    "CONFIRM_PUBLISH": "Опубликовать рассписания?",
+    "CONFIRM_PUBLISH_MSG": "Вы точно хотите опубликовать рассписание? Это сделает это рассписание активным и оно будет отображатся на главной странице",
+    "CREATE_SCHEDULE": "Создать новое рассписание",
+    "DELETE_DISABLED": "Нельзя удалить активное рассписание",
+    "PUBLISHED": "Рассписание уже опубликовано",
+    "SAVE_DISABLED": "Нету изменений"
+  },
+  "SCHEDULE_LIST": {
+    "CREATE_SCHEDULE": "Создать рассписание",
+    "TITLE": "Список рассписаний"
+  },
+  "SCHEDULE_VIEW": {
+    "ADD_CLASS": "Добавить пару",
+    "CHANGE_VIEW": "Переключить вид",
+    "COPY_SUCCESS": "Рассписание скопировано успешно"
+  },
+  "SEMESTER": {
+    "FIRST": "Первый",
+    "SECOND": "Второй"
+  },
+  "SETTINGS_MENU": {
+    "LOCALE": "Язык"
+  },
+  "SIDENAV": {
+    "LINKS": {
+      "ACCOUNT": "Аккаунт",
+      "ADMIN_PANEL": "Админ панель",
+      "GROUP_SCHEDULE": "Рассписание студентов",
+      "SCHEDULE_DESIGNER": "Редактор рассписания",
+      "TEACHER_SCHEDULE": "Рассписание преподавателей"
+    },
+    "TITLE": "Мой.ЧНУ"
+  },
+  "TEACHER_FORM": {
+    "CREATE_TITLE": "Создать преподавателя",
+    "EDIT_TITLE": "Реадктировать преподавателя",
+    "FIRST_NAME": "Имя",
+    "LAST_NAME": "Фамилия",
+    "THIRD_NAME": "Очество"
+  },
+  "TEACHER_LIST": {
+    "FULL_NAME": "Полное имя",
+    "SHORT_NAME": "Сокращенное имя",
+    "TITLE": "Список преподавателей"
+  },
+  "TEACHER_SCHEDULE": {
+    "TITLE": "Рассписание преподавателей"
+  },
+  "USER_FORM": {
+    "CLAIMS": "Claims",
+    "CREATE_TITLE": "Создать пользователя",
+    "EDIT_TITLE": "Редактирование разрешений",
+    "EMAIL": "Email",
+    "ID": "Id",
+    "PASS": "Пароль",
+    "USERNAME": "Никнейм"
+  },
+  "USER_LIST": {
+    "CREATE_USER": "Создать пользователя",
+    "EMAIL": "Email",
+    "ID": "Id",
+    "TITLE": "Список пользователей",
+    "USERNAME": "Никнейм"
+  },
+  "WEEKDAY": {
+    "FRIDAY": "Пятница",
+    "MONDAY": "Понедельник",
+    "SATURDAY": "Суббота",
+    "SUNDAY": "Воскресенье",
+    "THURSDAY": "Четверг",
+    "TUESDAY": "Вторник",
+    "WEDNESDAY": "Среда"
+  },
+  "WEEK_TYPE": {
+    "EVEN": "Неделя Б",
+    "ODD": "Неделя А"
+  }
 }

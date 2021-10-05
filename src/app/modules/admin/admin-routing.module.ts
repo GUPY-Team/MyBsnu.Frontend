@@ -5,6 +5,9 @@ import {
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
+    TeacherCreateViewComponent,
+    TeacherEditViewComponent,
+    TeacherListViewComponent,
     UserCreateViewComponent,
     UserEditViewComponent,
     UserListViewComponent
@@ -38,6 +41,18 @@ const routes: Routes = [
     {
         path: 'courses/:id',
         component: CourseEditViewComponent,
+    },
+    {
+        path: 'teachers',
+        component: TeacherListViewComponent
+    },
+    {
+        path: 'teachers/create',
+        component: TeacherCreateViewComponent
+    },
+    {
+        path: 'teachers/:id',
+        component: TeacherEditViewComponent
     },
     {
         path: '**',

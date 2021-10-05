@@ -7,6 +7,9 @@ import {
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
+    TeacherCreateViewComponent,
+    TeacherEditViewComponent,
+    TeacherListViewComponent,
     UserCreateViewComponent,
     UserEditViewComponent,
     UserListViewComponent
@@ -20,7 +23,10 @@ import {
         CourseCreateViewComponent,
         CourseListViewComponent,
         CourseEditViewComponent,
-        AdminViewComponent
+        AdminViewComponent,
+        TeacherListViewComponent,
+        TeacherCreateViewComponent,
+        TeacherEditViewComponent
     ],
     imports: [
         SharedModule,

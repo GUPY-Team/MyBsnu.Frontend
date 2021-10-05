@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from 'app/core/services/environment.service';
 import { Teacher } from 'app/api/models';
 import { Observable } from 'rxjs';
+import { CreateTeacherCommand, UpdateTeacherCommand } from "app/api/commands";
 
 @Injectable({
     providedIn: 'root'
@@ -20,5 +21,21 @@ export class TeacherService {
 
     public getTeachers(): Observable<Teacher[]> {
         return this.client.get<Teacher[]>(`${this.baseUrl}/teachers`);
+    }
+
+    public getTeacher(id: number): Observable<Teacher> {
+        return this.client.get<Teacher>(`${this.baseUrl}/teachers/${id}`);
+    }
+
+    public createTeacher(command: CreateTeacherCommand): Observable<Teacher> {
+        return this.client.post<Teacher>(`${this.baseUrl}/teachers`, command);
+    }
+
+    public updateTeacher(command: UpdateTeacherCommand): Observable<Teacher> {
+        return this.client.put<Teacher>(`${this.baseUrl}/teachers`, command);
+    }
+
+    public deleteTeacher(id: number): Observable<void> {
+        return this.client.delete<void>(`${this.baseUrl}/teachers/${id}`);
     }
 }
