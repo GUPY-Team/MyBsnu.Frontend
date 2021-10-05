@@ -4,6 +4,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from 'app/modules/shared/shared.module';
 import {
     AdminViewComponent,
+    AudienceCreateViewComponent,
+    AudienceEditViewComponent,
+    AudienceListViewComponent,
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
@@ -26,7 +29,10 @@ import {
         AdminViewComponent,
         TeacherListViewComponent,
         TeacherCreateViewComponent,
-        TeacherEditViewComponent
+        TeacherEditViewComponent,
+        AudienceListViewComponent,
+        AudienceCreateViewComponent,
+        AudienceEditViewComponent
     ],
     imports: [
         SharedModule,

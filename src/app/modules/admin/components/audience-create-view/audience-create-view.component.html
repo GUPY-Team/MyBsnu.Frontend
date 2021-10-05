@@ -1,0 +1,33 @@
+<h3 class="form-header">{{ 'AUDIENCE_FORM.CREATE_TITLE' | translate }}</h3>
+
+<form
+        class="form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'AUDIENCE_FORM.CORPS' | translate }}</mat-label>
+        <input matInput formControlName="corps">
+        <mat-error appFormError controlName="corps"></mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'AUDIENCE_FORM.FLOOR' | translate }}</mat-label>
+        <input matInput formControlName="floor">
+        <mat-error appFormError controlName="floor"></mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'AUDIENCE_FORM.ROOM' | translate }}</mat-label>
+        <input matInput formControlName="room">
+        <mat-error appFormError controlName="room"></mat-error>
+    </mat-form-field>
+
+    <button
+            mat-raised-button
+            color="primary"
+            [disabled]="submitDisabled$ | async"
+    >
+        {{ 'COMMON.CREATE' | translate }}
+    </button>
+</form>

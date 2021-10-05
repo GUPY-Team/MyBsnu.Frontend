@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
     AdminViewComponent,
+    AudienceCreateViewComponent,
+    AudienceEditViewComponent,
+    AudienceListViewComponent,
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
@@ -53,6 +56,18 @@ const routes: Routes = [
     {
         path: 'teachers/:id',
         component: TeacherEditViewComponent
+    },
+    {
+        path: 'audiences',
+        component: AudienceListViewComponent,
+    },
+    {
+        path: 'audiences/create',
+        component: AudienceCreateViewComponent
+    },
+    {
+        path: 'audiences/:id',
+        component: AudienceEditViewComponent
     },
     {
         path: '**',

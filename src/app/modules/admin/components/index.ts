@@ -1,4 +1,7 @@
 export * from './admin-view/admin-view.component';
+export * from './audience-create-view/audience-create-view.component';
+export * from './audience-edit-view/audience-edit-view.component';
+export * from './audience-list-view/audience-list-view.component';
 export * from './course-list-view/course-list-view.component';
 export * from './course-edit-view/course-edit-view.component';
 export * from './course-create-view/course-create-view.component';

@@ -14,6 +14,17 @@
 	"APP": {
 		"TITLE": "My.BSNU"
 	},
+	"AUDIENCE_FORM": {
+		"CORPS": "Corps",
+		"CREATE_TITLE": "Create audience",
+		"EDIT_TITLE": "Edit audience",
+		"FLOOR": "Floor",
+		"ROOM": "Room"
+	},
+	"AUDIENCE_LIST": {
+		"FULL_NUMBER": "Full number",
+		"TITLE": "Audience list"
+	},
 	"AUTH": {
 		"EMAIL": "Email",
 		"EMAIL_PLACEHOLDER": "Your email",

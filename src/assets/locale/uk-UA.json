@@ -14,6 +14,17 @@
 	"APP": {
 		"TITLE": "Мій.ЧНУ"
 	},
+	"AUDIENCE_FORM": {
+		"CORPS": "Корпус",
+		"CREATE_TITLE": "Створити аудиторію",
+		"EDIT_TITLE": "Редагування аудиторії",
+		"FLOOR": "Поверх",
+		"ROOM": "Номер приміщення"
+	},
+	"AUDIENCE_LIST": {
+		"FULL_NUMBER": "Повний номер",
+		"TITLE": "Список аудиторій"
+	},
 	"AUTH": {
 		"EMAIL": "Email",
 		"EMAIL_PLACEHOLDER": "Ваш email",
