@@ -1,10 +1,10 @@
-<h1 class="list__header">{{ 'AUDIENCE_LIST.TITLE' | translate }}</h1>
+<h1 class="list__header">{{ 'GROUP_LIST.TITLE' | translate }}</h1>
 
 <div class="list__actions">
     <button
         color="primary"
         mat-flat-button
-        routerLink="/admin/audiences/create"
+        routerLink="/admin/groups/create"
     >
         <mat-icon>add</mat-icon>
         {{ 'COMMON.CREATE' | translate }}
@@ -15,22 +15,22 @@
     *ngIf="itemList$ | async as list"
     class="mat-elevation-z3"
 >
-    <mat-table class="list" [dataSource]="list.items">
+    <mat-table [dataSource]="list.items" class="list">
 
         <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>{{ 'AUDIENCE_LIST.ID' | translate }}</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{ 'GROUP_LIST.ID' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let element">{{ element.id }} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="fullNumber">
-            <mat-header-cell *matHeaderCellDef>{{ 'AUDIENCE_LIST.FULL_NUMBER' | translate }}</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element.fullNumber }} </mat-cell>
+        <ng-container matColumnDef="number">
+            <mat-header-cell *matHeaderCellDef>{{ 'GROUP_LIST.NUMBER' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.number }} </mat-cell>
         </ng-container>
 
-        <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+        <mat-header-row *matHeaderRowDef="displayColumns" mat-header-row></mat-header-row>
         <mat-row
             *matRowDef="let row; columns: displayColumns"
-            [routerLink]="['/admin/audiences', row.id]"
+            [routerLink]="['/admin/groups', row.id]"
             mat-ripple
         ></mat-row>
     </mat-table>

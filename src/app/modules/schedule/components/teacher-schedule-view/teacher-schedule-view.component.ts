@@ -3,7 +3,7 @@ import { combineLatest, Observable } from 'rxjs';
 import { ClassType, EducationFormat, Group, ScheduleClasses, Teacher } from 'app/api/models';
 import { EnumService, GroupService, ScheduleService, TeacherService } from 'app/api/services';
 import { distinctUntilChanged, filter, map, share, switchMap, tap } from 'rxjs/operators';
-import { distinctBy } from 'app/core';
+import { distinctBy, PaginationConstants } from 'app/core';
 import { ScheduleFilter, ScheduleFiltersService } from 'app/modules/schedule-shared/services';
 
 @Component({
@@ -47,8 +47,9 @@ export class TeacherScheduleViewComponent implements OnDestroy {
             map(TeacherScheduleViewComponent.getGroups)
         );
 
-        this.teachers$ = this.teacherService.getTeachers()
+        this.teachers$ = this.teacherService.getTeachers(1, PaginationConstants.defaultMaxPageSize)
             .pipe(
+                map(list => list.items),
                 tap(teachers => this.filter = { teacher: teachers[0] })
             );
 

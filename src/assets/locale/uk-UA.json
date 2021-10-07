@@ -12,29 +12,30 @@
 		"USERS": "Користувачі"
 	},
 	"APP": {
-		"TITLE": "Мій.ЧНУ"
-	},
-	"AUDIENCE_FORM": {
-		"CORPS": "Корпус",
-		"CREATE_TITLE": "Створити аудиторію",
-		"EDIT_TITLE": "Редагування аудиторії",
-		"FLOOR": "Поверх",
-		"ROOM": "Номер приміщення"
-	},
-	"AUDIENCE_LIST": {
-		"FULL_NUMBER": "Повний номер",
-		"TITLE": "Список аудиторій"
-	},
-	"AUTH": {
-		"EMAIL": "Email",
-		"EMAIL_PLACEHOLDER": "Ваш email",
-		"HAVE_ACCOUNT": "Вже зареєстровані?",
-		"NO_ACCOUNT": "Відсутній аккаунт?",
-		"PASS": "Пароль",
-		"PASS_CONFIRM": "Підтвердження паролю",
-		"PASS_CONFIRM_PLACEHOLDER": "Підтвердіть пароль",
-		"PASS_PLACEHOLDER": "Ваш пароль",
-		"SIGNIN": "Логін",
+        "TITLE": "Мій.ЧНУ"
+    },
+    "AUDIENCE_FORM": {
+        "CORPS": "Корпус",
+        "CREATE_TITLE": "Створити аудиторію",
+        "EDIT_TITLE": "Редагування аудиторії",
+        "FLOOR": "Поверх",
+        "ROOM": "Номер приміщення"
+    },
+    "AUDIENCE_LIST": {
+        "FULL_NUMBER": "Повний номер",
+        "ID": "Id",
+        "TITLE": "Список аудиторій"
+    },
+    "AUTH": {
+        "EMAIL": "Email",
+        "EMAIL_PLACEHOLDER": "Ваш email",
+        "HAVE_ACCOUNT": "Вже зареєстровані?",
+        "NO_ACCOUNT": "Відсутній аккаунт?",
+        "PASS": "Пароль",
+        "PASS_CONFIRM": "Підтвердження паролю",
+        "PASS_CONFIRM_PLACEHOLDER": "Підтвердіть пароль",
+        "PASS_PLACEHOLDER": "Ваш пароль",
+        "SIGNIN": "Логін",
 		"SIGNIN_TITLE": "Вхід",
 		"SIGNUP": "Зареєструватись",
 		"SIGNUP_TITLE": "Реєстрація",
@@ -102,46 +103,56 @@
 		"UNEXPECTED_ERROR": "Сталася несподівана помилка.\nПовідомте адміністратора або спробуйте пізніше.",
 		"VALIDATION_ERROR": "Помилка валідації:\n"
 	},
-	"FILTERS": {
-		"CLASS_FORMAT": "Формат заняття",
-		"CLASS_TYPE": "Тип заняття",
-		"GROUP_NUMBER": "Номер групи",
-		"TEACHER": "Викладач"
-	},
-	"FOOTER": {
-		"CAPTION": "Надпис футера"
-	},
-	"FORM_ERRORS": {
-		"EMAIL": "Email повинен бути валідним",
-		"ISINENUM": "Значення має бути в перерахуванні",
-		"MAX": "Максимальне значення {{max}}",
-		"MAXLENGTH": "Максимальна довжина {{requiredLength}}",
-		"MIN": "Мінімальне значення {{min}}",
-		"MINLENGTH": "Мінімальна довжина {{requiredLength}}",
-		"MUSTMATCH": "Поле має співпадати з {{control}}",
-		"PATTERN": "Поле задовольняє патерн {{requiredPattern}}",
-		"REQUIRED": "Поле обов'язкове"
-	},
-	"GROUP_SCHEDULE": {
-		"TITLE": "Розклад груп"
-	},
-	"LANGUAGE": {
-		"EN-US": "English",
-		"RU-RU": "Кацапська",
-		"UK-UA": "Українська"
-	},
-	"PAGINATOR": {
-		"FIRST_PAGE": "Перша сторінка",
-		"ITEMS_PER_PAGE": "Відображати рядків:",
-		"LAST_PAGE": "Остання сторінка",
-		"NEXT_PAGE": "Наступна сторінка",
-		"PAGE_X_OF_Y": "Сторінка {{x}} з {{y}}",
-		"PREVIOUS_PAGE": "Попередня сторінка"
-	},
-	"SCHEDULE_FORM": {
-		"CONFIRM_COPY": "Скопіювати розклад?",
-		"CONFIRM_COPY_MSG": "Ви точно хочете скопіювати даний розклад? Дана операція может зайняти деякий час.",
-		"CONFIRM_DELETE": "Видалити розклад?",
+    "FILTERS": {
+        "CLASS_FORMAT": "Формат заняття",
+        "CLASS_TYPE": "Тип заняття",
+        "GROUP_NUMBER": "Номер групи",
+        "TEACHER": "Викладач"
+    },
+    "FOOTER": {
+        "CAPTION": "Надпис футера"
+    },
+    "FORM_ERRORS": {
+        "EMAIL": "Email повинен бути валідним",
+        "ISINENUM": "Значення має бути в перерахуванні",
+        "MAX": "Максимальне значення {{max}}",
+        "MAXLENGTH": "Максимальна довжина {{requiredLength}}",
+        "MIN": "Мінімальне значення {{min}}",
+        "MINLENGTH": "Мінімальна довжина {{requiredLength}}",
+        "MUSTMATCH": "Поле має співпадати з {{control}}",
+        "PATTERN": "Поле задовольняє патерн {{requiredPattern}}",
+        "REQUIRED": "Поле обов'язкове"
+    },
+    "GROUP_FORM": {
+        "CREATE_TITLE": "Створити групу",
+        "EDIT_TITLE": "Редагувати групу",
+        "NUMBER": "Номер"
+    },
+    "GROUP_LIST": {
+        "ID": "Id",
+        "NUMBER": "Номер",
+        "TITLE": "Список груп"
+    },
+    "GROUP_SCHEDULE": {
+        "TITLE": "Розклад груп"
+    },
+    "LANGUAGE": {
+        "EN-US": "English",
+        "RU-RU": "Кацапська",
+        "UK-UA": "Українська"
+    },
+    "PAGINATOR": {
+        "FIRST_PAGE": "Перша сторінка",
+        "ITEMS_PER_PAGE": "Відображати рядків:",
+        "LAST_PAGE": "Остання сторінка",
+        "NEXT_PAGE": "Наступна сторінка",
+        "PAGE_X_OF_Y": "Сторінка {{x}} з {{y}}",
+        "PREVIOUS_PAGE": "Попередня сторінка"
+    },
+    "SCHEDULE_FORM": {
+        "CONFIRM_COPY": "Скопіювати розклад?",
+        "CONFIRM_COPY_MSG": "Ви точно хочете скопіювати даний розклад? Дана операція может зайняти деякий час.",
+        "CONFIRM_DELETE": "Видалити розклад?",
 		"CONFIRM_DELETE_MSG": "Ви точно хочете видалити даний розклад? Дана операція є невідворотною.",
 		"CONFIRM_PUBLISH": "Опублікувати розклад?",
 		"CONFIRM_PUBLISH_MSG": "Ви точно хочете опублікувати даний розклад? Дана операція зробить цей розклад поточним, та він буде відображатись на головній сторінці",
@@ -174,30 +185,31 @@
 			"SCHEDULE_DESIGNER": "Редактор розкладу",
 			"TEACHER_SCHEDULE": "Розклад викладачів"
 		},
-		"TITLE": "Мій.ЧНУ"
-	},
-	"TEACHER_FORM": {
-		"CREATE_TITLE": "Створити викладача",
-		"EDIT_TITLE": "Редагувати викладача",
-		"FIRST_NAME": "Ім'я",
-		"LAST_NAME": "Прізвище",
-		"THIRD_NAME": "Ім'я по батькові"
-	},
-	"TEACHER_LIST": {
-		"FULL_NAME": "Повне ім'я",
-		"SHORT_NAME": "Скорочене ім'я",
-		"TITLE": "Список викладачів"
-	},
-	"TEACHER_SCHEDULE": {
-		"TITLE": "Розклад викладачів"
-	},
-	"USER_FORM": {
-		"CLAIMS": "Claims",
-		"CREATE_TITLE": "Створити користувача",
-		"EDIT_TITLE": "Редагування дозволів",
-		"EMAIL": "Email",
-		"ID": "Id",
-		"PASS": "Пароль",
+        "TITLE": "Мій.ЧНУ"
+    },
+    "TEACHER_FORM": {
+        "CREATE_TITLE": "Створити викладача",
+        "EDIT_TITLE": "Редагувати викладача",
+        "FIRST_NAME": "Ім'я",
+        "LAST_NAME": "Прізвище",
+        "THIRD_NAME": "Ім'я по батькові"
+    },
+    "TEACHER_LIST": {
+        "FULL_NAME": "Повне ім'я",
+        "ID": "Id",
+        "SHORT_NAME": "Скорочене ім'я",
+        "TITLE": "Список викладачів"
+    },
+    "TEACHER_SCHEDULE": {
+        "TITLE": "Розклад викладачів"
+    },
+    "USER_FORM": {
+        "CLAIMS": "Claims",
+        "CREATE_TITLE": "Створити користувача",
+        "EDIT_TITLE": "Редагування дозволів",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "PASS": "Пароль",
 		"USERNAME": "Нікнейм"
 	},
 	"USER_LIST": {

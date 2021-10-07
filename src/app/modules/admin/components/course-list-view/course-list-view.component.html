@@ -2,9 +2,9 @@
 
 <div class="list__actions">
     <button
-            mat-flat-button
-            color="primary"
-            routerLink="/admin/courses/create"
+        color="primary"
+        mat-flat-button
+        routerLink="/admin/courses/create"
     >
         <mat-icon>add</mat-icon>
         {{ 'COMMON.CREATE' | translate }}
@@ -12,8 +12,8 @@
 </div>
 
 <div
-        *ngIf="itemList$ | async as list"
-        class="mat-elevation-z3"
+    *ngIf="itemList$ | async as list"
+    class="mat-elevation-z3"
 >
     <mat-table class="list" [dataSource]="list.items">
         <ng-container matColumnDef="id">
@@ -33,16 +33,15 @@
 
         <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
         <mat-row
-                mat-ripple
-                [routerLink]="['/admin/courses', row.id]"
-                *matRowDef="let row; columns: displayColumns"
+            *matRowDef="let row; columns: displayColumns"
+            [routerLink]="['/admin/courses', row.id]"
+            mat-ripple
         ></mat-row>
     </mat-table>
     <mat-paginator
-            [hidePageSize]="true"
-            [pageSizeOptions]="pageSizes"
-            [pageSize]="list.pageSize"
-            [length]="list.totalCount"
-            (page)="onPaginationChange($event)"
+        (page)="onPaginationChange($event)"
+        [length]="list.totalCount"
+        [pageSizeOptions]="pageSizes"
+        [pageSize]="list.pageSize"
     ></mat-paginator>
 </div>

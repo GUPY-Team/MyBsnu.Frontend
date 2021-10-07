@@ -1,0 +1,21 @@
+<h3 class="form-header">{{ 'GROUP_FORM.CREATE_TITLE' | translate }}</h3>
+
+<form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="form"
+    class="form"
+>
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'GROUP_FORM.NUMBER' | translate }}</mat-label>
+        <input formControlName="number" matInput>
+        <mat-error appFormError controlName="number"></mat-error>
+    </mat-form-field>
+
+    <button
+        [disabled]="submitDisabled$ | async"
+        color="primary"
+        mat-raised-button
+    >
+        {{ 'COMMON.CREATE' | translate }}
+    </button>
+</form>

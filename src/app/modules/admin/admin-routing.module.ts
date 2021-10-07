@@ -8,6 +8,9 @@ import {
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
+    GroupCreateViewComponent,
+    GroupEditViewComponent,
+    GroupListViewComponent,
     TeacherCreateViewComponent,
     TeacherEditViewComponent,
     TeacherListViewComponent,
@@ -44,6 +47,18 @@ const routes: Routes = [
     {
         path: 'courses/:id',
         component: CourseEditViewComponent,
+    },
+    {
+        path: 'groups',
+        component: GroupListViewComponent
+    },
+    {
+        path: 'groups/create',
+        component: GroupCreateViewComponent
+    },
+    {
+        path: 'groups/:id',
+        component: GroupEditViewComponent
     },
     {
         path: 'teachers',

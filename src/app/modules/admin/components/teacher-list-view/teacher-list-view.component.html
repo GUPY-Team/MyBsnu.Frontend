@@ -2,9 +2,9 @@
 
 <div class="list__actions">
     <button
-            mat-flat-button
-            color="primary"
-            routerLink="/admin/teachers/create"
+        color="primary"
+        mat-flat-button
+        routerLink="/admin/teachers/create"
     >
         <mat-icon>add</mat-icon>
         {{ 'COMMON.CREATE' | translate }}
@@ -12,10 +12,15 @@
 </div>
 
 <div
-        *ngIf="itemList$ | async as list"
-        class="mat-elevation-z3"
+    *ngIf="itemList$ | async as list"
+    class="mat-elevation-z3"
 >
     <mat-table class="list" [dataSource]="list.items">
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>{{ 'TEACHER_LIST.ID' | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.id }} </mat-cell>
+        </ng-container>
 
         <ng-container matColumnDef="fullName">
             <mat-header-cell *matHeaderCellDef>{{ 'TEACHER_LIST.FULL_NAME' | translate }}</mat-header-cell>
@@ -29,16 +34,15 @@
 
         <mat-header-row mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
         <mat-row
-                mat-ripple
-                [routerLink]="['/admin/teachers', row.id]"
-                *matRowDef="let row; columns: displayColumns"
+            *matRowDef="let row; columns: displayColumns"
+            [routerLink]="['/admin/teachers', row.id]"
+            mat-ripple
         ></mat-row>
     </mat-table>
     <mat-paginator
-            [hidePageSize]="true"
-            [pageSizeOptions]="pageSizes"
-            [pageSize]="list.pageSize"
-            [length]="list.totalCount"
-            (page)="onPaginationChange($event)"
+        (page)="onPaginationChange($event)"
+        [length]="list.totalCount"
+        [pageSizeOptions]="pageSizes"
+        [pageSize]="list.pageSize"
     ></mat-paginator>
 </div>

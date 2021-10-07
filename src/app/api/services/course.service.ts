@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {EnvironmentService} from 'app/core';
-import {Observable} from 'rxjs';
-import {Course} from 'app/api/models';
-import {CreateCourseCommand, UpdateCourseCommand} from "../commands";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { EnvironmentService, PagedList } from 'app/core';
+import { Observable } from 'rxjs';
+import { Course } from 'app/api/models';
+import { CreateCourseCommand, UpdateCourseCommand } from '../commands';
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +19,10 @@ export class CourseService {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
     }
 
-    public getCourses(): Observable<Course[]> {
-        return this.client.get<Course[]>(`${this.baseUrl}/courses`);
+    public getCourses(page: number = 1, pageSize: number = 10): Observable<PagedList<Course>> {
+        return this.client.get<PagedList<Course>>(`${this.baseUrl}/courses`, {
+            params: new HttpParams().set('page', page).set('pageSize', pageSize)
+        });
     }
 
     public getCourse(id: number): Observable<Course> {

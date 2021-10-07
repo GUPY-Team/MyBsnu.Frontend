@@ -1,0 +1,35 @@
+<ng-container *ngIf="entity$ | async as course">
+    <h3 class="form-header">{{ 'GROUP_FORM.EDIT_TITLE' | translate }}</h3>
+
+    <form
+        [formGroup]="form"
+        class="form"
+    >
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'GROUP_FORM.NUMBER' | translate }}</mat-label>
+            <input formControlName="number" matInput>
+            <mat-error appFormError controlName="number"></mat-error>
+        </mat-form-field>
+
+        <div class="form-group">
+            <button
+                (click)="onUpdate()"
+                [disabled]="saveDisabled$ | async"
+                color="primary"
+                mat-raised-button
+            >
+                {{ 'COMMON.SAVE' | translate }}
+            </button>
+
+            <button
+                (click)="onDelete()"
+                [disabled]="deleteDisabled$ | async"
+                color="warn"
+                mat-raised-button
+            >
+                {{ 'COMMON.DELETE' | translate }}
+            </button>
+        </div>
+
+    </form>
+</ng-container>

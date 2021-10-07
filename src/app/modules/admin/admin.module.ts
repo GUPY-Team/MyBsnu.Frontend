@@ -10,6 +10,9 @@ import {
     CourseCreateViewComponent,
     CourseEditViewComponent,
     CourseListViewComponent,
+    GroupCreateViewComponent,
+    GroupEditViewComponent,
+    GroupListViewComponent,
     TeacherCreateViewComponent,
     TeacherEditViewComponent,
     TeacherListViewComponent,
@@ -32,7 +35,10 @@ import {
         TeacherEditViewComponent,
         AudienceListViewComponent,
         AudienceCreateViewComponent,
-        AudienceEditViewComponent
+        AudienceEditViewComponent,
+        GroupListViewComponent,
+        GroupEditViewComponent,
+        GroupCreateViewComponent
     ],
     imports: [
         SharedModule,

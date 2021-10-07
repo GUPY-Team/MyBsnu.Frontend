@@ -12,29 +12,30 @@
 		"USERS": "Users"
 	},
 	"APP": {
-		"TITLE": "My.BSNU"
-	},
-	"AUDIENCE_FORM": {
-		"CORPS": "Corps",
-		"CREATE_TITLE": "Create audience",
-		"EDIT_TITLE": "Edit audience",
-		"FLOOR": "Floor",
-		"ROOM": "Room"
-	},
-	"AUDIENCE_LIST": {
-		"FULL_NUMBER": "Full number",
-		"TITLE": "Audience list"
-	},
-	"AUTH": {
-		"EMAIL": "Email",
-		"EMAIL_PLACEHOLDER": "Your email",
-		"HAVE_ACCOUNT": "Already have an account?",
-		"NO_ACCOUNT": "Don't have an account?",
-		"PASS": "Password",
-		"PASS_CONFIRM": "Confirm password",
-		"PASS_CONFIRM_PLACEHOLDER": "Confirm your password",
-		"PASS_PLACEHOLDER": "Your password",
-		"SIGNIN": "Signin",
+        "TITLE": "My.BSNU"
+    },
+    "AUDIENCE_FORM": {
+        "CORPS": "Corps",
+        "CREATE_TITLE": "Create audience",
+        "EDIT_TITLE": "Edit audience",
+        "FLOOR": "Floor",
+        "ROOM": "Room"
+    },
+    "AUDIENCE_LIST": {
+        "FULL_NUMBER": "Full number",
+        "ID": "Id",
+        "TITLE": "Audience list"
+    },
+    "AUTH": {
+        "EMAIL": "Email",
+        "EMAIL_PLACEHOLDER": "Your email",
+        "HAVE_ACCOUNT": "Already have an account?",
+        "NO_ACCOUNT": "Don't have an account?",
+        "PASS": "Password",
+        "PASS_CONFIRM": "Confirm password",
+        "PASS_CONFIRM_PLACEHOLDER": "Confirm your password",
+        "PASS_PLACEHOLDER": "Your password",
+        "SIGNIN": "Signin",
 		"SIGNIN_TITLE": "Login",
 		"SIGNUP": "Signup",
 		"SIGNUP_TITLE": "Register",
@@ -105,46 +106,56 @@
 		"UNEXPECTED_ERROR": "Unexpected error happened.\nNotify administrator or try again later.",
 		"VALIDATION_ERROR": "Validator error:"
 	},
-	"FILTERS": {
-		"CLASS_FORMAT": "Class format",
-		"CLASS_TYPE": "Class type",
-		"GROUP_NUMBER": "Group number",
-		"TEACHER": "Teacher"
-	},
-	"FOOTER": {
-		"CAPTION": "Footer caption"
-	},
-	"FORM_ERRORS": {
-		"EMAIL": "Email should be valid",
-		"ISINENUM": "Field must be in enum",
-		"MAX": "Max value is {{max}}",
-		"MAXLENGTH": "Max length is {{requiredLength}}",
-		"MIN": "Min value is {{min}}",
-		"MINLENGTH": "Min length is {{requiredLength}}",
-		"MUSTMATCH": "Field must match {{control}}",
-		"PATTERN": "Field doesn't match pattern {{requiredPattern}}",
-		"REQUIRED": "Field is required"
-	},
-	"GROUP_SCHEDULE": {
-		"TITLE": "Group schedule"
-	},
-	"LANGUAGE": {
-		"EN-US": "English",
-		"RU-RU": "Русский",
-		"UK-UA": "Українська"
-	},
-	"PAGINATOR": {
-		"FIRST_PAGE": "First page",
-		"ITEMS_PER_PAGE": "Items per page",
-		"LAST_PAGE": "Last page",
-		"NEXT_PAGE": "Next page",
-		"PAGE_X_OF_Y": "Page {{x}} of {{y}}",
-		"PREVIOUS_PAGE": "Previous page"
-	},
-	"SCHEDULE_FORM": {
-		"CONFIRM_COPY": "Copy schedule?",
-		"CONFIRM_COPY_MSG": "Are you sure you want to copy? This may take several minutes.",
-		"CONFIRM_DELETE": "Delete schedule?",
+    "FILTERS": {
+        "CLASS_FORMAT": "Class format",
+        "CLASS_TYPE": "Class type",
+        "GROUP_NUMBER": "Group number",
+        "TEACHER": "Teacher"
+    },
+    "FOOTER": {
+        "CAPTION": "Footer caption"
+    },
+    "FORM_ERRORS": {
+        "EMAIL": "Email should be valid",
+        "ISINENUM": "Field must be in enum",
+        "MAX": "Max value is {{max}}",
+        "MAXLENGTH": "Max length is {{requiredLength}}",
+        "MIN": "Min value is {{min}}",
+        "MINLENGTH": "Min length is {{requiredLength}}",
+        "MUSTMATCH": "Field must match {{control}}",
+        "PATTERN": "Field doesn't match pattern {{requiredPattern}}",
+        "REQUIRED": "Field is required"
+    },
+    "GROUP_FORM": {
+        "CREATE_TITLE": "Create group",
+        "EDIT_TITLE": "Edit group",
+        "NUMBER": "Number"
+    },
+    "GROUP_LIST": {
+        "ID": "Id",
+        "NUMBER": "Number",
+        "TITLE": "Group list"
+    },
+    "GROUP_SCHEDULE": {
+        "TITLE": "Group schedule"
+    },
+    "LANGUAGE": {
+        "EN-US": "English",
+        "RU-RU": "Русский",
+        "UK-UA": "Українська"
+    },
+    "PAGINATOR": {
+        "FIRST_PAGE": "First page",
+        "ITEMS_PER_PAGE": "Items per page",
+        "LAST_PAGE": "Last page",
+        "NEXT_PAGE": "Next page",
+        "PAGE_X_OF_Y": "Page {{x}} of {{y}}",
+        "PREVIOUS_PAGE": "Previous page"
+    },
+    "SCHEDULE_FORM": {
+        "CONFIRM_COPY": "Copy schedule?",
+        "CONFIRM_COPY_MSG": "Are you sure you want to copy? This may take several minutes.",
+        "CONFIRM_DELETE": "Delete schedule?",
 		"CONFIRM_DELETE_MSG": "Are you sure you want to delete schedule? This action can't be undone.",
 		"CONFIRM_PUBLISH": "Publish schedule?",
 		"CONFIRM_PUBLISH_MSG": "Are you sure you want to publish schedule? This will make this schedule active and it will be shown on the main page",
@@ -177,30 +188,31 @@
 			"SCHEDULE_DESIGNER": "Schedule designer",
 			"TEACHER_SCHEDULE": "Teacher schedule"
 		},
-		"TITLE": "My.BSNU"
-	},
-	"TEACHER_FORM": {
-		"CREATE_TITLE": "Create teacher",
-		"EDIT_TITLE": "Update teacher",
-		"FIRST_NAME": "First name",
-		"LAST_NAME": "Last name",
-		"THIRD_NAME": "Third name"
-	},
-	"TEACHER_LIST": {
-		"FULL_NAME": "Full name",
-		"SHORT_NAME": "Short name",
-		"TITLE": "Teacher list"
-	},
-	"TEACHER_SCHEDULE": {
-		"TITLE": "Teacher schedule"
-	},
-	"USER_FORM": {
-		"CLAIMS": "Claims",
-		"CREATE_TITLE": "Create user",
-		"EDIT_TITLE": "Edit claims",
-		"EMAIL": "Email",
-		"ID": "Id",
-		"PASS": "Password",
+        "TITLE": "My.BSNU"
+    },
+    "TEACHER_FORM": {
+        "CREATE_TITLE": "Create teacher",
+        "EDIT_TITLE": "Update teacher",
+        "FIRST_NAME": "First name",
+        "LAST_NAME": "Last name",
+        "THIRD_NAME": "Third name"
+    },
+    "TEACHER_LIST": {
+        "FULL_NAME": "Full name",
+        "ID": "Id",
+        "SHORT_NAME": "Short name",
+        "TITLE": "Teacher list"
+    },
+    "TEACHER_SCHEDULE": {
+        "TITLE": "Teacher schedule"
+    },
+    "USER_FORM": {
+        "CLAIMS": "Claims",
+        "CREATE_TITLE": "Create user",
+        "EDIT_TITLE": "Edit claims",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "PASS": "Password",
 		"USERNAME": "Username"
 	},
 	"USER_LIST": {

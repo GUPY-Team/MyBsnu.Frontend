@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { EnvironmentService } from 'app/core/services/environment.service';
 import { Teacher } from 'app/api/models';
 import { Observable } from 'rxjs';
-import { CreateTeacherCommand, UpdateTeacherCommand } from "app/api/commands";
+import { CreateTeacherCommand, UpdateTeacherCommand } from 'app/api/commands';
+import { PagedList } from 'app/core';
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +20,10 @@ export class TeacherService {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
     }
 
-    public getTeachers(): Observable<Teacher[]> {
-        return this.client.get<Teacher[]>(`${this.baseUrl}/teachers`);
+    public getTeachers(page: number = 1, pageSize: number = 10): Observable<PagedList<Teacher>> {
+        return this.client.get<PagedList<Teacher>>(`${this.baseUrl}/teachers`, {
+            params: new HttpParams().set('page', page).set('pageSize', pageSize)
+        });
     }
 
     public getTeacher(id: number): Observable<Teacher> {

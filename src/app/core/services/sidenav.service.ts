@@ -37,7 +37,7 @@ export class SidenavService {
             path: '/designer',
             icon: 'edit_calendar',
             text: 'SCHEDULE_DESIGNER',
-            requiredPermissions: [Permission.canManageSchedule, Permission.canManageClasses]
+            requiredPermissions: [Permission.scheduleEditor]
         },
         {
             path: '/admin',

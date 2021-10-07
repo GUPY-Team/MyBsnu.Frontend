@@ -15,7 +15,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassService, CourseService, EnumService } from 'app/api/services';
 import { Observable, Subject } from 'rxjs';
-import { FormMode } from 'app/core';
+import { FormMode, PaginationConstants } from 'app/core';
 import { CreateClassCommand, UpdateClassCommand } from 'app/api/commands';
 import { debounceTime, distinctUntilChanged, filter, map, share, switchMap, takeUntil, } from 'rxjs/operators';
 import { DesignerAutocompleteService } from 'app/modules/schedule-designer/services';
@@ -119,7 +119,9 @@ export class ClassFormComponent implements OnInit, OnDestroy {
     }
 
     public initObservables(): void {
-        this.courses$ = this.courseService.getCourses();
+        this.courses$ = this.courseService
+            .getCourses(1, PaginationConstants.extendedMaxPageSize)
+            .pipe(map(list => list.items));
 
         const { scheduleId } = this.data;
 

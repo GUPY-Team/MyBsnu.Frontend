@@ -13,7 +13,7 @@ const routes: Routes = [
         loadChildren: () => import('app/modules/schedule-designer/schedule-designer.module').then(m => m.ScheduleDesignerModule),
         canLoad: [AuthorizedOnlyGuard],
         canActivateChild: [AuthorizedOnlyGuard],
-        data: { permissions: [Permission.canManageSchedule, Permission.canManageClasses] }
+        data: { permissions: [Permission.scheduleEditor] }
     },
     {
         path: 'admin',

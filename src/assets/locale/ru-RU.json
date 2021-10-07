@@ -12,29 +12,30 @@
 		"USERS": "Пользователи"
 	},
 	"APP": {
-		"TITLE": "Мой.ЧНУ"
-	},
-	"AUDIENCE_FORM": {
-		"CORPS": "Корпус",
-		"CREATE_TITLE": "Создать аудиторию",
-		"EDIT_TITLE": "Редактировать аудиторию",
-		"FLOOR": "Этаж",
-		"ROOM": "Номер помещения"
-	},
-	"AUDIENCE_LIST": {
-		"FULL_NUMBER": "Полный номер",
-		"TITLE": "Список аудиторий"
-	},
-	"AUTH": {
-		"EMAIL": "Email",
-		"EMAIL_PLACEHOLDER": "Ваш email",
-		"HAVE_ACCOUNT": "Уже есть учетная запись?",
-		"NO_ACCOUNT": "Нету учетной записи?",
-		"PASS": "Пароль",
-		"PASS_CONFIRM": "Подтвердите пароль",
-		"PASS_CONFIRM_PLACEHOLDER": "Введите пароь ещё раз",
-		"PASS_PLACEHOLDER": "Ваш пароль",
-		"SIGNIN": "Войти",
+        "TITLE": "Мой.ЧНУ"
+    },
+    "AUDIENCE_FORM": {
+        "CORPS": "Корпус",
+        "CREATE_TITLE": "Создать аудиторию",
+        "EDIT_TITLE": "Редактировать аудиторию",
+        "FLOOR": "Этаж",
+        "ROOM": "Номер помещения"
+    },
+    "AUDIENCE_LIST": {
+        "FULL_NUMBER": "Полный номер",
+        "ID": "Id",
+        "TITLE": "Список аудиторий"
+    },
+    "AUTH": {
+        "EMAIL": "Email",
+        "EMAIL_PLACEHOLDER": "Ваш email",
+        "HAVE_ACCOUNT": "Уже есть учетная запись?",
+        "NO_ACCOUNT": "Нету учетной записи?",
+        "PASS": "Пароль",
+        "PASS_CONFIRM": "Подтвердите пароль",
+        "PASS_CONFIRM_PLACEHOLDER": "Введите пароь ещё раз",
+        "PASS_PLACEHOLDER": "Ваш пароль",
+        "SIGNIN": "Войти",
 		"SIGNIN_TITLE": "Логин",
 		"SIGNUP": "Зарегестрироваться",
 		"SIGNUP_TITLE": "Регистрация",
@@ -104,46 +105,56 @@
 		"UNEXPECTED_ERROR": "Произошла непредвиденная ошибка.\nСообщите администратору или попробуйте позже.",
 		"VALIDATION_ERROR": "Ошибка валидации:\n"
 	},
-	"FILTERS": {
-		"CLASS_FORMAT": "Формат занятия",
-		"CLASS_TYPE": "Тип занятия",
-		"GROUP_NUMBER": "Номер группы",
-		"TEACHER": "Преподаватель"
-	},
-	"FOOTER": {
-		"CAPTION": "Надпись футера"
-	},
-	"FORM_ERRORS": {
-		"EMAIL": "Email не валидный",
-		"ISINENUM": "Значения поля должны быть в перечислении",
-		"MAX": "Максимальное значение {{max}}",
-		"MAXLENGTH": "Максимальная длина {{requiredLength}}",
-		"MIN": "Минимальное значение {{min}}",
-		"MINLENGTH": "Минимальная длина {{requiredLength}}",
-		"MUSTMATCH": "Поле должно соответствовать {{control}}",
-		"PATTERN": "Поле не соответсвует патерну {{requiredPattern}}",
-		"REQUIRED": "Поле обязательное"
-	},
-	"GROUP_SCHEDULE": {
-		"TITLE": "Рассписание групп"
-	},
-	"LANGUAGE": {
-		"EN-US": "English",
-		"RU-RU": "Русский",
-		"UK-UA": "Українська"
-	},
-	"PAGINATOR": {
-		"FIRST_PAGE": "Первая страница",
-		"ITEMS_PER_PAGE": "Отображать строк:",
-		"LAST_PAGE": "Последняя страница",
-		"NEXT_PAGE": "Следующая страница",
-		"PAGE_X_OF_Y": "Страница {{x}} из {{y}}",
-		"PREVIOUS_PAGE": "Предыдущая страница"
-	},
-	"SCHEDULE_FORM": {
-		"CONFIRM_COPY": "Скопировать рассписание?",
-		"CONFIRM_COPY_MSG": "Вы точно хотите скопировать рассписание? Это займет некоторое время",
-		"CONFIRM_DELETE": "Удалить рассписание?",
+    "FILTERS": {
+        "CLASS_FORMAT": "Формат занятия",
+        "CLASS_TYPE": "Тип занятия",
+        "GROUP_NUMBER": "Номер группы",
+        "TEACHER": "Преподаватель"
+    },
+    "FOOTER": {
+        "CAPTION": "Надпись футера"
+    },
+    "FORM_ERRORS": {
+        "EMAIL": "Email не валидный",
+        "ISINENUM": "Значения поля должны быть в перечислении",
+        "MAX": "Максимальное значение {{max}}",
+        "MAXLENGTH": "Максимальная длина {{requiredLength}}",
+        "MIN": "Минимальное значение {{min}}",
+        "MINLENGTH": "Минимальная длина {{requiredLength}}",
+        "MUSTMATCH": "Поле должно соответствовать {{control}}",
+        "PATTERN": "Поле не соответсвует патерну {{requiredPattern}}",
+        "REQUIRED": "Поле обязательное"
+    },
+    "GROUP_FORM": {
+        "CREATE_TITLE": "Создать группу",
+        "EDIT_TITLE": "Редактировать группу",
+        "NUMBER": "Номер"
+    },
+    "GROUP_LIST": {
+        "ID": "Id",
+        "NUMBER": "Номер",
+        "TITLE": "Список групп"
+    },
+    "GROUP_SCHEDULE": {
+        "TITLE": "Рассписание групп"
+    },
+    "LANGUAGE": {
+        "EN-US": "English",
+        "RU-RU": "Русский",
+        "UK-UA": "Українська"
+    },
+    "PAGINATOR": {
+        "FIRST_PAGE": "Первая страница",
+        "ITEMS_PER_PAGE": "Отображать строк:",
+        "LAST_PAGE": "Последняя страница",
+        "NEXT_PAGE": "Следующая страница",
+        "PAGE_X_OF_Y": "Страница {{x}} из {{y}}",
+        "PREVIOUS_PAGE": "Предыдущая страница"
+    },
+    "SCHEDULE_FORM": {
+        "CONFIRM_COPY": "Скопировать рассписание?",
+        "CONFIRM_COPY_MSG": "Вы точно хотите скопировать рассписание? Это займет некоторое время",
+        "CONFIRM_DELETE": "Удалить рассписание?",
 		"CONFIRM_DELETE_MSG": "Вы точно хотите удалить рассписание? Это действие необратимо",
 		"CONFIRM_PUBLISH": "Опубликовать рассписания?",
 		"CONFIRM_PUBLISH_MSG": "Вы точно хотите опубликовать рассписание? Это сделает это рассписание активным и оно будет отображатся на главной странице",
@@ -176,30 +187,31 @@
 			"SCHEDULE_DESIGNER": "Редактор рассписания",
 			"TEACHER_SCHEDULE": "Рассписание преподавателей"
 		},
-		"TITLE": "Мой.ЧНУ"
-	},
-	"TEACHER_FORM": {
-		"CREATE_TITLE": "Создать преподавателя",
-		"EDIT_TITLE": "Реадктировать преподавателя",
-		"FIRST_NAME": "Имя",
-		"LAST_NAME": "Фамилия",
-		"THIRD_NAME": "Очество"
-	},
-	"TEACHER_LIST": {
-		"FULL_NAME": "Полное имя",
-		"SHORT_NAME": "Сокращенное имя",
-		"TITLE": "Список преподавателей"
-	},
-	"TEACHER_SCHEDULE": {
-		"TITLE": "Рассписание преподавателей"
-	},
-	"USER_FORM": {
-		"CLAIMS": "Claims",
-		"CREATE_TITLE": "Создать пользователя",
-		"EDIT_TITLE": "Редактирование разрешений",
-		"EMAIL": "Email",
-		"ID": "Id",
-		"PASS": "Пароль",
+        "TITLE": "Мой.ЧНУ"
+    },
+    "TEACHER_FORM": {
+        "CREATE_TITLE": "Создать преподавателя",
+        "EDIT_TITLE": "Реадктировать преподавателя",
+        "FIRST_NAME": "Имя",
+        "LAST_NAME": "Фамилия",
+        "THIRD_NAME": "Очество"
+    },
+    "TEACHER_LIST": {
+        "FULL_NAME": "Полное имя",
+        "ID": "Id",
+        "SHORT_NAME": "Сокращенное имя",
+        "TITLE": "Список преподавателей"
+    },
+    "TEACHER_SCHEDULE": {
+        "TITLE": "Рассписание преподавателей"
+    },
+    "USER_FORM": {
+        "CLAIMS": "Claims",
+        "CREATE_TITLE": "Создать пользователя",
+        "EDIT_TITLE": "Редактирование разрешений",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "PASS": "Пароль",
 		"USERNAME": "Никнейм"
 	},
 	"USER_LIST": {

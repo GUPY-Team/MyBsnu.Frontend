@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { ListViewBase } from "app/modules/shared/models";
-import { Audience } from "app/api/models";
-import { PagedList, Pagination } from "app/core";
-import { Observable } from "rxjs";
-import { AudienceService } from "app/api/services";
-import { map } from "rxjs/operators";
+import { ListViewBase } from 'app/modules/shared/models';
+import { Audience } from 'app/api/models';
+import { PagedList, Pagination } from 'app/core';
+import { Observable } from 'rxjs';
+import { AudienceService } from 'app/api/services';
 
 @Component({
     selector: 'app-audience-list-view',
@@ -13,7 +12,10 @@ import { map } from "rxjs/operators";
 })
 export class AudienceListViewComponent extends ListViewBase<Audience> {
 
-    public displayColumns: ReadonlyArray<string> = ['fullNumber'];
+    public displayColumns: ReadonlyArray<string> = [
+        'id',
+        'fullNumber'
+    ];
 
     constructor(
         private audienceService: AudienceService
@@ -22,19 +24,7 @@ export class AudienceListViewComponent extends ListViewBase<Audience> {
     }
 
     protected getList(pagination: Pagination): Observable<PagedList<Audience>> {
-        return this.audienceService.getAudiences().pipe(
-            map(audiences => ({
-                items: audiences,
-                count: audiences.length,
-                currentPage: 0,
-                pageSize: audiences.length,
-                totalCount: audiences.length,
-                totalPages: 1,
-                hasPreviousPage: false,
-                hasNextPage: false
-            }))
-        );
-
+        return this.audienceService.getAudiences(pagination.page, pagination.pageSize);
     }
 
 }

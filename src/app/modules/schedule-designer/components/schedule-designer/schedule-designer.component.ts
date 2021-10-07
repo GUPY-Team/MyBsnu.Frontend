@@ -6,8 +6,8 @@ import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import {
-    ClassFormComponent,
-    ClassDialogData
+    ClassDialogData,
+    ClassFormComponent
 } from 'app/modules/schedule-designer/components/class-form/class-form.component';
 
 enum ViewMode {
@@ -50,8 +50,14 @@ export class ScheduleDesignerComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit(): void {
-        this.teachers$ = this.teacherService.getTeachers().pipe(shareReplay());
-        this.groups$ = this.groupService.getGroups().pipe(shareReplay());
+        this.teachers$ = this.teacherService.getTeachers().pipe(
+            map(list => list.items),
+            shareReplay()
+        );
+        this.groups$ = this.groupService.getGroups().pipe(
+            map(list => list.items),
+            shareReplay()
+        );
 
         this.groupClasses$ = combineLatest([this.refresh$, this.groupControl.valueChanges])
             .pipe(

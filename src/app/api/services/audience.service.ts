@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { EnvironmentService } from 'app/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { EnvironmentService, PagedList } from 'app/core';
 import { Observable } from 'rxjs';
 import { Audience } from 'app/api/models';
-import { CreateAudienceCommand, UpdateAudienceCommand } from "app/api/commands/AudienceCommands";
+import { CreateAudienceCommand, UpdateAudienceCommand } from 'app/api/commands/AudienceCommands';
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +19,10 @@ export class AudienceService {
         this.baseUrl = environmentService.getValue<string>('apiUrl', '');
     }
 
-    public getAudiences(): Observable<Audience[]> {
-        return this.client.get<Audience[]>(`${this.baseUrl}/audiences`);
+    public getAudiences(page: number = 1, pageSize: number = 10): Observable<PagedList<Audience>> {
+        return this.client.get<PagedList<Audience>>(`${this.baseUrl}/audiences`, {
+            params: new HttpParams().set('page', page).set('pageSize', pageSize)
+        });
     }
 
     public getAudience(id: number): Observable<Audience> {

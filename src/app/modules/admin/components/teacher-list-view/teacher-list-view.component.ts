@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Teacher } from 'app/api/models';
-import { ListViewBase } from "app/modules/shared/models";
-import { PagedList, Pagination } from "app/core";
-import { Observable } from "rxjs";
-import { TeacherService } from "app/api/services";
-import { map } from "rxjs/operators";
+import { ListViewBase } from 'app/modules/shared/models';
+import { PagedList, Pagination } from 'app/core';
+import { Observable } from 'rxjs';
+import { TeacherService } from 'app/api/services';
 
 @Component({
     selector: 'app-teacher-list-view',
@@ -14,6 +13,7 @@ import { map } from "rxjs/operators";
 export class TeacherListViewComponent extends ListViewBase<Teacher> {
 
     public displayColumns: ReadonlyArray<string> = [
+        'id',
         'fullName',
         'shortName'
     ];
@@ -25,18 +25,7 @@ export class TeacherListViewComponent extends ListViewBase<Teacher> {
     }
 
     protected getList(pagination: Pagination): Observable<PagedList<Teacher>> {
-        return this.teacherService.getTeachers().pipe(
-            map(teachers => ({
-                items: teachers,
-                count: teachers.length,
-                currentPage: 0,
-                pageSize: teachers.length,
-                totalCount: teachers.length,
-                totalPages: 1,
-                hasPreviousPage: false,
-                hasNextPage: false
-            }))
-        );
+        return this.teacherService.getTeachers(pagination.page, pagination.pageSize);
     }
 
 }
