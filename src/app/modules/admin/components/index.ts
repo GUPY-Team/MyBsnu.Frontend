@@ -1,4 +1,3 @@
-export * from './admin-view/admin-view.component';
 export * from './audience-create-view/audience-create-view.component';
 export * from './audience-edit-view/audience-edit-view.component';
 export * from './audience-list-view/audience-list-view.component';

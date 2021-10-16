@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('app/modules/admin/admin.module').then(m => m.AdminModule),
         canLoad: [AuthorizedOnlyGuard],
         canActivateChild: [AuthorizedOnlyGuard],
-        data: { permissions: [Permission.superAdmin] }
+        data: { permissions: [Permission.scheduleEditor] }
     },
     {
         path: 'auth',

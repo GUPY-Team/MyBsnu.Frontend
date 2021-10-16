@@ -3,14 +3,6 @@
 		"GREETING": "Hello",
 		"LOGOUT": "Sign out"
 	},
-	"ADMIN_PANEL": {
-		"AUDIENCES": "Audiences",
-		"COURSES": "Courses",
-		"GROUPS": "Groups",
-		"TEACHERS": "Teachers",
-		"TITLE": "Admin panel",
-		"USERS": "Users"
-	},
 	"APP": {
         "TITLE": "My.BSNU"
     },
@@ -182,12 +174,16 @@
 	},
 	"SIDENAV": {
 		"LINKS": {
-			"ACCOUNT": "Account",
-			"ADMIN_PANEL": "Admin panel",
-			"GROUP_SCHEDULE": "Group schedule",
-			"SCHEDULE_DESIGNER": "Schedule designer",
-			"TEACHER_SCHEDULE": "Teacher schedule"
-		},
+            "ACCOUNT": "Account",
+            "GROUP_SCHEDULE": "Group schedule",
+            "SCHEDULE_DESIGNER": "Schedule designer",
+            "TEACHER_SCHEDULE": "Teacher schedule",
+            "USERS": "Users",
+            "COURSES": "Courses",
+            "TEACHERS": "Teachers",
+            "AUDIENCES": "Audiences",
+            "GROUPS": "Groups"
+        },
         "TITLE": "My.BSNU"
     },
     "TEACHER_FORM": {

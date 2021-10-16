@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
-    AdminViewComponent,
     AudienceCreateViewComponent,
     AudienceEditViewComponent,
     AudienceListViewComponent,
@@ -18,23 +17,23 @@ import {
     UserEditViewComponent,
     UserListViewComponent
 } from './components';
+import { Permission } from "app/api/models/Permission";
 
 const routes: Routes = [
     {
-        path: '',
-        component: AdminViewComponent
-    },
-    {
         path: 'users',
-        component: UserListViewComponent
+        component: UserListViewComponent,
+        data: { permissions: [Permission.superAdmin] }
     },
     {
         path: 'users/create',
-        component: UserCreateViewComponent
+        component: UserCreateViewComponent,
+        data: { permissions: [Permission.superAdmin] }
     },
     {
         path: 'users/:id',
-        component: UserEditViewComponent
+        component: UserEditViewComponent,
+        data: { permissions: [Permission.superAdmin] }
     },
     {
         path: 'courses',
@@ -83,10 +82,6 @@ const routes: Routes = [
     {
         path: 'audiences/:id',
         component: AudienceEditViewComponent
-    },
-    {
-        path: '**',
-        redirectTo: ''
     }
 ];
 

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from 'app/modules/shared/shared.module';
 import {
-    AdminViewComponent,
     AudienceCreateViewComponent,
     AudienceEditViewComponent,
     AudienceListViewComponent,
@@ -29,7 +28,6 @@ import {
         CourseCreateViewComponent,
         CourseListViewComponent,
         CourseEditViewComponent,
-        AdminViewComponent,
         TeacherListViewComponent,
         TeacherCreateViewComponent,
         TeacherEditViewComponent,

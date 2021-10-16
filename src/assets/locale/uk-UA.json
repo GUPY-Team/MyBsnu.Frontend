@@ -3,14 +3,6 @@
 		"GREETING": "Вітаю",
 		"LOGOUT": "Вихід"
 	},
-	"ADMIN_PANEL": {
-		"AUDIENCES": "Аудиторії",
-		"COURSES": "Дисципліни",
-		"GROUPS": "Групи",
-		"TEACHERS": "Викладачі",
-		"TITLE": "Адмін панель",
-		"USERS": "Користувачі"
-	},
 	"APP": {
         "TITLE": "Мій.ЧНУ"
     },
@@ -179,12 +171,17 @@
 	},
 	"SIDENAV": {
 		"LINKS": {
-			"ACCOUNT": "Профіль",
-			"ADMIN_PANEL": "Адмін панель",
-			"GROUP_SCHEDULE": "Розклад студентів",
-			"SCHEDULE_DESIGNER": "Редактор розкладу",
-			"TEACHER_SCHEDULE": "Розклад викладачів"
-		},
+            "ACCOUNT": "Профіль",
+            "ADMIN_PANEL": "Адмін панель",
+            "GROUP_SCHEDULE": "Розклад студентів",
+            "SCHEDULE_DESIGNER": "Редактор розкладу",
+            "TEACHER_SCHEDULE": "Розклад викладачів",
+            "USERS": "Користувачі",
+            "COURSES": "Дисципліни",
+            "TEACHERS": "Викладачі",
+            "AUDIENCES": "Аудиторії",
+            "GROUPS": "Групи"
+        },
         "TITLE": "Мій.ЧНУ"
     },
     "TEACHER_FORM": {

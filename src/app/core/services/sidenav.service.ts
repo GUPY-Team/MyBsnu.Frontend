@@ -40,10 +40,34 @@ export class SidenavService {
             requiredPermissions: [Permission.scheduleEditor]
         },
         {
-            path: '/admin',
-            icon: 'admin_panel_settings',
-            text: 'ADMIN_PANEL',
+            path: '/admin/users',
+            icon: 'people',
+            text: 'USERS',
             requiredPermissions: [Permission.superAdmin]
+        },
+        {
+            path: '/admin/courses',
+            icon: 'class',
+            text: 'COURSES',
+            requiredPermissions: [Permission.scheduleEditor]
+        },
+        {
+            path: '/admin/teachers',
+            icon: 'school',
+            text: 'TEACHERS',
+            requiredPermissions: [Permission.scheduleEditor]
+        },
+        {
+            path: '/admin/audiences',
+            icon: 'meeting_room',
+            text: 'AUDIENCES',
+            requiredPermissions: [Permission.scheduleEditor]
+        },
+        {
+            path: '/admin/groups',
+            icon: 'groups',
+            text: 'GROUPS',
+            requiredPermissions: [Permission.scheduleEditor]
         }
     ];
 

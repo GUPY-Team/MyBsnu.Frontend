@@ -3,14 +3,6 @@
 		"GREETING": "Привет",
 		"LOGOUT": "Выход"
 	},
-	"ADMIN_PANEL": {
-		"AUDIENCES": "Аудитории",
-		"COURSES": "Дисциплины",
-		"GROUPS": "Группы",
-		"TEACHERS": "Преподаватели",
-		"TITLE": "Админ панель",
-		"USERS": "Пользователи"
-	},
 	"APP": {
         "TITLE": "Мой.ЧНУ"
     },
@@ -181,12 +173,17 @@
 	},
 	"SIDENAV": {
 		"LINKS": {
-			"ACCOUNT": "Аккаунт",
-			"ADMIN_PANEL": "Админ панель",
-			"GROUP_SCHEDULE": "Рассписание студентов",
-			"SCHEDULE_DESIGNER": "Редактор рассписания",
-			"TEACHER_SCHEDULE": "Рассписание преподавателей"
-		},
+            "ACCOUNT": "Аккаунт",
+            "ADMIN_PANEL": "Админ панель",
+            "GROUP_SCHEDULE": "Рассписание студентов",
+            "SCHEDULE_DESIGNER": "Редактор рассписания",
+            "TEACHER_SCHEDULE": "Рассписание преподавателей",
+            "USERS": "Пользователи",
+            "COURSES": "Дисциплины",
+            "TEACHERS": "Преподаватели",
+            "AUDIENCES": "Аудитории",
+            "GROUPS": "Группы"
+        },
         "TITLE": "Мой.ЧНУ"
     },
     "TEACHER_FORM": {
