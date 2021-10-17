@@ -17,7 +17,7 @@ import {
     UserEditViewComponent,
     UserListViewComponent
 } from './components';
-import { Permission } from "app/api/models/Permission";
+import { Permission } from 'app/api/models/Permission';
 
 const routes: Routes = [
     {

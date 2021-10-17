@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {Class, ClassType, EducationFormat, WeekDay, WeekType} from 'app/api/models';
-import {EnumService} from 'app/api/services';
+import { Component, Input } from '@angular/core';
+import { Class, ClassType, EducationFormat, WeekDay, WeekType } from 'app/api/models';
+import { EnumService } from 'app/api/services';
 
 interface ScheduleItem {
     format: EducationFormat;

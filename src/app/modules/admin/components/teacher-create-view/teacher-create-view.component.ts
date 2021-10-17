@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CreateViewBase } from "app/modules/shared/models";
-import { Teacher } from "app/api/models";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Observable } from "rxjs";
-import { Router } from "@angular/router";
-import { TeacherService } from "app/api/services";
+import { CreateViewBase } from 'app/modules/shared/models';
+import { Teacher } from 'app/api/models';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { TeacherService } from 'app/api/services';
 
 @Component({
     selector: 'app-teacher-create-view',

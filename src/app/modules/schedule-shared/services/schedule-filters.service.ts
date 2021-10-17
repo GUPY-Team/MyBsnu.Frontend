@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ClassType, Group, EducationFormat, Teacher, ScheduleClasses } from 'app/api/models';
+import { ClassType, EducationFormat, Group, ScheduleClasses, Teacher } from 'app/api/models';
 
 export interface ScheduleFilter {
     group?: Group;

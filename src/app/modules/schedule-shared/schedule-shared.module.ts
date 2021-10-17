@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'app/modules/shared/shared.module';
-import {
-    ScheduleBodyComponent,
-    ScheduleCurrentDateComponent,
-    ScheduleFiltersComponent,
-    ScheduleItemComponent
-} from 'app/modules/schedule-shared/components';
+import { ScheduleBodyComponent, ScheduleCurrentDateComponent, ScheduleFiltersComponent, ScheduleItemComponent } from 'app/modules/schedule-shared/components';
 
 
 @NgModule({

@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {
-    ScheduleCreateViewComponent,
-    ScheduleEditViewComponent,
-    ScheduleListViewComponent
-} from 'app/modules/schedule-designer/components';
+import { ScheduleCreateViewComponent, ScheduleEditViewComponent, ScheduleListViewComponent } from 'app/modules/schedule-designer/components';
 
 const routes: Routes = [
     {

@@ -5,10 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import {
-    ClassDialogData,
-    ClassFormComponent
-} from 'app/modules/schedule-designer/components/class-form/class-form.component';
+import { ClassDialogData, ClassFormComponent } from 'app/modules/schedule-designer/components/class-form/class-form.component';
 
 enum ViewMode {
     Group,

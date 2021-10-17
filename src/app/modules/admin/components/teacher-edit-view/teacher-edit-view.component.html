@@ -2,8 +2,8 @@
     <h3 class="form-header">{{ 'TEACHER_FORM.EDIT_TITLE' | translate }}</h3>
 
     <form
-            class="form"
-            [formGroup]="form"
+        [formGroup]="form"
+        class="form"
     >
 
         <mat-form-field appearance="fill">
@@ -26,19 +26,19 @@
 
         <div class="form-group">
             <button
-                    mat-raised-button
-                    color="primary"
-                    [disabled]="saveDisabled$ | async"
-                    (click)="onUpdate()"
+                (click)="onUpdate()"
+                [disabled]="saveDisabled$ | async"
+                color="primary"
+                mat-raised-button
             >
                 {{ 'COMMON.SAVE' | translate }}
             </button>
 
             <button
-                    mat-raised-button
-                    color="warn"
-                    [disabled]="deleteDisabled$ | async"
-                    (click)="onDelete()"
+                (click)="onDelete()"
+                [disabled]="deleteDisabled$ | async"
+                color="warn"
+                mat-raised-button
             >
                 {{ 'COMMON.DELETE' | translate }}
             </button>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppUserService } from 'app/modules/auth/services';
-import { SidenavService, GlobalLoaderService } from 'app/core';
+import { GlobalLoaderService, SidenavService } from 'app/core';
 
 @Component({
     selector: 'app-navbar',

@@ -1,8 +1,5 @@
 import { Component, ElementRef, Input, Self, ViewChild } from '@angular/core';
-import {
-    FormControl,
-    NgControl,
-} from '@angular/forms';
+import { FormControl, NgControl, } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, shareReplay, startWith, switchMap } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';

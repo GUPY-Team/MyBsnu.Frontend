@@ -1,9 +1,9 @@
 <h3 class="form-header">{{ 'AUDIENCE_FORM.CREATE_TITLE' | translate }}</h3>
 
 <form
-        class="form"
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="form"
+    class="form"
 >
     <mat-form-field appearance="fill">
         <mat-label>{{ 'AUDIENCE_FORM.CORPS' | translate }}</mat-label>
@@ -24,9 +24,9 @@
     </mat-form-field>
 
     <button
-            mat-raised-button
-            color="primary"
-            [disabled]="submitDisabled$ | async"
+        [disabled]="submitDisabled$ | async"
+        color="primary"
+        mat-raised-button
     >
         {{ 'COMMON.CREATE' | translate }}
     </button>

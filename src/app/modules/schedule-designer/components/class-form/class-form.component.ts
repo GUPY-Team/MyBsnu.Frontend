@@ -1,17 +1,6 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {
-    Audience,
-    Class,
-    ClassType,
-    Course,
-    EducationFormat,
-    Group,
-    Teacher,
-    Time,
-    WeekDay,
-    WeekType
-} from 'app/api/models';
+import { Audience, Class, ClassType, Course, EducationFormat, Group, Teacher, Time, WeekDay, WeekType } from 'app/api/models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassService, CourseService, EnumService } from 'app/api/services';
 import { Observable, Subject } from 'rxjs';

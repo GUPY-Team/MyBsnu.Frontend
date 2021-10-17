@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { UpdateViewBase } from "app/modules/shared/models";
-import { Teacher } from "app/api/models";
-import { Observable } from "rxjs";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { TeacherService } from "app/api/services";
-import { ActivatedRoute, Router } from "@angular/router";
-import { MatDialog } from "@angular/material/dialog";
+import { UpdateViewBase } from 'app/modules/shared/models';
+import { Teacher } from 'app/api/models';
+import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TeacherService } from 'app/api/services';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-teacher-edit-view',

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CreateViewBase } from "app/modules/shared/models";
-import { Audience } from "app/api/models";
-import { Observable } from "rxjs";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { AudienceService } from "app/api/services";
+import { CreateViewBase } from 'app/modules/shared/models';
+import { Audience } from 'app/api/models';
+import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AudienceService } from 'app/api/services';
 
 @Component({
     selector: 'app-audience-create-view',

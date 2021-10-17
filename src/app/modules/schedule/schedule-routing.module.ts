@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {
-    GroupScheduleViewComponent,
-    TeacherScheduleViewComponent,
-} from './components';
+import { GroupScheduleViewComponent, TeacherScheduleViewComponent, } from './components';
 
 const routes: Routes = [
     {

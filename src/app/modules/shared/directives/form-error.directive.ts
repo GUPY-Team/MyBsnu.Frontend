@@ -1,10 +1,4 @@
-import {
-    AfterViewChecked,
-    Directive,
-    ElementRef,
-    Input,
-    OnInit
-} from '@angular/core';
+import { AfterViewChecked, Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroupDirective, ValidationErrors } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 

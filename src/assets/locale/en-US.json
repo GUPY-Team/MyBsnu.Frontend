@@ -1,9 +1,9 @@
 {
-	"ACCOUNT_MENU": {
-		"GREETING": "Hello",
-		"LOGOUT": "Sign out"
-	},
-	"APP": {
+    "ACCOUNT_MENU": {
+        "GREETING": "Hello",
+        "LOGOUT": "Sign out"
+    },
+    "APP": {
         "TITLE": "My.BSNU"
     },
     "AUDIENCE_FORM": {
@@ -28,76 +28,76 @@
         "PASS_CONFIRM_PLACEHOLDER": "Confirm your password",
         "PASS_PLACEHOLDER": "Your password",
         "SIGNIN": "Signin",
-		"SIGNIN_TITLE": "Login",
-		"SIGNUP": "Signup",
-		"SIGNUP_TITLE": "Register",
-		"SUCCESSFUL_SIGNUP": "You've been successfully registered!",
-		"USERNAME": "Username",
-		"USERNAME_PLACEHOLDER": "Your username"
-	},
-	"CLASS": {
-		"FORM": {
-			"AUDIENCE": "Audiences",
-			"CLASS_TYPE": "Class type",
-			"COURSE": "Course",
-			"CREATE": "Add class",
-			"CREATE_TITLE": "Create class",
-			"DELETE": "Delete class",
-			"EDIT_TITLE": "Edit class",
-			"EDUCATION_FORMAT": "Education format",
-			"END_TIME": "End time",
-			"GROUP": "Groups",
-			"SAVE": "Save",
-			"START_TIME": "Start time",
-			"TEACHER": "Teachers",
-			"WEEKDAY": "Weekday",
-			"WEEK_TYPE": "Week type"
-		}
-	},
-	"CLASS_TYPE": {
-		"LECTURE": "Lecture",
-		"PRACTICE": "Practice"
-	},
-	"COMMON": {
-		"ACTIVE": "Active",
-		"COPY": "Copy",
-		"CREATE": "Create",
-		"DELETE": "Delete",
-		"NONE": "None",
-		"PUBLISH": "Publish",
-		"SAVE": "Save",
-		"SEMESTER": "Semester",
-		"VERSION": "Version",
-		"YEAR": "Year"
-	},
-	"CONFIRM_DIALOG": {
-		"DEFAULT_CANCEL": "Cancel",
-		"DEFAULT_MESSAGE": "Are you sure you want to do this? This action may be irreversible",
-		"DEFAULT_OK": "Ok",
-		"DEFAULT_TITLE": "Confirm action"
-	},
-	"COURSE_FORM": {
-		"CREATE_TITLE": "Create course",
-		"EDIT_TITLE": "Edit course",
-		"NAME": "Name",
-		"SHORT_NAME": "Short name"
-	},
-	"COURSE_LIST": {
-		"ID": "Id",
-		"NAME": "Name",
-		"SHORT_NAME": "Short name",
-		"TITLE": "Course list"
-	},
-	"EDUCATION_FORMAT": {
-		"MIXED": "Mixed",
-		"OFFLINE": "Offline",
-		"ONLINE": "Online"
-	},
-	"ERRORS": {
-		"FORBIDDEN_ERROR": "Access denied. Not enough permissions.",
-		"UNEXPECTED_ERROR": "Unexpected error happened.\nNotify administrator or try again later.",
-		"VALIDATION_ERROR": "Validator error:"
-	},
+        "SIGNIN_TITLE": "Login",
+        "SIGNUP": "Signup",
+        "SIGNUP_TITLE": "Register",
+        "SUCCESSFUL_SIGNUP": "You've been successfully registered!",
+        "USERNAME": "Username",
+        "USERNAME_PLACEHOLDER": "Your username"
+    },
+    "CLASS": {
+        "FORM": {
+            "AUDIENCE": "Audiences",
+            "CLASS_TYPE": "Class type",
+            "COURSE": "Course",
+            "CREATE": "Add class",
+            "CREATE_TITLE": "Create class",
+            "DELETE": "Delete class",
+            "EDIT_TITLE": "Edit class",
+            "EDUCATION_FORMAT": "Education format",
+            "END_TIME": "End time",
+            "GROUP": "Groups",
+            "SAVE": "Save",
+            "START_TIME": "Start time",
+            "TEACHER": "Teachers",
+            "WEEKDAY": "Weekday",
+            "WEEK_TYPE": "Week type"
+        }
+    },
+    "CLASS_TYPE": {
+        "LECTURE": "Lecture",
+        "PRACTICE": "Practice"
+    },
+    "COMMON": {
+        "ACTIVE": "Active",
+        "COPY": "Copy",
+        "CREATE": "Create",
+        "DELETE": "Delete",
+        "NONE": "None",
+        "PUBLISH": "Publish",
+        "SAVE": "Save",
+        "SEMESTER": "Semester",
+        "VERSION": "Version",
+        "YEAR": "Year"
+    },
+    "CONFIRM_DIALOG": {
+        "DEFAULT_CANCEL": "Cancel",
+        "DEFAULT_MESSAGE": "Are you sure you want to do this? This action may be irreversible",
+        "DEFAULT_OK": "Ok",
+        "DEFAULT_TITLE": "Confirm action"
+    },
+    "COURSE_FORM": {
+        "CREATE_TITLE": "Create course",
+        "EDIT_TITLE": "Edit course",
+        "NAME": "Name",
+        "SHORT_NAME": "Short name"
+    },
+    "COURSE_LIST": {
+        "ID": "Id",
+        "NAME": "Name",
+        "SHORT_NAME": "Short name",
+        "TITLE": "Course list"
+    },
+    "EDUCATION_FORMAT": {
+        "MIXED": "Mixed",
+        "OFFLINE": "Offline",
+        "ONLINE": "Online"
+    },
+    "ERRORS": {
+        "FORBIDDEN_ERROR": "Access denied. Not enough permissions.",
+        "UNEXPECTED_ERROR": "Unexpected error happened.\nNotify administrator or try again later.",
+        "VALIDATION_ERROR": "Validator error:"
+    },
     "FILTERS": {
         "CLASS_FORMAT": "Class format",
         "CLASS_TYPE": "Class type",
@@ -148,32 +148,32 @@
         "CONFIRM_COPY": "Copy schedule?",
         "CONFIRM_COPY_MSG": "Are you sure you want to copy? This may take several minutes.",
         "CONFIRM_DELETE": "Delete schedule?",
-		"CONFIRM_DELETE_MSG": "Are you sure you want to delete schedule? This action can't be undone.",
-		"CONFIRM_PUBLISH": "Publish schedule?",
-		"CONFIRM_PUBLISH_MSG": "Are you sure you want to publish schedule? This will make this schedule active and it will be shown on the main page",
-		"CREATE_SCHEDULE": "Create new schedule",
-		"DELETE_DISABLED": "Can't delete an published schedule",
-		"PUBLISHED": "Schedule is already published",
-		"SAVE_DISABLED": "Nothing to save"
-	},
-	"SCHEDULE_LIST": {
-		"CREATE_SCHEDULE": "Create schedule",
-		"TITLE": "Schedule list"
-	},
-	"SCHEDULE_VIEW": {
-		"ADD_CLASS": "Add class",
-		"CHANGE_VIEW": "Change view",
-		"COPY_SUCCESS": "Schedule copied successfully"
-	},
-	"SEMESTER": {
-		"FIRST": "First",
-		"SECOND": "Second"
-	},
-	"SETTINGS_MENU": {
-		"LOCALE": "Language"
-	},
-	"SIDENAV": {
-		"LINKS": {
+        "CONFIRM_DELETE_MSG": "Are you sure you want to delete schedule? This action can't be undone.",
+        "CONFIRM_PUBLISH": "Publish schedule?",
+        "CONFIRM_PUBLISH_MSG": "Are you sure you want to publish schedule? This will make this schedule active and it will be shown on the main page",
+        "CREATE_SCHEDULE": "Create new schedule",
+        "DELETE_DISABLED": "Can't delete an published schedule",
+        "PUBLISHED": "Schedule is already published",
+        "SAVE_DISABLED": "Nothing to save"
+    },
+    "SCHEDULE_LIST": {
+        "CREATE_SCHEDULE": "Create schedule",
+        "TITLE": "Schedule list"
+    },
+    "SCHEDULE_VIEW": {
+        "ADD_CLASS": "Add class",
+        "CHANGE_VIEW": "Change view",
+        "COPY_SUCCESS": "Schedule copied successfully"
+    },
+    "SEMESTER": {
+        "FIRST": "First",
+        "SECOND": "Second"
+    },
+    "SETTINGS_MENU": {
+        "LOCALE": "Language"
+    },
+    "SIDENAV": {
+        "LINKS": {
             "ACCOUNT": "Account",
             "GROUP_SCHEDULE": "Group schedule",
             "SCHEDULE_DESIGNER": "Schedule designer",
@@ -209,26 +209,26 @@
         "EMAIL": "Email",
         "ID": "Id",
         "PASS": "Password",
-		"USERNAME": "Username"
-	},
-	"USER_LIST": {
-		"CREATE_USER": "Create user",
-		"EMAIL": "Email",
-		"ID": "Id",
-		"TITLE": "User list",
-		"USERNAME": "Username"
-	},
-	"WEEKDAY": {
-		"FRIDAY": "Friday",
-		"MONDAY": "Monday",
-		"SATURDAY": "Saturday",
-		"SUNDAY": "Sunday",
-		"THURSDAY": "Thursday",
-		"TUESDAY": "Tuesday",
-		"WEDNESDAY": "Wednesday"
-	},
-	"WEEK_TYPE": {
-		"EVEN": "Week B",
-		"ODD": "Week A"
-	}
+        "USERNAME": "Username"
+    },
+    "USER_LIST": {
+        "CREATE_USER": "Create user",
+        "EMAIL": "Email",
+        "ID": "Id",
+        "TITLE": "User list",
+        "USERNAME": "Username"
+    },
+    "WEEKDAY": {
+        "FRIDAY": "Friday",
+        "MONDAY": "Monday",
+        "SATURDAY": "Saturday",
+        "SUNDAY": "Sunday",
+        "THURSDAY": "Thursday",
+        "TUESDAY": "Tuesday",
+        "WEDNESDAY": "Wednesday"
+    },
+    "WEEK_TYPE": {
+        "EVEN": "Week B",
+        "ODD": "Week A"
+    }
 }

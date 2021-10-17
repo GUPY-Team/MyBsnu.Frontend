@@ -1,9 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
-import {
-    EnumService,
-} from 'app/api/services';
+import { EnumService, } from 'app/api/services';
 import { ClassType, EducationFormat, Group, Teacher } from 'app/api/models';
 import { ScheduleFilter, ScheduleFiltersService } from '../../services';
 import { takeUntil } from 'rxjs/operators';
