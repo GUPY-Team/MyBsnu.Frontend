@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { EnumService, } from 'app/api/services';
 import { ClassType, EducationFormat, Group, Teacher } from 'app/api/models';
-import { ScheduleFilter, ScheduleFiltersService } from '../../services';
+import { ScheduleFiltersService } from '../../services';
 import { takeUntil } from 'rxjs/operators';
 import { compareEntities } from 'app/core';
 
@@ -31,13 +31,6 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
     @Input()
     public educationFormats: EducationFormat[] = [];
 
-    @Input()
-    public set filter(filter: ScheduleFilter | null) {
-        if (filter) {
-            this.filtersForm.patchValue(filter);
-        }
-    }
-
     constructor(
         private enumService: EnumService,
         private filtersService: ScheduleFiltersService,
@@ -53,11 +46,13 @@ export class ScheduleFiltersComponent implements OnInit, OnDestroy {
             classFormat: [null]
         });
 
-        this.filtersForm.valueChanges
-            .pipe(
-                takeUntil(this.unsubscribe)
-            )
-            .subscribe(value => this.filtersService.setFilter(value));
+        this.filtersForm.valueChanges.pipe(
+            takeUntil(this.unsubscribe)
+        ).subscribe(value => this.filtersService.filter = value);
+
+        this.filtersService.filter$.pipe(
+            takeUntil(this.unsubscribe)
+        ).subscribe(value => this.filtersForm.patchValue(value, { emitEvent: false }));
     }
 
     public ngOnDestroy(): void {

@@ -14,16 +14,36 @@ export interface ScheduleFilter {
 })
 export class ScheduleFiltersService {
 
+    private readonly savedGroupFilterKey = 'GroupFilter';
+
     private _filter = new BehaviorSubject<ScheduleFilter>({});
 
     public readonly filter$: Observable<ScheduleFilter> = this._filter.asObservable();
 
-    public setFilter(filter: ScheduleFilter) {
+    public get filter(): ScheduleFilter {
+        return this._filter.value;
+    }
+
+    public set filter(filter: ScheduleFilter) {
         this._filter.next(filter);
     }
 
     public resetFilter() {
         this._filter.next({});
+    }
+
+    public saveGroupFilter(): void {
+        if (this.filter.group == null) {
+            return;
+        }
+
+        const groupFilter = JSON.stringify({ group: this.filter.group });
+        localStorage.setItem(this.savedGroupFilterKey, groupFilter);
+    }
+
+    public getSavedGroupFilter(): ScheduleFilter | null {
+        const filter = localStorage.getItem(this.savedGroupFilterKey);
+        return filter === null ? null : JSON.parse(filter);
     }
 
     public applyFilter(scheduleClasses: ScheduleClasses, filter: ScheduleFilter): ScheduleClasses {

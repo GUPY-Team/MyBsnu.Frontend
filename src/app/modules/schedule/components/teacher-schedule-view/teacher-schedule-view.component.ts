@@ -4,7 +4,7 @@ import { ClassType, EducationFormat, Group, ScheduleClasses, Teacher } from 'app
 import { EnumService, GroupService, ScheduleService, TeacherService } from 'app/api/services';
 import { distinctUntilChanged, filter, map, share, switchMap, tap } from 'rxjs/operators';
 import { distinctBy, PaginationConstants } from 'app/core';
-import { ScheduleFilter, ScheduleFiltersService } from 'app/modules/schedule-shared/services';
+import { ScheduleFiltersService } from 'app/modules/schedule-shared/services';
 
 @Component({
     selector: 'app-teacher-schedule-view',
@@ -18,8 +18,6 @@ export class TeacherScheduleViewComponent implements OnDestroy {
     public groups$: Observable<Group[]>;
     public classTypes: ClassType[];
     public formats: EducationFormat[];
-
-    public filter: ScheduleFilter | null = null;
 
     constructor(
         private filtersService: ScheduleFiltersService,
@@ -50,7 +48,7 @@ export class TeacherScheduleViewComponent implements OnDestroy {
         this.teachers$ = this.teacherService.getTeachers(1, PaginationConstants.defaultMaxPageSize)
             .pipe(
                 map(list => list.items),
-                tap(teachers => this.filter = { teacher: teachers[0] })
+                tap(teachers => this.initFilter(teachers))
             );
 
         this.classTypes = this.enumService.getClassTypes();
@@ -59,6 +57,11 @@ export class TeacherScheduleViewComponent implements OnDestroy {
 
     public ngOnDestroy(): void {
         this.filtersService.resetFilter();
+    }
+
+    private initFilter(teachers: Teacher[]): void {
+        const currentFilter = this.filtersService.filter;
+        this.filtersService.filter = { ...currentFilter, teacher: teachers[0] };
     }
 
     private static getGroups(classes: ScheduleClasses): Group[] {

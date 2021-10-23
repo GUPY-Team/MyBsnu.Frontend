@@ -5,9 +5,7 @@
     [teachers]="(teachers$ | async) || []"
     [classTypes]="classTypes"
     [educationFormats]="formats"
-    [filter]="filter"
->
-</app-schedule-filters>
+></app-schedule-filters>
 <app-schedule-current-date></app-schedule-current-date>
 <app-schedule-body [classes]="classes$"></app-schedule-body>
 
