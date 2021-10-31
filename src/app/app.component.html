@@ -1,15 +1,15 @@
-<mat-drawer-container>
+<mat-sidenav-container>
 
-    <mat-drawer
+    <mat-sidenav
         class="drawer"
         mode="over"
         (closed)="sidenavService.closeSidenav()"
         [opened]="sidenavService.sidenavState$ | async"
     >
         <app-sidenav></app-sidenav>
-    </mat-drawer>
+    </mat-sidenav>
 
-    <mat-drawer-content class="page-content">
+    <mat-sidenav-content class="page-content">
 
         <app-navbar></app-navbar>
 
@@ -18,5 +18,5 @@
         </div>
 
         <app-footer></app-footer>
-    </mat-drawer-content>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>
