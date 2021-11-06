@@ -1,1 +1,1 @@
-export * from './form-error.directive';
+export * from './control-error.directive';

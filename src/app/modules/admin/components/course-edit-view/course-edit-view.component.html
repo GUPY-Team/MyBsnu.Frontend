@@ -9,13 +9,13 @@
         <mat-form-field appearance="fill">
             <mat-label>{{ 'COURSE_FORM.NAME' | translate }}</mat-label>
             <input matInput formControlName="name">
-            <mat-error appFormError controlName="name"></mat-error>
+            <mat-error matErrorMessage></mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>{{ 'COURSE_FORM.SHORT_NAME' | translate }}</mat-label>
             <input matInput formControlName="shortName">
-            <mat-error appFormError controlName="shortName"></mat-error>
+            <mat-error matErrorMessage></mat-error>
         </mat-form-field>
 
         <div class="form-group">

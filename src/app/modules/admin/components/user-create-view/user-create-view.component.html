@@ -8,19 +8,19 @@
     <mat-form-field appearance="fill">
         <mat-label>{{ 'USER_FORM.EMAIL' | translate }}</mat-label>
         <input matInput formControlName="email">
-        <mat-error appFormError controlName="email"></mat-error>
+        <mat-error matErrorMessage></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>{{ 'USER_FORM.USERNAME' | translate }}</mat-label>
         <input matInput formControlName="username">
-        <mat-error appFormError controlName="username"></mat-error>
+        <mat-error matErrorMessage></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>{{ 'USER_FORM.PASS' | translate }}</mat-label>
         <input matInput formControlName="password" type="password">
-        <mat-error appFormError controlName="password"></mat-error>
+        <mat-error matErrorMessage></mat-error>
     </mat-form-field>
 
     <button

@@ -11,7 +11,7 @@
                formControlName="email"
                [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
         >
-        <mat-error appFormError controlName="email"></mat-error>
+        <mat-error matErrorMessage></mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -21,7 +21,7 @@
                type="password"
                [placeholder]="'AUTH.PASS_PLACEHOLDER' | translate"
         >
-        <mat-error appFormError controlName="password"></mat-error>
+        <mat-error matErrorMessage></mat-error>
     </mat-form-field>
 
     <button

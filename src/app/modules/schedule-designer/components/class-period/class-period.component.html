@@ -10,7 +10,7 @@
                     {{ 'WEEKDAY.' + weekDay | uppercase | translate }}
                 </mat-option>
             </mat-select>
-            <mat-error appFormError controlName="weekDay"></mat-error>
+            <mat-error matErrorMessage></mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -24,7 +24,7 @@
                     {{ 'WEEK_TYPE.' + weekType | uppercase | translate }}
                 </mat-option>
             </mat-select>
-            <mat-error appFormError controlName="weekType"></mat-error>
+            <mat-error matErrorMessage></mat-error>
         </mat-form-field>
     </div>
 
@@ -32,13 +32,13 @@
         <mat-form-field appearance="fill">
             <mat-label>{{ 'CLASS.FORM.START_TIME' | translate }}</mat-label>
             <input matInput formControlName="startTime" type="time">
-            <mat-error appFormError controlName="startTime"></mat-error>
+            <mat-error matErrorMessage></mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>{{ 'CLASS.FORM.END_TIME' | translate }}</mat-label>
             <input matInput formControlName="endTime" type="time">
-            <mat-error appFormError controlName="endTime"></mat-error>
+            <mat-error matErrorMessage></mat-error>
         </mat-form-field>
     </div>
 </ng-container>
